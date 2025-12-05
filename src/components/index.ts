@@ -1,0 +1,14 @@
+export { Hero } from "./Hero";
+export { Navbar } from "./Navbar";
+export { Portfolio } from "./Portfolio";
+export { ProjectCard } from "./ProjectCard";
+export { Focus } from "./Focus";
+export { Featured } from "./Featured";
+export { FeaturedCard } from "./FeaturedCard";
+export { Facts } from "./Facts";
+export { Footer } from "./Footer";
+export { LiveClock } from "./LiveClock";
+export { SmoothScroll } from "./SmoothScroll";
+export { EyesCursor } from "./EyesCursor";
+export { AudioEmoji } from "./AudioEmoji";
+export { FluidCursor } from "./FluidCursor";

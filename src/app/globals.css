@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark theme - matching jonhowell.com */
+  --background: #000000;
+  --foreground: #ffffff; /* Primary text - white */
+  --foreground-secondary: #b3b3b3; /* Gray text */
+  --foreground-muted: #707070; /* Muted gray */
+  --border-color: rgba(79, 79, 79, 0.25);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border-color);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains);
+}
+
+/* Prevent horizontal scroll */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent content from causing horizontal scroll */
+main, section, article, div {
+  max-width: 100vw;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--foreground-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-secondary);
+}
+
+/* Selection */
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* Typography - matching KH Teka style */
+.text-display {
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.text-heading {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.text-body {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+}
+
+/* Section borders */
+.section-border {
+  border-top: 0.5px solid var(--border-color);
+}
+
+/* Link hover effect */
+.link-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* Project card styles */
+.project-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card .project-image {
+  filter: grayscale(0);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-image {
+  filter: grayscale(0);
+  transform: scale(1.02);
+}
+
+.project-card:hover .project-arrow {
+  transform: translateX(4px) translateY(-4px);
+}
+
+.project-arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Category text - 44% opacity */
+.category-text {
+  opacity: 0.44;
+}
+
+/* Navbar styles */
+.navbar {
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid var(--border-color);
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Responsive text utilities using clamp */
+.text-responsive-sm {
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+.text-responsive-base {
+  font-size: clamp(14px, 2.5vw, 20px);
+}
+
+.text-responsive-lg {
+  font-size: clamp(20px, 4vw, 48px);
+}
+
+.text-responsive-xl {
+  font-size: clamp(32px, 8vw, 80px);
+}
+
+.text-responsive-2xl {
+  font-size: clamp(40px, 10vw, 120px);
+}
+
+.text-responsive-3xl {
+  font-size: clamp(48px, 12vw, 180px);
+}
+
+/* Mobile-first media query helpers */
+@media (max-width: 640px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-on-tablet {
+    display: none !important;
+  }
+}
+
+/* Ensure images don't overflow */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for iOS Safari viewport issues */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
