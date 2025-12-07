@@ -46,7 +46,7 @@ export const Hero = () => {
       </div>
 
       {/* Bottom Content - Responsive flex row */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 px-4 sm:px-6 md:px-12 lg:px-20 pb-4 sm:pb-6 md:pb-8">
+      <div className="absolute bottom-0 left-0 right-0 z-10 pb-4 sm:pb-6 md:pb-8" style={{ paddingLeft: '80px', paddingRight: '80px' }}>
         <div className="w-full flex items-end justify-between gap-4">
           {/* Feed - Left */}
           <motion.button
@@ -65,40 +65,6 @@ export const Hero = () => {
             <span>Feed</span>
             <ArrowDown style={{ width: "clamp(14px, 2vw, 20px)", height: "clamp(14px, 2vw, 20px)" }} />
           </motion.button>
-
-          {/* 2025 - Center (hidden on very small screens) */}
-          <motion.div
-            className="text-display pointer-events-none select-none hidden sm:block flex-shrink"
-            style={{ 
-              color: "rgba(112, 112, 112, 0.5)",
-              fontSize: "clamp(40px, 8vw, 100px)",
-              fontWeight: 500,
-              letterSpacing: "-0.04em",
-              lineHeight: "0.95",
-            }}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-          >
-            2025
-          </motion.div>
-
-          {/* Portfolio - Right */}
-          <motion.h1
-            className="text-display text-right flex-shrink-0"
-            style={{ 
-              color: "#ffffff",
-              fontSize: "clamp(24px, 5vw, 60px)",
-              fontWeight: 500,
-              letterSpacing: "-0.04em",
-              lineHeight: "0.95",
-            }}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            Portfolio
-          </motion.h1>
         </div>
       </div>
     </section>

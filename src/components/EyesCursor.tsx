@@ -85,8 +85,8 @@ export const EyesCursor = () => {
       {/* Left Eye */}
       <div 
         style={{
-          width: "16px",
-          height: isBlinking ? "2px" : "16px",
+          width: "12px",
+          height: isBlinking ? "2px" : "20px",
           backgroundColor: "rgb(255, 255, 255)",
           borderRadius: "50%",
           position: "relative",
@@ -115,8 +115,8 @@ export const EyesCursor = () => {
       {/* Right Eye */}
       <div 
         style={{
-          width: "16px",
-          height: isBlinking ? "2px" : "16px",
+          width: "12px",
+          height: isBlinking ? "2px" : "20px",
           backgroundColor: "rgb(255, 255, 255)",
           borderRadius: "50%",
           position: "relative",

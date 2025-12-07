@@ -3,7 +3,7 @@ import { Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
-import { FluidCursor } from "@/components/FluidCursor";
+import ClickSpark from "@/components/ClickSpark";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -41,13 +41,16 @@ export default function RootLayout({
     <html lang="en" className="lenis">
       <body
         className={`${manrope.variable} ${jetbrainsMono.variable} antialiased`}
-        style={{ fontFamily: "var(--font-manrope), sans-serif" }}
+        style={{ fontFamily: "var(--font-manrope), sans-serif", margin: 0, padding: 0, width: '100%', minHeight: '100vh' }}
       >
-        <FluidCursor />
-        <SmoothScroll>
-          <Navbar />
-          {children}
-        </SmoothScroll>
+        <ClickSpark>
+          <div style={{ width: '100%', minHeight: '100vh' }}>
+            <SmoothScroll>
+              <Navbar />
+              {children}
+            </SmoothScroll>
+          </div>
+        </ClickSpark>
       </body>
     </html>
   );
