@@ -1,140 +1,196 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { EyesCursor } from "./EyesCursor";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Menu, Sparkles } from "lucide-react";
+import { AboutModal } from "./AboutModal";
 
-const navLinks = [
-  { name: "Work", href: "#portfolio" },
-  { name: "Profile", href: "#facts" },
-  { name: "News", href: "#featured" },
-  { name: "Contact", href: "#footer" },
+const leftPills = [
+  { name: "Senior UI/UX & AI Designer", href: "", modal: false, action: null },
+  { name: "About Me",                     href: "", modal: true,  action: null },
+  { name: "Fun Stuff",                   href: "#featured", modal: false, action: null },
+  { name: "Resume",                      href: "", modal: false, action: "resume" },
 ];
 
 export const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled]     = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [aboutOpen, setAboutOpen]   = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handlePill = (pill: typeof leftPills[0]) => {
+    if (pill.modal) {
+      setAboutOpen(true);
+      setMobileOpen(false);
+    } else if (pill.href) {
+      document.querySelector(pill.href)?.scrollIntoView({ behavior: "smooth" });
+      setMobileOpen(false);
     }
-    setMobileMenuOpen(false);
   };
 
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 navbar ${scrolled ? "scrolled" : ""}`}
-        initial={{ y: -100, opacity: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 bg-white${scrolled ? " navbar scrolled" : ""}`}
+        initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.55, delay: 0.05 }}
       >
-        <nav className="flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-20 py-4 md:py-5">
-          {/* Left: RG Logo Box */}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="flex items-center justify-center w-7 h-7 border border-white/80 hover:border-white transition-colors flex-shrink-0"
-            aria-label="Riya Ghosh Home"
-          >
-            <span 
-              className="font-medium tracking-tight"
-              style={{ color: "#ffffff", fontSize: "10px" }}
-            >
-              RG
-            </span>
-          </a>
-
-          {/* Center: Name - Hidden on mobile, visible on md+ */}
-          <div 
-            className="hidden md:block absolute left-1/2 -translate-x-1/2 font-normal whitespace-nowrap"
-            style={{ 
-              color: "rgb(179, 179, 179)",
-              fontSize: "clamp(14px, 2vw, 20px)",
-            }}
-          >
-            Riya Ghosh
+        <nav
+          className="flex items-center justify-between"
+          style={{ padding: "12px 24px", borderBottom: "1px solid rgba(0,0,0,0.08)" }}
+        >
+          {/* ── LEFT: pill nav ── */}
+          <div className="hidden md:flex items-center gap-2 flex-shrink-0">
+            {leftPills.map((pill) => (
+              <button
+                key={pill.name}
+                onClick={() => handlePill(pill)}
+                style={{
+                  fontFamily: "var(--font-inter), sans-serif",
+                  fontWeight: 400,
+                  fontSize: "14px",
+                  color: "#000000",
+                  letterSpacing: "-0.14px",
+                  background: "white",
+                  border: "1px solid rgba(0,0,0,0.12)",
+                  borderRadius: "60px",
+                  padding: "7px 14px",
+                  cursor: pill.href || pill.modal ? "pointer" : "default",
+                  transition: "background 0.15s",
+                  lineHeight: 1,
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={(e) => {
+                  if (pill.href || pill.modal)
+                    e.currentTarget.style.background = "rgba(0,0,0,0.04)";
+                }}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "white")}
+              >
+                {pill.name}
+              </button>
+            ))}
           </div>
 
-          {/* Right: Navigation Links + Eyes */}
-          <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
-            {/* Nav Links - Hidden on mobile, visible on lg+ */}
-            <div className="hidden lg:flex items-center gap-4 xl:gap-6">
-              {navLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => handleNavClick(link.href)}
-                  className="font-normal transition-colors hover:opacity-70 whitespace-nowrap"
-                  style={{ 
-                    color: "#ffffff",
-                    fontSize: "clamp(14px, 1.5vw, 20px)",
-                  }}
-                >
-                  {link.name}
-                </button>
-              ))}
-            </div>
-            
-            {/* Eyes - Hidden on very small screens */}
-            <div className="hidden sm:block">
-              <EyesCursor />
-            </div>
-
-            {/* Mobile Menu Button - visible on smaller than lg */}
-            <button
-              className="lg:hidden p-2 text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle mobile menu"
+          {/* ── CENTER: name ── */}
+          <div className="absolute left-1/2 -translate-x-1/2 text-center select-none">
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              style={{
+                fontFamily: "var(--font-frank-ruhl), Georgia, serif",
+                fontWeight: 500,
+                fontSize: "20px",
+                color: "#000000",
+                letterSpacing: "-0.2px",
+                textDecoration: "none",
+                pointerEvents: "auto",
+              }}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              Riya Ghosh
+            </a>
+          </div>
+
+          {/* ── RIGHT: Rii LLM CTA ── */}
+          <div className="flex items-center gap-2">
+            <button
+              className="hidden sm:flex items-center gap-2"
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontWeight: 500,
+                fontSize: "14px",
+                color: "#ffffff",
+                letterSpacing: "-0.14px",
+                background: "#000000",
+                border: "none",
+                borderRadius: "60px",
+                padding: "9px 18px",
+                cursor: "pointer",
+                transition: "opacity 0.15s",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            >
+              <Sparkles size={15} strokeWidth={1.8} />
+              Rii LLM
+            </button>
+
+            <button
+              className="md:hidden p-1"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </nav>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
-      <motion.div
-        className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md lg:hidden flex flex-col items-center justify-center"
-        initial={{ opacity: 0, pointerEvents: "none" }}
-        animate={{ 
-          opacity: mobileMenuOpen ? 1 : 0, 
-          pointerEvents: mobileMenuOpen ? "auto" : "none" 
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        <nav className="flex flex-col items-center gap-8">
-          {navLinks.map((link, index) => (
-            <motion.button
-              key={link.name}
-              onClick={() => handleNavClick(link.href)}
-              className="text-3xl font-medium text-white hover:opacity-70 transition-opacity"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ 
-                opacity: mobileMenuOpen ? 1 : 0, 
-                y: mobileMenuOpen ? 0 : 20 
-              }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-            >
-              {link.name}
-            </motion.button>
-          ))}
-        </nav>
-      </motion.div>
+      {/* Mobile overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <nav className="flex flex-col items-center gap-7">
+              {leftPills.map((pill, i) => (
+                <motion.button
+                  key={pill.name}
+                  onClick={() => handlePill(pill)}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: i * 0.06 }}
+                  style={{
+                    fontFamily: "var(--font-frank-ruhl), Georgia, serif",
+                    fontWeight: 300,
+                    fontSize: "clamp(28px, 7vw, 48px)",
+                    color: "#000000",
+                    letterSpacing: "-0.03em",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  {pill.name}
+                </motion.button>
+              ))}
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.25 }}
+                className="flex items-center gap-2"
+                style={{
+                  fontFamily: "var(--font-inter), sans-serif",
+                  fontWeight: 500,
+                  fontSize: "14px",
+                  color: "#fff",
+                  background: "#000",
+                  border: "none",
+                  borderRadius: "60px",
+                  padding: "10px 20px",
+                  cursor: "pointer",
+                  marginTop: "8px",
+                }}
+              >
+                <Sparkles size={15} strokeWidth={1.8} />
+                Rii LLM
+              </motion.button>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
     </>
   );
 };

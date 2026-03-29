@@ -1,34 +1,53 @@
 import type { Metadata } from "next";
-import { Manrope, JetBrains_Mono } from "next/font/google";
+import { Manrope, Cormorant_Garamond, Frank_Ruhl_Libre, Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
 import ClickSpark from "@/components/ClickSpark";
+import { CursorPill } from "@/components/CursorPill";
 
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+// Closest Google Font match to "Rhymes Text Light"
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-rhymes",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+// Exact font used in Figma for the About modal heading
+const frankRuhlLibre = Frank_Ruhl_Libre({
+  variable: "--font-frank-ruhl",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
   title: "Riya Ghosh → UI/UX Design Portfolio",
-  description: "Riya Ghosh is a UI/UX Designer with 3 years of experience crafting digital experiences at Google and YouTube.",
+  description:
+    "A multidisciplinary Designer with 4+ years of experience translating business goals into user-centric products.",
   openGraph: {
     title: "Riya Ghosh → UI/UX Design Portfolio",
-    description: "Riya Ghosh is a UI/UX Designer with 3 years of experience crafting digital experiences at Google and YouTube.",
+    description:
+      "A multidisciplinary Designer with 4+ years of experience translating business goals into user-centric products.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Riya Ghosh → UI/UX Design Portfolio",
-    description: "Riya Ghosh is a UI/UX Designer with 3 years of experience crafting digital experiences at Google and YouTube.",
+    description:
+      "A multidisciplinary Designer with 4+ years of experience translating business goals into user-centric products.",
   },
 };
 
@@ -40,11 +59,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="lenis">
       <body
-        className={`${manrope.variable} ${jetbrainsMono.variable} antialiased`}
-        style={{ fontFamily: "var(--font-manrope), sans-serif", margin: 0, padding: 0, width: '100%', minHeight: '100vh' }}
+        className={`${manrope.variable} ${cormorantGaramond.variable} ${frankRuhlLibre.variable} ${inter.variable} antialiased`}
+        style={{
+          fontFamily: "var(--font-manrope), sans-serif",
+          margin: 0,
+          padding: 0,
+          width: "100%",
+          minHeight: "100vh",
+          background: "#ffffff",
+          color: "#000000",
+        }}
       >
-        <ClickSpark>
-          <div style={{ width: '100%', minHeight: '100vh' }}>
+        <CursorPill />
+        <ClickSpark sparkColor="#000000">
+          <div style={{ width: "100%", minHeight: "100vh" }}>
             <SmoothScroll>
               <Navbar />
               {children}

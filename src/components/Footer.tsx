@@ -2,145 +2,129 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { LiveClock } from "./LiveClock";
 import { AudioEmoji } from "./AudioEmoji";
 
 const socialLinks = [
-  { name: "Instagram", href: "https://instagram.com/riyaghosh" },
+  { name: "Email", href: "mailto:hello@riyaghosh.com" },
   { name: "LinkedIn", href: "https://linkedin.com/in/riyaghosh" },
   { name: "Twitter", href: "https://twitter.com/riyaghosh" },
-  { name: "TikTok", href: "https://tiktok.com/@riyaghosh" },
-  { name: "VSCO", href: "https://vsco.co/riyaghosh" },
+  { name: "Instagram", href: "https://instagram.com/riyaghosh" },
 ];
 
 export const Footer = () => {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <footer
       ref={ref}
       id="footer"
-      className="section-border py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-20 bg-black overflow-hidden"
+      className="section-border bg-white overflow-hidden"
+      style={{
+        paddingTop: "80px",
+        paddingBottom: "60px",
+        paddingLeft: "clamp(20px, 5vw, 80px)",
+        paddingRight: "clamp(20px, 5vw, 80px)",
+      }}
     >
-      <div className="max-w-[1800px] mx-auto">
-        {/* Row 1: Contact & Social Links */}
-        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-20 mb-8 md:mb-12">
-          {/* Left: Email & Location */}
+      <div className="max-w-[1760px] mx-auto flex flex-col gap-12">
+        {/* Main row: domain + social links */}
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
+          {/* Left: domain + location */}
           <motion.div
-            className="flex-1 min-w-0"
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-1"
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
           >
-            <a
-              href="mailto:hello@riyaghosh.com"
-              className="text-heading link-hover inline-block mb-3 md:mb-4 break-all sm:break-normal"
-              style={{ 
-                color: "#ffffff",
-                fontSize: "clamp(20px, 4vw, 48px)",
+            <span
+              style={{
+                fontFamily: "var(--font-manrope), sans-serif",
+                fontWeight: 600,
+                fontSize: "clamp(32px, 5vw, 64px)",
+                color: "#000000",
+                letterSpacing: "-0.04em",
+                lineHeight: 1.05,
               }}
             >
-              hello@riyaghosh.com
-            </a>
-            <p 
-              className="text-heading"
-              style={{ 
-                color: "#707070",
-                fontSize: "clamp(20px, 4vw, 48px)",
+              riyaghosh.com
+            </span>
+            <span
+              style={{
+                fontFamily: "var(--font-rhymes), Georgia, serif",
+                fontWeight: 400,
+                fontSize: "clamp(20px, 3vw, 52px)",
+                color: "#32404f",
+                letterSpacing: "-0.02em",
+                lineHeight: 1.1,
               }}
             >
-              Permanently located in
-            </p>
-            <p 
-              className="text-heading"
-              style={{ 
-                color: "#707070",
-                fontSize: "clamp(20px, 4vw, 48px)",
-              }}
-            >
-              Mumbai, India
-            </p>
+              located in Mumbai, India
+            </span>
           </motion.div>
 
-          {/* Right: Social Links */}
+          {/* Right: social links */}
           <motion.div
-            className="flex flex-col items-start lg:items-end gap-1 md:gap-2"
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            className="flex flex-col items-start lg:items-end gap-1"
+            initial={{ opacity: 0, x: 20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
           >
             {socialLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                target="_blank"
+                target={link.href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noopener noreferrer"
-                className="text-heading link-hover"
-                style={{ 
-                  color: "#ffffff",
-                  fontSize: "clamp(20px, 4vw, 48px)",
+                className="link-hover"
+                style={{
+                  fontFamily: "var(--font-manrope), sans-serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(20px, 3vw, 52px)",
+                  color: "#32404f",
+                  letterSpacing: "-0.03em",
+                  lineHeight: 1.25,
+                  textDecoration: "none",
                 }}
-                aria-label={link.name}
-                tabIndex={0}
               >
                 {link.name}
               </a>
             ))}
-            {/* Interactive emoji with sound */}
-            <div className="mt-2">
-              <AudioEmoji emoji="🍹" />
-            </div>
           </motion.div>
         </div>
 
         {/* Divider */}
         <motion.div
-          className="mb-6 md:mb-8"
-          style={{ 
-            height: "0.5px", 
-            backgroundColor: "rgba(79, 79, 79, 0.25)",
-            transformOrigin: "left"
+          style={{
+            height: "0.5px",
+            backgroundColor: "rgba(2, 2, 2, 0.1)",
+            transformOrigin: "left",
           }}
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{ duration: 1, delay: 0.2 }}
         />
 
-        {/* Row 2: Handle & Clock */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 md:gap-8">
-          {/* Large Handle */}
-          <motion.div
-            className="w-full lg:w-auto overflow-hidden"
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+        {/* Bottom: copyright + emoji */}
+        <motion.div
+          className="flex items-center justify-between"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <span
+            style={{
+              fontFamily: "var(--font-manrope), sans-serif",
+              fontWeight: 400,
+              fontSize: "13px",
+              color: "#757575",
+              letterSpacing: "0",
+            }}
           >
-            <span 
-              className="text-display block leading-none"
-              style={{ 
-                color: "#ffffff",
-                fontSize: "clamp(32px, 10vw, 180px)",
-              }}
-            >
-              @riyaghosh
-            </span>
-          </motion.div>
-
-          {/* Right: Clock & Info */}
-          <motion.div
-            className="flex flex-col items-start lg:items-end gap-3 md:gap-4 flex-shrink-0"
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            {/* Clock Section */}
-            <div className="flex flex-wrap items-center gap-2 md:gap-3 text-white">
-              <span className="text-xs font-medium uppercase tracking-wider whitespace-nowrap">🕔 It&apos;s Five O&apos;Clock Somewhere →</span>
-              <LiveClock />
-            </div>
-          </motion.div>
-        </div>
+            © 2026 Riya Ghosh. All rights reserved.
+          </span>
+          <AudioEmoji emoji="🍹" />
+        </motion.div>
       </div>
     </footer>
   );
