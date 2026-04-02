@@ -6,7 +6,7 @@ import { AudioEmoji } from "./AudioEmoji";
 
 const socialLinks = [
   { name: "Email", href: "mailto:hello@riyaghosh.com" },
-  { name: "LinkedIn", href: "https://linkedin.com/in/riyaghosh" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/riyaghosh14/" },
   { name: "Twitter", href: "https://twitter.com/riyaghosh" },
   { name: "Instagram", href: "https://instagram.com/riyaghosh" },
 ];

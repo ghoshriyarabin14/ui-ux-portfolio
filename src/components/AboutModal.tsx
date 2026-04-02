@@ -18,7 +18,7 @@ const imgEllipse7  = "https://www.figma.com/api/mcp/asset/bb6e842e-9c5b-48ac-abb
 const socialLinks = [
   { label: "X",         href: "https://twitter.com/riyaghosh" },
   { label: "Instagram", href: "https://instagram.com/riyaghosh" },
-  { label: "Linkedin",  href: "https://linkedin.com/in/riyaghosh" },
+  { label: "Linkedin",  href: "https://www.linkedin.com/in/riyaghosh14/" },
   { label: "Dribbble",  href: "https://dribbble.com/riyaghosh" },
 ];
 
@@ -97,7 +97,7 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                     letterSpacing: "-0.14px",
                   }}
                 >
-                  About
+                  About Me
                 </span>
 
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -224,7 +224,6 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                     style={{
                       flex: "0 0 312px",
                       alignSelf: "stretch",
-                      borderRadius: "12px",
                       overflow: "hidden",
                       position: "relative",
                       minHeight: "320px",
@@ -287,19 +286,19 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                   {/* Photo grid: 2 rows × 3 */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <div style={{ display: "flex", gap: "8px" }}>
-                      <div style={{ flex: "1 0 0", aspectRatio: "208/210", overflow: "hidden", borderRadius: "6px", position: "relative" }}>
+                      <div style={{ flex: "1 0 0", aspectRatio: "208/210", overflow: "hidden", position: "relative" }}>
                         <img src={imgFrame35} alt="" style={{ position: "absolute", width: "111.66%", height: "196.62%", left: "-5.81%", top: "-42.9%", maxWidth: "none", pointerEvents: "none" }} />
                       </div>
-                      <div style={{ flex: "1 0 0", aspectRatio: "1/1", overflow: "hidden", borderRadius: "6px", position: "relative" }}>
+                      <div style={{ flex: "1 0 0", aspectRatio: "1/1", overflow: "hidden", position: "relative" }}>
                         <img src={imgFrame32} alt="" style={{ position: "absolute", width: "133.33%", height: "100%", left: "-33.12%", top: "0.15%", maxWidth: "none", pointerEvents: "none" }} />
                       </div>
-                      <div style={{ flex: "1 0 0", aspectRatio: "1/1", overflow: "hidden", borderRadius: "6px", position: "relative" }}>
+                      <div style={{ flex: "1 0 0", aspectRatio: "1/1", overflow: "hidden", position: "relative" }}>
                         <img src={imgFrame36} alt="" style={{ position: "absolute", width: "100.11%", height: "177.97%", left: "0", top: "-0.04%", maxWidth: "none", pointerEvents: "none" }} />
                       </div>
                     </div>
                     <div style={{ display: "flex", gap: "8px" }}>
                       {[imgFrame33, imgFrame34, imgFrame37].map((src, i) => (
-                        <div key={i} style={{ flex: "1 0 0", aspectRatio: "1/1", overflow: "hidden", borderRadius: "6px", position: "relative" }}>
+                        <div key={i} style={{ flex: "1 0 0", aspectRatio: "1/1", overflow: "hidden", position: "relative" }}>
                           <img src={src} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", maxWidth: "none", pointerEvents: "none" }} />
                         </div>
                       ))}

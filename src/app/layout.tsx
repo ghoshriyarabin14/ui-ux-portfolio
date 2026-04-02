@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Cormorant_Garamond, Frank_Ruhl_Libre, Inter } from "next/font/google";
+import { Manrope, Cormorant_Garamond, Frank_Ruhl_Libre, Inter, Crimson_Pro } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
@@ -24,6 +24,12 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+const crimsonPro = Crimson_Pro({
+  variable: "--font-crimson",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 // Exact font used in Figma for the About modal heading
@@ -59,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="lenis">
       <body
-        className={`${manrope.variable} ${cormorantGaramond.variable} ${frankRuhlLibre.variable} ${inter.variable} antialiased`}
+        className={`${manrope.variable} ${cormorantGaramond.variable} ${frankRuhlLibre.variable} ${inter.variable} ${crimsonPro.variable} antialiased`}
         style={{
           fontFamily: "var(--font-manrope), sans-serif",
           margin: 0,
