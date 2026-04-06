@@ -172,8 +172,12 @@ export const Portfolio = () => (
         {/* ── Card 3 header · OTT Sports Cards · Youtube TV ── */}
         <CardHeader label="LIVE" title="OTT Sports Cards · Youtube TV" category="Design System" />
 
-        {/* Image block · bg-[#c9caff] · h-967px */}
-        <div data-cursor-label="VIEW CASE STUDY" style={{ background: "#c9caff", height: "967px", flexShrink: 0, width: "100%", cursor: "none" }} />
+        {/* Image block · bg-[#c9caff] · h-967px — links to microsite */}
+        <a
+          href="/work/ott-sports-cards"
+          data-cursor-label="VIEW CASE STUDY"
+          style={{ background: "#c9caff", height: "967px", flexShrink: 0, width: "100%", cursor: "none", display: "block", textDecoration: "none" }}
+        />
 
         {/* ── Card 4 · Tetris Console · h-785px ── */}
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
