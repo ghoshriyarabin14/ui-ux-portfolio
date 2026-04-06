@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import CaseStudies from "@/components/ui/case-studies";
 
 // ── Figma assets ──────────────────────────────────────────────────────────────
 const imgIcon    = "https://www.figma.com/api/mcp/asset/31b18d0e-1bfc-44db-b408-70936590c9f5";
@@ -706,14 +707,8 @@ export default function OTTSportsCards() {
             <section
               ref={(el) => { sectionRefs.current["outcome"] = el; }}
               id="outcome"
-              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
             >
-              <SectionLabel>The Outcome</SectionLabel>
-              <SectionHeading>500+ components. A live landing page. One source of truth</SectionHeading>
-              <p style={{ ...T.body, margin: 0 }}>
-                That was the bar we set: a library designers could pick up without asking questions, and an engineering handoff that didn't require a translator. If someone had to chase me to understand a component, the system wasn't finished.
-              </p>
-              <div style={{ background: "#000", height: "320px", width: "100%", borderRadius: "4px" }} />
+              <CaseStudies />
             </section>
 
           </div>
