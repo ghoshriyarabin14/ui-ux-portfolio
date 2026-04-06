@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Cormorant_Garamond, Frank_Ruhl_Libre, Inter, Crimson_Pro } from "next/font/google";
+import { Manrope, Cormorant_Garamond, Frank_Ruhl_Libre, Inter, Crimson_Pro, JetBrains_Mono, Lora } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
@@ -24,6 +24,18 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 const crimsonPro = Crimson_Pro({
@@ -65,7 +77,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="lenis">
       <body
-        className={`${manrope.variable} ${cormorantGaramond.variable} ${frankRuhlLibre.variable} ${inter.variable} ${crimsonPro.variable} antialiased`}
+        className={`${manrope.variable} ${cormorantGaramond.variable} ${frankRuhlLibre.variable} ${inter.variable} ${crimsonPro.variable} ${jetbrainsMono.variable} ${lora.variable} antialiased`}
         style={{
           fontFamily: "var(--font-manrope), sans-serif",
           margin: 0,
