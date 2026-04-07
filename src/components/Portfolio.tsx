@@ -184,7 +184,7 @@ export const Portfolio = () => (
           <CardHeader label="Case Study" title="Tetris Console" category="Product Design" />
 
           {/* Image block · flex-1 · exact image offsets from Figma */}
-          <div data-cursor-label="VIEW CASE STUDY" style={{ flex: "1 0 0", position: "relative", minHeight: 0, overflow: "hidden", cursor: "none" }}>
+          <a href="/work/tetris-console" data-cursor-label="VIEW CASE STUDY" style={{ flex: "1 0 0", position: "relative", minHeight: 0, overflow: "hidden", cursor: "none", display: "block", textDecoration: "none" }}>
             <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
               <img
                 src={imgFrame28}
@@ -199,7 +199,7 @@ export const Portfolio = () => (
                 }}
               />
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
