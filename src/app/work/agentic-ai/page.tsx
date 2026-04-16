@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 
-// ── Assets (Figma MCP, node 336:6660, file 8LUMIoWCoDPZZf6pXrGe5F) ────────────
-const imgHeroBg      = "https://www.figma.com/api/mcp/asset/98f3e1b4-3091-410e-b9d3-db00bcf91e06";
-const imgHeroUI      = "https://www.figma.com/api/mcp/asset/fcb68676-4771-4e9c-b5f9-f5c03d9cf570";
+// ── Assets (Figma MCP, node 356:50948, file 8LUMIoWCoDPZZf6pXrGe5F) ────────────
+const imgHero        = "https://www.figma.com/api/mcp/asset/a9081cce-1c31-4e89-af28-49b530e2ffa1";
+const imgArrowBack   = "https://www.figma.com/api/mcp/asset/77c6f957-135f-41fc-bc88-4e88855cd529";
 const imgAIScreens   = "https://www.figma.com/api/mcp/asset/b501c1b5-5bf9-4ede-b44e-36c9b23d744c";
 const imgRapidProto  = "https://www.figma.com/api/mcp/asset/846082c4-6f81-4ce9-a6ad-98713626c574";
 const imgSolution    = "https://www.figma.com/api/mcp/asset/5346e27d-c864-41cd-80b1-0e50870c6d85";
@@ -215,13 +215,40 @@ export default function AgenticAiPage() {
   return (
     <div style={{ background: BG, minHeight: "100vh", color: TEXT_WHITE, paddingTop: "83px" }}>
 
-      {/* ── Header row (336:6678) ── */}
+      {/* ── Back button (356:50949) ── */}
+      <div
+        style={{
+          padding: "56px 24px 0",
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          justifyContent: "flex-end",
+        }}
+      >
+        <img src={imgArrowBack} alt="" style={{ width: "16px", height: "16px", display: "block", flexShrink: 0 }} />
+        <Link
+          href="/"
+          style={{
+            ...interBase,
+            fontWeight: 400,
+            fontSize: "14px",
+            color: "#c8c8c8",
+            textDecoration: "none",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Go Back
+        </Link>
+      </div>
+
+      {/* ── Header row (356:51442) ── */}
       <div
         style={{
           padding: "10px 24px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          whiteSpace: "nowrap",
         }}
       >
         <span style={{ ...interBase, fontWeight: 400, fontSize: "24px", color: TEXT_WHITE }}>
@@ -235,24 +262,18 @@ export default function AgenticAiPage() {
         </p>
       </div>
 
-      {/* ── Hero ── */}
-      <div
-        style={{
-          width: "100%",
-          height: "438px",
-          overflow: "hidden",
-          borderRadius: "4px",
-          flexShrink: 0,
-        }}
-      >
-        <img
-          src="/iris-banner.png"
-          alt="IRIS Visual Design"
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-        />
+      {/* ── Hero image (356:51438) — 438px ── */}
+      <div style={{ padding: "0 24px" }}>
+        <div style={{ width: "100%", height: "438px", overflow: "hidden", flexShrink: 0 }}>
+          <img
+            src={imgHero}
+            alt="IRIS Visual Design"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        </div>
       </div>
 
-      {/* ── Role / meta row (347:18962) ── */}
+      {/* ── Role / meta row (356:51448) ── */}
       <div
         style={{
           padding: "20px 24px",
@@ -264,11 +285,11 @@ export default function AgenticAiPage() {
         }}
       >
         {[
-          { label: "Period",  lines: ["1 year 3 months"] },
-          { label: "Team",    lines: ["Malvika Nanda", "Yun Easing", "Riya Ghosh"] },
+          { label: "Period",  lines: ["3 months"] },
+          { label: "Team",    lines: ["Ravikant Joshi", "Pratik Dev", "Riya Ghosh"] },
           { label: "Role",    lines: ["Product Designer"] },
-          { label: "Skills",  lines: ["Design Systems", "Component Architecture", "Product Strategy"] },
-          { label: "Tools",   lines: ["Figma", "Photoshop", "GM3 Design System"] },
+          { label: "Skills",  lines: ["Brand Identity", "Ai Flow Architecture", "Product Strategy"] },
+          { label: "Tools",   lines: ["Figma", "Photoshop", "Figma Make, Claude"] },
         ].map(({ label, lines }) => (
           <div key={label} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             <p style={META_LABEL}>{label}</p>
@@ -289,24 +310,24 @@ export default function AgenticAiPage() {
         }}
       >
 
-        {/* ── Context (336:6774) ── */}
+        {/* ── Context (356:51496) ── */}
         <Section label="Context" noHr>
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             <p style={SECTION_BODY}>
-              The average sales rep is buried in administrative work—updating CRMs, logging calls,
-              finding data—which shatters their focus and kills sales momentum. The problem isn&apos;t
-              just the loss of time; it&apos;s the loss of flow.
+              The platform&apos;s &ldquo;Loyalty Points&rdquo; program is a powerful tool that drives
+              significant user engagement. Historically, however, getting an app featured was a manual,
+              opaque process brokered by Business Development (BD) managers, accessible only to the
+              top 1% of managed partners. This left 99% of developers without access to a critical
+              growth lever.
             </p>
             <p style={SECTION_BODY}>
-              We didn&apos;t set out to build another productivity tool. We set out to design Rosa, an
-              AI partner designed not just to manage data, but to anticipate the next best move, highlight
-              the right opportunities, and clear the path for what sales reps do best: build connections
-              and close deals
+              The challenge was to dismantle this manual, inequitable process and re-architect it as
+              a scalable, self-service product.
             </p>
           </div>
         </Section>
 
-        {/* ── Big quote (336:6782) ── */}
+        {/* ── Big quote (356:51061) ── */}
         <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
           <HR />
           <p
@@ -317,10 +338,11 @@ export default function AgenticAiPage() {
               color: TEXT_WHITE,
               letterSpacing: "1px",
               lineHeight: 1.3,
+              textTransform: "capitalize",
               width: "100%",
             }}
           >
-            What If A Sales Rep Could Spend Their Entire Day Selling?
+            What if a sales rep could spend their entire day selling?
           </p>
         </div>
 
