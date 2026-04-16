@@ -2,145 +2,209 @@
 
 import Link from "next/link";
 
-// ── Assets (Figma MCP, node 336:6660, fetched 2026-04-16) ─────────────────────
-// Hero
-const imgHeroBg     = "https://www.figma.com/api/mcp/asset/98f3e1b4-3091-410e-b9d3-db00bcf91e06";
-const imgHeroUI     = "https://www.figma.com/api/mcp/asset/fcb68676-4771-4e9c-b5f9-f5c03d9cf570";
-// Design process
-const imgAiScreenshots    = "https://www.figma.com/api/mcp/asset/b501c1b5-5bf9-4ede-b44e-36c9b23d744c";
-const imgRapidPrototyping = "https://www.figma.com/api/mcp/asset/846082c4-6f81-4ce9-a6ad-98713626c574";
-// Solution walkthrough
-const imgMorningBrief  = "https://www.figma.com/api/mcp/asset/135f0f13-6a2a-4fe1-a842-16f7a26305a6";
-const imgMomentumNudge = "https://www.figma.com/api/mcp/asset/2087f1df-48d9-4db7-9c61-cd01c3cc267d";
-const imgDashboard     = "https://www.figma.com/api/mcp/asset/5346e27d-c864-41cd-80b1-0e50870c6d85";
-// Outcome
-const imgOutcomeDiagram  = "https://www.figma.com/api/mcp/asset/00d997bd-5683-4307-9389-816eca2af380";
-const imgOutcomeFrame    = "https://www.figma.com/api/mcp/asset/3679a619-d8b5-4929-8edf-dc520931b16f";
+// ── Assets (Figma MCP, node 336:6660, file 8LUMIoWCoDPZZf6pXrGe5F) ────────────
+const imgHeroBg      = "https://www.figma.com/api/mcp/asset/98f3e1b4-3091-410e-b9d3-db00bcf91e06";
+const imgHeroUI      = "https://www.figma.com/api/mcp/asset/fcb68676-4771-4e9c-b5f9-f5c03d9cf570";
+const imgAIScreens   = "https://www.figma.com/api/mcp/asset/b501c1b5-5bf9-4ede-b44e-36c9b23d744c";
+const imgRapidProto  = "https://www.figma.com/api/mcp/asset/846082c4-6f81-4ce9-a6ad-98713626c574";
+const imgSolution    = "https://www.figma.com/api/mcp/asset/5346e27d-c864-41cd-80b1-0e50870c6d85";
+const imgStrategic   = "https://www.figma.com/api/mcp/asset/135f0f13-6a2a-4fe1-a842-16f7a26305a6";
+const imgMomentum    = "https://www.figma.com/api/mcp/asset/2087f1df-48d9-4db7-9c61-cd01c3cc267d";
+const imgOutcome     = "https://www.figma.com/api/mcp/asset/00d997bd-5683-4307-9389-816eca2af380";
+const imgOutcomeIll  = "https://www.figma.com/api/mcp/asset/3679a619-d8b5-4929-8edf-dc520931b16f";
 
-// ── Design tokens ──────────────────────────────────────────────────────────────
-const BG      = "#141414";
-const TEXT_PRI = "#ffffff";
-const TEXT_SEC = "#e2e2e2";
+// ── Design tokens ─────────────────────────────────────────────────────────────
+const BG             = "#141414";
+const TEXT_WHITE     = "#ffffff";
+const TEXT_BODY      = "#e2e2e2";
+const DIVIDER_COLOR  = "rgba(255,255,255,0.12)";
+const PLACEHOLDER_BG = "#212121";
 
-// ── Shared typography styles ───────────────────────────────────────────────────
-const LABEL: React.CSSProperties = {
+// ── Shared styles ─────────────────────────────────────────────────────────────
+const interBase: React.CSSProperties = {
   fontFamily: "var(--font-inter), sans-serif",
-  fontWeight: 400,
-  fontSize: "14px",
-  color: TEXT_PRI,
-  letterSpacing: "0.55px",
-  textTransform: "capitalize",
-  lineHeight: "normal",
   margin: 0,
 };
 
-const BODY: React.CSSProperties = {
-  fontFamily: "var(--font-inter), sans-serif",
+const SECTION_LABEL: React.CSSProperties = {
+  ...interBase,
+  fontWeight: 400,
+  fontSize: "24px",
+  color: TEXT_WHITE,
+  flexShrink: 0,
+  width: "42%",
+  paddingTop: "4px",
+};
+
+const SECTION_BODY: React.CSSProperties = {
+  ...interBase,
+  fontWeight: 400,
+  fontSize: "24px",
+  color: TEXT_BODY,
+  lineHeight: 1.5,
+};
+
+const STEP_BODY: React.CSSProperties = {
+  ...interBase,
   fontWeight: 400,
   fontSize: "16px",
-  color: TEXT_SEC,
-  lineHeight: "1.6",
-  margin: 0,
+  color: TEXT_BODY,
+  lineHeight: 1.6,
 };
 
-const META_KEY: React.CSSProperties = {
-  fontFamily: "var(--font-inter), sans-serif",
+const META_LABEL: React.CSSProperties = {
+  ...interBase,
   fontWeight: 600,
   fontSize: "14px",
-  color: TEXT_PRI,
+  color: TEXT_WHITE,
   letterSpacing: "0.55px",
-  textTransform: "capitalize",
+  textTransform: "capitalize" as const,
   lineHeight: "normal",
-  margin: 0,
 };
 
-const META_VAL: React.CSSProperties = {
-  fontFamily: "var(--font-inter), sans-serif",
+const META_VALUE: React.CSSProperties = {
+  ...interBase,
   fontWeight: 400,
   fontSize: "16px",
-  color: TEXT_PRI,
-  lineHeight: "1.3",
-  margin: 0,
+  color: TEXT_WHITE,
+  lineHeight: 1.3,
 };
 
-// ── Divider ────────────────────────────────────────────────────────────────────
+// ── Primitives ────────────────────────────────────────────────────────────────
 const HR = () => (
-  <div style={{ height: "1px", background: "rgba(255,255,255,0.12)", width: "100%", flexShrink: 0 }} />
+  <div style={{ height: "1px", background: DIVIDER_COLOR, width: "100%", flexShrink: 0 }} />
 );
 
-// ── Two-column section row ─────────────────────────────────────────────────────
+// ── Section wrapper ────────────────────────────────────────────────────────────
 function Section({
   label,
   children,
   noHr,
+  labelStyle,
 }: {
   label: string;
   children: React.ReactNode;
   noHr?: boolean;
+  labelStyle?: React.CSSProperties;
 }) {
   return (
     <section style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
       {!noHr && <HR />}
       <div style={{ display: "flex", width: "100%" }}>
-        <p style={{ ...LABEL, flexShrink: 0, width: "42%", paddingTop: "4px" }}>{label}</p>
+        <p style={{ ...SECTION_LABEL, ...labelStyle }}>{label}</p>
         <div style={{ flex: 1 }}>{children}</div>
       </div>
     </section>
   );
 }
 
-// ── Pain point card ────────────────────────────────────────────────────────────
+// ── Pain card ─────────────────────────────────────────────────────────────────
 function PainCard({ title, body }: { title: string; body: string }) {
   return (
-    <div style={{
-      flex: "1 0 0",
-      background: "#212121",
-      padding: "16px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "16px",
-      alignSelf: "stretch",
-      minWidth: 0,
-    }}>
+    <div
+      style={{
+        flex: "1 0 0",
+        background: PLACEHOLDER_BG,
+        borderRadius: "12px",
+        padding: "16px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        alignSelf: "stretch",
+        minWidth: 0,
+        height: "270px",
+        boxSizing: "border-box",
+      }}
+    >
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <p style={{ ...META_KEY, textTransform: "capitalize" }}>{title}</p>
+        <p
+          style={{
+            ...interBase,
+            fontWeight: 500,
+            fontSize: "14px",
+            color: "#dbdbdb",
+            letterSpacing: "0.55px",
+            textTransform: "capitalize",
+          }}
+        >
+          {title}
+        </p>
         <div style={{ height: "1px", background: "rgba(255,255,255,0.15)" }} />
       </div>
-      <p style={{ ...BODY, fontSize: "14px", lineHeight: "1.37", color: TEXT_PRI }}>{body}</p>
+      <p
+        style={{
+          ...interBase,
+          fontWeight: 400,
+          fontSize: "14px",
+          color: TEXT_WHITE,
+          lineHeight: "19.2px",
+        }}
+      >
+        {body}
+      </p>
     </div>
   );
 }
 
-// ── Design-process step ────────────────────────────────────────────────────────
-function ProcessStep({
-  number,
-  title,
-  body,
-  image,
-  imageAlt = "",
+// ── Image pair row ─────────────────────────────────────────────────────────────
+function ImagePair({
+  leftSrc,
+  rightSrc,
+  height = 409,
+  gap = 24,
 }: {
-  number: string;
-  title: string;
-  body: string;
-  image?: string;
-  imageAlt?: string;
+  leftSrc?: string;
+  rightSrc?: string;
+  height?: number;
+  gap?: number;
 }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-      <HR />
-      <div style={{ display: "flex", width: "100%" }}>
-        <p style={{ ...LABEL, flexShrink: 0, width: "42%", paddingTop: "4px" }}>{number}</p>
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "24px" }}>
-          <p style={{ fontFamily: "var(--font-inter), sans-serif", fontWeight: 400, fontSize: "24px", color: TEXT_PRI, lineHeight: "normal", margin: 0 }}>
-            {title}
-          </p>
-          <p style={BODY}>{body}</p>
-        </div>
-      </div>
-      {image && (
-        <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden" }}>
-          <img src={image} alt={imageAlt} style={{ width: "100%", display: "block", objectFit: "cover" }} />
-        </div>
+    <div style={{ display: "flex", gap: `${gap}px` }}>
+      {leftSrc ? (
+        <img
+          src={leftSrc}
+          alt=""
+          style={{
+            flex: "1 0 0",
+            height: `${height}px`,
+            objectFit: "cover",
+            borderRadius: "8px",
+            minWidth: 0,
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            flex: "1 0 0",
+            height: `${height}px`,
+            background: PLACEHOLDER_BG,
+            borderRadius: "8px",
+            minWidth: 0,
+          }}
+        />
+      )}
+      {rightSrc ? (
+        <img
+          src={rightSrc}
+          alt=""
+          style={{
+            flex: "1 0 0",
+            height: `${height}px`,
+            objectFit: "cover",
+            borderRadius: "8px",
+            minWidth: 0,
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            flex: "1 0 0",
+            height: `${height}px`,
+            background: PLACEHOLDER_BG,
+            borderRadius: "8px",
+            minWidth: 0,
+          }}
+        />
       )}
     </div>
   );
@@ -149,396 +213,581 @@ function ProcessStep({
 // ── Page ───────────────────────────────────────────────────────────────────────
 export default function AgenticAiPage() {
   return (
-    <main style={{ background: BG, minHeight: "100vh", paddingTop: "83px" }}>
+    <div style={{ background: BG, minHeight: "100vh", color: TEXT_WHITE, paddingTop: "83px" }}>
 
-      {/* ── CONTENT WRAPPER ── */}
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "72px", paddingTop: "24px", paddingBottom: "120px" }}>
+      {/* ── Header row (336:6678) ── */}
+      <div
+        style={{
+          padding: "10px 24px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <span style={{ ...interBase, fontWeight: 400, fontSize: "24px", color: TEXT_WHITE }}>
+          Case study
+        </span>
+        <span style={{ ...interBase, fontWeight: 400, fontSize: "24px", color: TEXT_WHITE }}>
+          B2B SaaS
+        </span>
+        <p style={{ ...interBase, fontWeight: 400, fontSize: "76px", color: TEXT_WHITE, lineHeight: 1 }}>
+          Agentic Ai X Salesforce
+        </p>
+      </div>
 
-          {/* ═══════════════════════════════════
-              SECTION 1 · Header row
-          ═══════════════════════════════════ */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px" }}>
-            <p style={{ ...LABEL, fontSize: "24px", letterSpacing: "0" }}>Case study</p>
-            <p style={{ ...LABEL, fontSize: "24px", letterSpacing: "0" }}>B2B SaaS</p>
-            <p style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(32px, 5.3vw, 76px)",
-              color: TEXT_PRI,
-              lineHeight: "normal",
-              margin: 0,
-              letterSpacing: "-0.02em",
-            }}>
-              Agentic Ai X Salesforce
+      {/* ── Hero (344:18819) ── */}
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "783px",
+          overflow: "hidden",
+          borderRadius: "4px",
+          flexShrink: 0,
+        }}
+      >
+        <img
+          src={imgHeroBg}
+          alt=""
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+        />
+        <img
+          src={imgHeroUI}
+          alt="IRIS Visual Design"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </div>
+
+      {/* ── Role / meta row (347:18962) ── */}
+      <div
+        style={{
+          padding: "20px 24px",
+          borderBottom: "1px solid rgba(50,64,79,0.1)",
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "20px",
+        }}
+      >
+        {[
+          { label: "Period",  lines: ["1 year 3 months"] },
+          { label: "Team",    lines: ["Malvika Nanda", "Yun Easing", "Riya Ghosh"] },
+          { label: "Role",    lines: ["Product Designer"] },
+          { label: "Skills",  lines: ["Design Systems", "Component Architecture", "Product Strategy"] },
+          { label: "Tools",   lines: ["Figma", "Photoshop", "GM3 Design System"] },
+        ].map(({ label, lines }) => (
+          <div key={label} style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <p style={META_LABEL}>{label}</p>
+            {lines.map((l) => (
+              <p key={l} style={{ ...META_VALUE, margin: 0 }}>{l}</p>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* ── Content sections ── */}
+      <div
+        style={{
+          padding: "64px 24px 100px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "72px",
+        }}
+      >
+
+        {/* ── Context (336:6774) ── */}
+        <Section label="Context" noHr>
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <p style={SECTION_BODY}>
+              The average sales rep is buried in administrative work—updating CRMs, logging calls,
+              finding data—which shatters their focus and kills sales momentum. The problem isn&apos;t
+              just the loss of time; it&apos;s the loss of flow.
+            </p>
+            <p style={SECTION_BODY}>
+              We didn&apos;t set out to build another productivity tool. We set out to design Rosa, an
+              AI partner designed not just to manage data, but to anticipate the next best move, highlight
+              the right opportunities, and clear the path for what sales reps do best: build connections
+              and close deals
             </p>
           </div>
+        </Section>
 
-          {/* ═══════════════════════════════════
-              SECTION 2 · Hero illustration
-          ═══════════════════════════════════ */}
-          <div style={{
+        {/* ── Big quote (336:6782) ── */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+          <HR />
+          <p
+            style={{
+              ...interBase,
+              fontWeight: 400,
+              fontSize: "40px",
+              color: TEXT_WHITE,
+              letterSpacing: "1px",
+              lineHeight: 1.3,
+              width: "100%",
+            }}
+          >
+            What If A Sales Rep Could Spend Their Entire Day Selling?
+          </p>
+        </div>
+
+        {/* ── Solution (336:6806) ── */}
+        <Section label="Solution">
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <p style={SECTION_BODY}>
+              An AI agent that provides predictive guidance and automates the entire sales workflow,
+              turning data into conversations.
+            </p>
+            <p style={SECTION_BODY}>
+              I led the design of Rosa, a SaaS platform built natively within Salesforce. Rosa
+              doesn&apos;t just automate tasks—it acts as a strategic partner, surfacing the right
+              information at the right moment to guide a sales rep from morning brief to closed deal.
+            </p>
+          </div>
+        </Section>
+
+        {/* ── The Problem (338:14935) ── */}
+        <Section label="The Problem">
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <p style={SECTION_BODY}>
+              Sales reps are drowning in tasks, but starving for momentum.
+            </p>
+            <p style={SECTION_BODY}>
+              My research into the sales workflow revealed a fundamental mismatch: the tools built to
+              help reps were actually the biggest drain on their time. Every CRM update, every call log,
+              every data lookup pulled them out of the flow state that separates good salespeople from
+              great ones.
+            </p>
+          </div>
+        </Section>
+
+        {/* ── Pain Points (336:6813) ── */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+          <HR />
+          <p style={{ ...interBase, fontWeight: 400, fontSize: "24px", color: TEXT_WHITE }}>
+            Pain Points
+          </p>
+          <div style={{ display: "flex", gap: "24px" }}>
+            <PainCard
+              title="Decision Fatigue"
+              body="Sales reps face hundreds of micro-decisions daily — which lead to call, what to say, when to follow up. Without guidance, cognitive load compounds throughout the day, leading to worse decisions by afternoon."
+            />
+            <PainCard
+              title={'The "Research Tax"'}
+              body="Before every call, reps spend 15-30 minutes pulling data from multiple systems. This research tax isn't just a time drain — it fragments attention and kills the momentum needed to perform in high-stakes conversations."
+            />
+            <PainCard
+              title="The Connection Gap"
+              body="CRMs capture what happened, not what to do next. Reps are left to synthesize raw data into strategy on their own, a skill gap that separates top performers from the rest of the team."
+            />
+            <PainCard
+              title="Key Insight"
+              body="The solution wasn't to automate tasks in isolation. It was to design an AI that understood the sales motion as a whole — one that could anticipate needs, not just respond to them."
+            />
+          </div>
+        </div>
+
+        {/* ── Design Process header (336:6836) ── */}
+        <Section label="The Design Process">
+          <p style={SECTION_BODY}>
+            An AI-Augmented Workflow: From Concept to Prototype in Days, Not Weeks. The design process
+            for Rosa was itself a proof of concept for the product&apos;s core premise — that AI can
+            compress the gap between insight and execution.
+          </p>
+        </Section>
+
+        {/* AI screenshots (347:30894) */}
+        <div style={{ display: "flex", gap: "24px" }}>
+          <img
+            src={imgAIScreens}
+            alt="AI workflow screenshot"
+            style={{
+              flex: "1 0 0",
+              height: "409px",
+              objectFit: "cover",
+              borderRadius: "8px",
+              minWidth: 0,
+            }}
+          />
+          <img
+            src={imgAIScreens}
+            alt="AI workflow screenshot"
+            style={{
+              flex: "1 0 0",
+              height: "409px",
+              objectFit: "cover",
+              borderRadius: "8px",
+              minWidth: 0,
+            }}
+          />
+        </div>
+
+        {/* Step 1 (338:15004) */}
+        <Section label="1. AI as the Starting Block">
+          <p style={STEP_BODY}>
+            Instead of starting with blank wireframes, I used AI to rapidly generate user flow diagrams
+            and interaction models based on the research findings. I prompted the AI with the core user
+            jobs-to-be-done — &quot;surface the next best action,&quot; &quot;automate post-call
+            logging,&quot; &quot;predict which leads to prioritize&quot; — and used its output as a
+            structured starting point for exploration. This compressed the initial divergent phase from
+            weeks to days, letting the team react to concrete structures rather than abstract briefs.
+          </p>
+        </Section>
+
+        {/* Rapid Prototyping images (338:15027) */}
+        <div style={{ display: "flex", gap: "24px" }}>
+          <img
+            src={imgRapidProto}
+            alt="Rapid prototyping"
+            style={{
+              flex: "1 0 0",
+              height: "409px",
+              objectFit: "cover",
+              borderRadius: "8px",
+              minWidth: 0,
+            }}
+          />
+          <img
+            src={imgRapidProto}
+            alt="Rapid prototyping"
+            style={{
+              flex: "1 0 0",
+              height: "409px",
+              objectFit: "cover",
+              borderRadius: "8px",
+              minWidth: 0,
+            }}
+          />
+        </div>
+
+        {/* Step 2 (338:15018) */}
+        <Section label="2. Rapid Prototyping in Figma">
+          <p style={STEP_BODY}>
+            With validated flows, I moved directly into high-fidelity prototyping in Figma, bypassing
+            low-fidelity wireframing entirely. The GM3 design system provided a robust component library
+            that allowed me to assemble production-quality screens at the speed of sketching. Each
+            prototype was immediately testable, shortening the feedback loop between design decisions
+            and user validation. The speed of this phase was only possible because of the design system
+            investment — every component already had accessibility, theming, and interaction states
+            built in.
+          </p>
+        </Section>
+
+        {/* Step 3 (338:15033) */}
+        <Section label={'3. Designing the Core Agent: "Ask Rosa"'}>
+          <p style={STEP_BODY}>
+            The central design challenge was making a complex AI agent feel effortless. Ask Rosa — the
+            natural language interface at the heart of the product — needed to handle open-ended queries
+            (&quot;What should I focus on today?&quot;) and decompose them into multi-step tasks, while
+            making that task decomposition visible and editable. I designed a task breakdown UI that
+            showed the rep exactly what Rosa was doing and why, building trust in the AI&apos;s
+            recommendations through transparency rather than opacity.
+          </p>
+        </Section>
+        <ImagePair height={409} />
+
+        {/* Step 4 (338:15048) */}
+        <Section label={'4. Designing the "Sub-Agentic" Assistance'}>
+          <p style={STEP_BODY}>
+            Rosa isn&apos;t a single AI — it&apos;s an orchestrator of specialized sub-agents, each
+            optimized for a different part of the sales motion: lead scoring, email drafting, call prep,
+            pipeline analysis. I designed each sub-agent as a distinct modal context with its own
+            information architecture, while maintaining a consistent interaction language across all of
+            them. The challenge was making the system feel unified and predictable even as each agent
+            operated on different data and produced different outputs.
+          </p>
+        </Section>
+        <ImagePair height={409} />
+
+        {/* The Solution header (338:15058) */}
+        <Section label="The Solution">
+          <p style={SECTION_BODY}>
+            A strategic partner that guides the entire sales motion — from the first call of the day to
+            the final deal close.
+          </p>
+        </Section>
+
+        {/* Main solution image (340:17795) */}
+        <div
+          style={{
+            width: "100%",
+            aspectRatio: "1389 / 781",
+            borderRadius: "8px",
+            overflow: "hidden",
+          }}
+        >
+          <img
+            src={imgSolution}
+            alt="Rosa — solution overview"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        </div>
+
+        {/* 1. Strategic Start (338:15069) */}
+        <Section label="1. The Strategic Start">
+          <p style={STEP_BODY}>
+            Every morning, Rosa generates a personalized brief for each rep: the highest-priority leads,
+            deals at risk of going cold, and a suggested sequence for the day. The design challenge was
+            presenting this intelligence without overwhelming — a dashboard that felt like a trusted
+            colleague giving a morning brief, not a data dump. The morning brief became the
+            product&apos;s signature moment: the first thing reps see, and the clearest demonstration
+            of Rosa&apos;s value.
+          </p>
+        </Section>
+        <div style={{ display: "flex", gap: "24px" }}>
+          <img
+            src={imgStrategic}
+            alt="Strategic start"
+            style={{
+              width: "728px",
+              height: "409px",
+              objectFit: "cover",
+              borderRadius: "8px",
+              flexShrink: 0,
+            }}
+          />
+          <div
+            style={{
+              flex: "1 0 0",
+              height: "409px",
+              background: PLACEHOLDER_BG,
+              borderRadius: "8px",
+              minWidth: 0,
+            }}
+          />
+        </div>
+
+        {/* 2. Intelligent Outreach (338:15080) */}
+        <Section label="2. The Intelligent Outreach">
+          <p style={STEP_BODY}>
+            Jordan clicks on a high-score lead. Rosa surfaces a complete context panel: the lead&apos;s
+            recent activity, the last three touchpoints, the decision-maker&apos;s LinkedIn activity, and
+            a suggested talking point built from the company&apos;s latest earnings call. One click drafts
+            a personalized outreach email in Jordan&apos;s voice, trained on their past successful messages.
+            The design goal was to make the right action feel like the obvious action — no hunting through
+            tabs, no copy-pasting between tools.
+          </p>
+        </Section>
+        <ImagePair height={418} />
+
+        {/* 3. Momentum Nudge (338:15091) */}
+        <Section label="3. The Momentum Nudge">
+          <p style={STEP_BODY}>
+            Later, Rosa detects the lead has opened the proposal twice in the last hour. A momentum nudge
+            appears — not an alert, but a contextual suggestion: &quot;High engagement signal. This might
+            be a good time to reach out.&quot; The nudge includes a suggested message and a one-click send.
+            I designed this as a non-intrusive overlay that respects the rep&apos;s current context while
+            making the optimal action frictionless. The timing and delivery of these nudges was one of the
+            most iterated parts of the design.
+          </p>
+        </Section>
+        <div style={{ display: "flex", gap: "24px" }}>
+          <img
+            src={imgMomentum}
+            alt="Momentum nudge"
+            style={{
+              width: "728px",
+              height: "409px",
+              objectFit: "cover",
+              borderRadius: "8px",
+              flexShrink: 0,
+            }}
+          />
+          <div
+            style={{
+              flex: "1 0 0",
+              height: "409px",
+              background: PLACEHOLDER_BG,
+              borderRadius: "8px",
+              minWidth: 0,
+            }}
+          />
+        </div>
+
+        {/* 4. Assistive Canvas (338:15102) */}
+        <Section label="4. Assistive Canvas">
+          <p style={STEP_BODY}>
+            Designing a modular, customizable dashboard that adapts to each rep&apos;s workflow. The
+            Assistive Canvas is the strategic layer of Rosa — a persistent workspace where reps can pin
+            active deals, track pipeline health, and access their most-used sub-agents. The challenge was
+            designing for both structure and flexibility: enough defaults to be immediately useful, enough
+            customization to fit every rep&apos;s mental model.
+          </p>
+        </Section>
+        <ImagePair height={409} />
+
+        {/* ── Outcome (336:6846) ── */}
+        <Section label="The Outcome">
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <p style={SECTION_BODY}>
+              By automating admin work and providing predictive guidance, Rosa fundamentally changes the
+              nature of the sales role.
+            </p>
+            <p style={SECTION_BODY}>
+              Rather than spending hours on CRM updates and research, sales reps using Rosa spend the
+              majority of their time on high-value activities: building relationships, crafting strategy,
+              and closing deals. The product transforms the CRM from a system of record into a system
+              of action.
+            </p>
+          </div>
+        </Section>
+
+        {/* Outcome image (340:15641) */}
+        <div
+          style={{
+            width: "100%",
+            aspectRatio: "3568 / 1900",
+            overflow: "hidden",
+            borderRadius: "8px",
+          }}
+        >
+          <img
+            src={imgOutcome}
+            alt="Rosa — outcome"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        </div>
+
+        {/* Outcome illustration (340:16652) */}
+        <div
+          style={{
             width: "100%",
             height: "783px",
             overflow: "hidden",
-            position: "relative",
             borderRadius: "4px",
-          }}>
-            {/* Gradient background */}
-            <img
-              src={imgHeroBg}
-              alt=""
-              style={{
-                position: "absolute",
-                top: "-27%",
-                left: "-14%",
-                width: "128%",
-                height: "154%",
-                objectFit: "cover",
-                pointerEvents: "none",
-                display: "block",
-              }}
-            />
-            {/* UI screenshot overlay */}
-            <img
-              src={imgHeroUI}
-              alt="IRIS Visual Design — Agentic AI interface"
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                pointerEvents: "none",
-                display: "block",
-              }}
-            />
+          }}
+        >
+          <img
+            src={imgOutcomeIll}
+            alt="Rosa — outcome illustration"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        </div>
+
+        {/* ── Reflection (336:6883) ── */}
+        <Section label="Reflection">
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            <p style={SECTION_BODY}>
+              The most important design insight from this project: AI that anticipates is fundamentally
+              different from AI that responds. Every major interaction in Rosa was designed around the
+              question &quot;what does the rep need next?&quot; rather than &quot;what did the rep ask
+              for?&quot; That shift in framing changed almost every design decision.
+            </p>
+            <p style={SECTION_BODY}>
+              Building trust in an AI system requires what I think of as &quot;glass box&quot; design —
+              making the AI&apos;s reasoning visible without exposing its complexity. Rosa shows its work:
+              why it surfaced a particular lead, what signals triggered a nudge, how it ranked the
+              day&apos;s priorities. Transparency isn&apos;t just an ethical requirement; it&apos;s the
+              mechanism by which users develop accurate mental models of what the AI can and can&apos;t do.
+            </p>
+            <p style={SECTION_BODY}>
+              The design process itself validated the product concept. Using AI to accelerate the design
+              of an AI product created a productive feedback loop: we were our own first users,
+              experiencing firsthand the cognitive benefits of AI-assisted work. That lived experience
+              shaped the product&apos;s interaction model in ways that pure research couldn&apos;t have.
+            </p>
           </div>
+        </Section>
 
-          {/* ═══════════════════════════════════
-              SECTION 3 · Role / meta
-          ═══════════════════════════════════ */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "52px" }}>
-            <div style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "flex-start",
-              justifyContent: "space-between",
-              gap: "20px",
-              paddingBottom: "32px",
-              borderBottom: "1px solid rgba(50,64,79,0.1)",
-            }}>
-              {/* Period */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p style={META_KEY}>Period</p>
-                <p style={META_VAL}>1 year 3 months</p>
-              </div>
-              {/* Team */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p style={META_KEY}>Team</p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                  <p style={META_VAL}>Malvika Nanda</p>
-                  <p style={META_VAL}>Yun Easing</p>
-                  <p style={META_VAL}>Riya Ghosh</p>
-                </div>
-              </div>
-              {/* Role */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p style={META_KEY}>Role</p>
-                <p style={META_VAL}>Product Designer</p>
-              </div>
-              {/* Skills */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p style={META_KEY}>Skills</p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                  <p style={META_VAL}>Design Systems</p>
-                  <p style={META_VAL}>Component Architecture</p>
-                  <p style={META_VAL}>Product Strategy</p>
-                </div>
-              </div>
-              {/* Tools */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <p style={META_KEY}>Tools</p>
-                <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                  <p style={META_VAL}>Figma</p>
-                  <p style={META_VAL}>Photoshop</p>
-                  <p style={META_VAL}>GM3 Design System</p>
-                </div>
-              </div>
-            </div>
-
-            {/* ── Context ── */}
-            <Section label="Context" noHr>
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <p style={BODY}>
-                  The average sales rep is buried in administrative work—updating CRMs, logging calls, finding data—which shatters their focus and kills sales momentum. The problem isn't just the loss of time; it's the loss of flow.
-                </p>
-                <p style={BODY}>
-                  We didn't set out to build another productivity tool. We set out to design Rosa, an AI partner designed not just to manage data, but to anticipate the next best move, highlight the right opportunities, and clear the path for what sales reps do best: build connections and close deals.
-                </p>
-              </div>
-            </Section>
-
-            {/* ── Big quote ── */}
-            <div>
-              <p style={{
-                fontFamily: "var(--font-inter), sans-serif",
+        {/* ── Additional Projects ── */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+          <HR />
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "24px" }}>
+            <p
+              style={{
+                ...interBase,
                 fontWeight: 400,
-                fontSize: "clamp(24px, 2.8vw, 40px)",
-                color: TEXT_PRI,
-                letterSpacing: "0.025em",
-                textTransform: "capitalize",
-                lineHeight: "normal",
-                margin: 0,
-              }}>
-                What if a sales rep could spend their entire day selling?
-              </p>
-            </div>
-          </div>
-
-          {/* ═══════════════════════════════════
-              SECTION 4 · Solution
-          ═══════════════════════════════════ */}
-          <Section label="Solution">
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <p style={BODY}>
-                An AI agent that provides predictive guidance and automates the entire sales workflow, turning data into conversations.
-              </p>
-              <p style={BODY}>
-                I led the design of Rosa, a SaaS platform that acts as a strategic partner for sales representatives. Rosa integrates with a rep's core tools to deliver a prioritized daily brief, automate research, and assist in crafting personalized outreach. From surfacing the top 1% of leads to providing a "Deal Memory" for every interaction, Rosa is designed to be the engine for sales success.
-              </p>
-            </div>
-          </Section>
-
-          {/* ═══════════════════════════════════
-              SECTION 5 · The Problem
-          ═══════════════════════════════════ */}
-          <Section label="The Problem">
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <p style={BODY}>
-                Sales reps are drowning in tasks, but starving for momentum.
-              </p>
-              <p style={BODY}>
-                My research into the sales workflow revealed a universal frustration. Reps like our persona, "Jordan," start their day facing a noisy pool of 500+ leads and a mountain of administrative tasks. This creates a reactive, inefficient, and demoralizing work environment.
-              </p>
-            </div>
-          </Section>
-
-          {/* ═══════════════════════════════════
-              SECTION 6 · Pain Points
-          ═══════════════════════════════════ */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-            <HR />
-            <p style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontWeight: 400,
-              fontSize: "24px",
-              color: TEXT_PRI,
-              lineHeight: "normal",
-              margin: 0,
-            }}>
-              Pain Points
+                fontSize: "24px",
+                color: TEXT_WHITE,
+                flexShrink: 0,
+                width: "42%",
+              }}
+            >
+              Additional Projects
             </p>
-            <div style={{ display: "flex", gap: "24px", alignItems: "stretch" }}>
-              <PainCard
-                title="Decision Fatigue"
-                body="With hundreds of leads, reps don't know where to focus first. They waste the first, most productive hour of their day manually filtering lists instead of engaging high-intent prospects."
-              />
-              <PainCard
-                title='The "Research Tax"'
-                body="Preparing for a single outreach call requires toggling across LinkedIn, Google News, industry blogs, and CRM history. This 1-hour, multi-tab research process for every key lead is a massive drain on productivity."
-              />
-              <PainCard
-                title="The Connection Gap"
-                body="A fragmented workflow across multiple apps makes it impossible to have a single, unified view of a client. Key details from past interactions get lost, and outreach feels generic, not personal."
-              />
-              <PainCard
-                title="Key Insight"
-                body="The solution wasn't a better dashboard. It was an intelligent agent that could perform the research and prioritization work for the rep, allowing them to start their day with action, not administration."
-              />
-            </div>
-          </div>
-
-          {/* ═══════════════════════════════════
-              SECTION 7 · Design Process
-          ═══════════════════════════════════ */}
-          <Section label="The Design Process">
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <p style={BODY}>
-                An AI-Augmented Workflow: From Concept to Prototype in Days, Not Weeks. To design a product centered on speed and intelligence, our process had to embody those same principles. Traditional design sprints felt too slow. Instead, I adopted a modern, AI-augmented workflow that leveraged generative AI as a foundational partner to accelerate the journey from a blank canvas to a testable prototype.
-              </p>
-            </div>
-          </Section>
-
-          {/* AI screenshots strip */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "20px",
-            width: "100%",
-          }}>
-            <div style={{ borderRadius: "8px", overflow: "hidden", aspectRatio: "686/247" }}>
-              <img src={imgAiScreenshots} alt="AI design process screenshots" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-            </div>
-            <div style={{ borderRadius: "8px", overflow: "hidden", aspectRatio: "686/254" }}>
-              <img src={imgAiScreenshots} alt="AI design process screenshots" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", objectPosition: "right center" }} />
-            </div>
-          </div>
-
-          {/* Process steps */}
-          <ProcessStep
-            number="1. AI as the Starting Block"
-            title="AI as the Starting Block"
-            body={`Instead of spending weeks on manual user flow diagrams and wireframes, I began by prompting AI with the core persona and problem. I used generative AI to: Brainstorm initial user flows for "a day in the life of a sales rep named Jordan." Generate multiple layout concepts for a proactive, AI-driven dashboard. Explore different information architectures for presenting complex data like lead scores and intent signals. This AI-first approach provided an incredible "base start," allowing us to bypass the most time-consuming parts of the initial ideation phase. It turned the "blank canvas problem" into a multiple-choice question, providing a rich set of concepts to refine.`}
-          />
-
-          <ProcessStep
-            number="2. Rapid Prototyping in Figma"
-            title="Rapid Prototyping in Figma"
-            body={`Instead of spending weeks on manual user flow diagrams and wireframes, I began by prompting AI with the core persona and problem. I used generative AI to: Brainstorm initial user flows for "a day in the life of a sales rep named Jordan." Generate multiple layout concepts for a proactive, AI-driven dashboard. Explore different information architectures for presenting complex data like lead scores and intent signals. This AI-first approach provided an incredible "base start," allowing us to bypass the most time-consuming parts of the initial ideation phase. It turned the "blank canvas problem" into a multiple-choice question, providing a rich set of concepts to refine.`}
-            image={imgRapidPrototyping}
-            imageAlt="Rapid prototyping in Figma"
-          />
-
-          <ProcessStep
-            number='3. Designing the Core Agent: "Ask Rosa"'
-            title='Designing the Core Agent: "Ask Rosa"'
-            body={`The centerpiece of the platform is "Ask Rosa," the central, conversational AI agent. This isn't a simple chatbot; it's designed to understand intent and execute multi-step tasks across integrated systems (CRM, email, calendar). The design process focused on mapping these agentic commands: Task Decomposition: we started by breaking down complex user requests into their fundamental actions. For example, the command "Get me prepped for my call with Delta Tech" was decomposed into a sequence: Query CRM for contact history → Scan Deal Memory for recent activity → Find related call recordings → Generate Smart Script with key talking points.`}
-          />
-
-          <ProcessStep
-            number='4. Designing the "Sub-Agentic" Assistance'
-            title='Designing the "Sub-Agentic" Assistance'
-            body={`While "Ask Rosa" is the powerful command center, we also designed smaller, "sub-agentic" helpers that are embedded directly into the UI. These are proactive, contextual AI features that work silently in the background to automate specific tasks without needing an explicit command. The design involved identifying high-friction points in the workflow and embedding an AI solution: The "Lead Score" Agent constantly analyzes incoming leads, automatically scores them based on predefined criteria, and surfaces the justification for the score. The "Momentum" Agent monitors deal engagement. When it detects a key event (like a proposal being opened multiple times), it triggers the "Nudge" notification. The "CRM Hygiene" Agent scans for deals that haven't been updated and changes the priority status matrix to low priority.`}
-          />
-
-          {/* ═══════════════════════════════════
-              SECTION 8 · The Solution walkthrough
-          ═══════════════════════════════════ */}
-          <Section label="The Solution">
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <p style={BODY}>
-                A strategic partner that guides the entire sales motion. The Rosa platform is designed to be a rep's single source of truth and their primary strategic partner, turning hours of manual work into minutes of high-impact selling.
-              </p>
-            </div>
-          </Section>
-
-          {/* Solution dashboard image */}
-          <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden" }}>
-            <img src={imgDashboard} alt="Closing the day Empowered — Rosa dashboard" style={{ width: "100%", display: "block", objectFit: "cover" }} />
-          </div>
-
-          {/* 1. Strategic Start */}
-          <ProcessStep
-            number="1. The Strategic Start"
-            title="The Morning Brief"
-            body="A strategic partner that guides the entire sales motion. The Rosa platform is designed to be a rep's single source of truth and their primary strategic partner, turning hours of manual work into minutes of high-impact selling. Jordan begins his day with Rosa's brief, instantly knowing which 7 of his 500 leads are showing the strongest intent signals, and which 3 stalled deals need immediate attention."
-            image={imgMorningBrief}
-            imageAlt="The Morning Brief — Rosa strategic start"
-          />
-
-          {/* 2. Intelligent Outreach */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-            <HR />
-            <div style={{ display: "flex", width: "100%" }}>
-              <p style={{ ...LABEL, flexShrink: 0, width: "42%", paddingTop: "4px" }}>2. The Intelligent Outreach</p>
-              <p style={BODY}>
-                Jordan clicks on a high-score lead. Rosa provides the full research briefing and suggests a personalized email draft based on the lead's recent activity. Jordan tweaks it and sends. The entire flow, from qualification to outreach, takes under 10 minutes.
-              </p>
-            </div>
-          </div>
-
-          {/* 3. Momentum Nudge */}
-          <ProcessStep
-            number="3. The Momentum Nudge"
-            title="Nudges That Keep Momentum Alive"
-            body={`Later, Rosa detects the lead has opened the proposal twice and sends a notification: "Proposal opened by Delta's VP twice in the past hour. Loop in AE before the window closes?" A deal acceleration moment is created.`}
-            image={imgMomentumNudge}
-            imageAlt="Nudges That Keep Momentum Alive"
-          />
-
-          {/* 4. Assistive Canvas */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-            <HR />
-            <div style={{ display: "flex", width: "100%" }}>
-              <p style={{ ...LABEL, flexShrink: 0, width: "42%", paddingTop: "4px" }}>4. Assistive Canvas</p>
-              <p style={BODY}>
-                Designing a modular, customizable dashboard that would serve as the rep's "mission control." We wanted to keep layout simple needs: Prioritized Tasks, At-Risk Deals, Key Metrics, and an AI Activity Feed. The key innovation was making these blocks both AI-curated and user-configurable, allowing reps to arrange their workspace to match their personal workflow.
-              </p>
-            </div>
-          </div>
-
-          {/* ═══════════════════════════════════
-              SECTION 9 · Outcome
-          ═══════════════════════════════════ */}
-          <Section label="The Outcome">
-            <p style={BODY}>
-              By automating admin work and providing predictive guidance, Rosa fundamentally changes the nature of the sales role.
-            </p>
-          </Section>
-
-          {/* Outcome diagram — Before / With Rosa */}
-          <div style={{ width: "100%", aspectRatio: "3568/1900", borderRadius: "8px", overflow: "hidden" }}>
-            <img
-              src={imgOutcomeDiagram}
-              alt="Before and With Rosa — workflow comparison"
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-            />
-          </div>
-
-          {/* Outcome illustration */}
-          <div style={{ width: "100%", height: "783px", overflow: "hidden", position: "relative", borderRadius: "4px" }}>
-            <img
-              src={imgOutcomeFrame}
-              alt=""
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none", display: "block" }}
-            />
-          </div>
-
-          {/* ═══════════════════════════════════
-              SECTION 10 · Reflection
-          ═══════════════════════════════════ */}
-          <Section label="Reflection">
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <p style={BODY}>
-                This project taught me that the future of enterprise AI isn't just automation, but anticipation. Designing Rosa required a shift from creating interfaces that display data to designing systems that provide predictive, actionable guidance. It's about empowering the user to make the best next move, every time.
-              </p>
-              <p style={BODY}>
-                The biggest design challenge was building trust in the AI's autonomy. A sales rep's relationships are their most valuable asset; they need to trust that the AI is enhancing, not risking, those relationships. We solved this by designing for a "glass box" AI: for every recommendation, Rosa shows the "why" behind it. For all external communication, we kept a "human-in-the-loop" model, where the rep gives the final approval.
-              </p>
-              <p style={BODY}>
-                If I were to continue this project, I would focus on the "AI Coaching" aspect. I'd explore using sentiment analysis on call recordings to provide reps with personalised feedback on their conversations, helping them improve their technique over time. This would evolve Rosa from a strategic partner into a true career coach, fully realising the vision of a system built for Momentum, Connection, and Success.
-              </p>
-            </div>
-          </Section>
-
-          {/* ═══════════════════════════════════
-              Back link
-          ═══════════════════════════════════ */}
-          <div>
-            <HR />
-            <div style={{ paddingTop: "32px" }}>
+            <div style={{ flex: 1, display: "flex", gap: "24px" }}>
               <Link
-                href="/"
+                href="/work/ott-sports-cards"
                 style={{
-                  fontFamily: "var(--font-inter), sans-serif",
-                  fontWeight: 400,
-                  fontSize: "14px",
-                  color: "rgba(255,255,255,0.5)",
-                  letterSpacing: "-0.14px",
+                  flex: 1,
+                  height: "349px",
+                  display: "block",
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "4px",
                   textDecoration: "none",
-                  transition: "color 0.15s",
+                  background: "#000",
                 }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#ffffff")}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.5)")}
               >
-                ← Back to portfolio
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "linear-gradient(135deg, rgba(0,50,100,0.85) 0%, rgba(0,20,60,0.85) 100%)",
+                  }}
+                />
+                <p
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    fontFamily: "var(--font-manrope), var(--font-inter), sans-serif",
+                    fontWeight: 600,
+                    fontSize: "clamp(18px, 2.4vw, 35px)",
+                    color: "#fff",
+                    textAlign: "center",
+                    whiteSpace: "nowrap",
+                    margin: 0,
+                  }}
+                >
+                  OTT Sports Cards
+                </p>
+              </Link>
+              <Link
+                href="/work/tetris-console"
+                style={{
+                  flex: 1,
+                  height: "349px",
+                  display: "block",
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "4px",
+                  textDecoration: "none",
+                  background: "#000",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "linear-gradient(135deg, rgba(80,0,120,0.85) 0%, rgba(40,0,80,0.85) 100%)",
+                  }}
+                />
+                <p
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    fontFamily: "var(--font-manrope), var(--font-inter), sans-serif",
+                    fontWeight: 600,
+                    fontSize: "clamp(18px, 2.4vw, 35px)",
+                    color: "#fff",
+                    textAlign: "center",
+                    whiteSpace: "nowrap",
+                    margin: 0,
+                  }}
+                >
+                  Tetris Console
+                </p>
               </Link>
             </div>
           </div>
-
         </div>
+
       </div>
-    </main>
+    </div>
   );
 }
