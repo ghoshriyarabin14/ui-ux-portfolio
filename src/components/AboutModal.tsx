@@ -4,16 +4,18 @@ import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-// Figma asset URLs (node 351:31922, fetched 2026-04-16)
-const imgRightPhoto = "https://www.figma.com/api/mcp/asset/d2d7fc4f-4f44-4cba-b228-4a224bd43085";
-const imgFrame35   = "https://www.figma.com/api/mcp/asset/6cd111e7-d149-4621-ac57-40345a8e0b5c";
-const imgFrame32   = "https://www.figma.com/api/mcp/asset/6f6cde56-3feb-48e3-8f42-541a1a106df5";
-const imgFrame36   = "https://www.figma.com/api/mcp/asset/6ff491f0-8cf8-4567-8b03-00b5eb4e662b";
-const imgFrame33   = "https://www.figma.com/api/mcp/asset/b14d32c0-51eb-4e00-9e34-d50c269fb94e";
-const imgFrame34   = "https://www.figma.com/api/mcp/asset/dfe65119-985e-4461-b7a7-a56903282948";
-const imgFrame37   = "https://www.figma.com/api/mcp/asset/9fe8f498-35cf-46c6-b029-9f7897c185d0";
-const imgImage16   = "https://www.figma.com/api/mcp/asset/7331b2a1-680a-4b8e-bac9-39793c29777d";
-const imgEllipse7  = "https://www.figma.com/api/mcp/asset/9c761e34-9ce9-4c5d-b734-c24fe07045fa";
+// Figma asset URLs (node 351:32692, fetched 2026-04-16)
+const imgRightPhoto = "https://www.figma.com/api/mcp/asset/a2d323ae-473c-41d8-8a3c-803ed78cc2a1";
+const imgFrame35   = "https://www.figma.com/api/mcp/asset/eea8ae85-c19a-413b-bceb-e342a8c0a340";
+const imgFrame32   = "https://www.figma.com/api/mcp/asset/c2987cfa-6d8e-404b-942d-825d959c708b";
+const imgFrame36   = "https://www.figma.com/api/mcp/asset/1aea685a-b428-4e73-ac53-ad15fd59b63c";
+const imgFrame33   = "https://www.figma.com/api/mcp/asset/53ad90db-e2c4-4e37-be3e-e5af2ed65ddc";
+const imgFrame34   = "https://www.figma.com/api/mcp/asset/47983598-7536-4bae-9a6d-06c4d776f419";
+const imgFrame37   = "https://www.figma.com/api/mcp/asset/467ea4ea-15ce-4a7d-a72e-84f8337975fa";
+const imgImage16   = "https://www.figma.com/api/mcp/asset/e6cd3506-8591-4b31-ab45-b3f25faf8399";
+const imgEllipse7  = "https://www.figma.com/api/mcp/asset/fd88577a-4ae2-4b06-b067-61995c354054";
+const imgEllipseLife = "https://www.figma.com/api/mcp/asset/86fb15c6-99ac-4d72-a61e-78016f420f3b";
+const imgEllipseTest = "https://www.figma.com/api/mcp/asset/026ad015-e021-4177-88b5-57ce09a02f2a";
 
 const socialLinks = [
   { label: "X",         href: "https://twitter.com/riyaghosh" },
@@ -164,9 +166,10 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                       fontWeight: 300,
                       fontSize: "34px",
                       letterSpacing: "-1.02px",
-                      lineHeight: 1.15,
+                      lineHeight: "normal",
                       margin: 0,
                       color: "#ffffff",
+                      fontStyle: "normal",
                     }}>
                       I&apos;m a designer, builder, &amp; Foodie — Currently rabbit-holing into the world of human-AI interaction..
                     </p>
@@ -223,7 +226,7 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                     <img
                       src={imgRightPhoto}
                       alt="Riya Ghosh"
-                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      style={{ position: "absolute", width: "100%", height: "154.28%", left: 0, top: "-27.14%", maxWidth: "none", pointerEvents: "none", display: "block" }}
                     />
                   </div>
                 </div>
@@ -235,7 +238,7 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                     border: "1px solid rgba(0,0,0,0.13)", borderRadius: "60px",
                     padding: "7px 14px", background: "#000000", width: "fit-content",
                   }}>
-                    <img src="https://www.figma.com/api/mcp/asset/c3321f36-03c9-4723-a977-4dfd9416ff6d" alt="" style={{ width: "7px", height: "7px", flexShrink: 0, display: "block" }} />
+                    <img src={imgEllipseLife} alt="" style={{ width: "7px", height: "7px", flexShrink: 0, display: "block" }} />
                     <span style={{ fontFamily: "var(--font-inter), sans-serif", fontWeight: 400, fontSize: "13px", color: "#ffffff", letterSpacing: "-0.13px", whiteSpace: "nowrap" }}>
                       Life Lately
                     </span>
@@ -271,7 +274,7 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                     border: "1px solid rgba(0,0,0,0.13)", borderRadius: "60px",
                     padding: "7px 14px", background: "#000000", width: "fit-content",
                   }}>
-                    <img src="https://www.figma.com/api/mcp/asset/c3321f36-03c9-4723-a977-4dfd9416ff6d" alt="" style={{ width: "7px", height: "7px", flexShrink: 0, display: "block" }} />
+                    <img src={imgEllipseTest} alt="" style={{ width: "7px", height: "7px", flexShrink: 0, display: "block" }} />
                     <span style={{ fontFamily: "var(--font-inter), sans-serif", fontWeight: 400, fontSize: "13px", color: "#ffffff", letterSpacing: "-0.13px", whiteSpace: "nowrap" }}>
                       Testimonial
                     </span>

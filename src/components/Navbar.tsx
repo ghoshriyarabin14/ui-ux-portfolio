@@ -66,9 +66,13 @@ export const Navbar = () => {
   const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [aboutOpen, setAboutOpen]   = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      setShowBackToTop(window.scrollY > 400);
+    };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -280,6 +284,41 @@ export const Navbar = () => {
       </AnimatePresence>
 
       <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
+
+      {/* ── Back to Top ── */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ type: "spring", stiffness: 400, damping: 22 }}
+            whileHover={{ rotate: -3, scale: 1.04 }}
+            style={{
+              position: "fixed",
+              bottom: "32px",
+              right: "24px",
+              zIndex: 50,
+              fontFamily: "var(--font-inter), sans-serif",
+              fontWeight: 400,
+              fontSize: "14px",
+              color: "#ffffff",
+              letterSpacing: "-0.14px",
+              background: "transparent",
+              border: "1px solid rgba(214,214,214,0.12)",
+              borderRadius: "60px",
+              padding: "7px 14px",
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+              lineHeight: "normal",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            ↑ Back to Top
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 };
