@@ -535,23 +535,16 @@ export default function AgenticAiPage() {
               </BodyText>
             </Section>
 
-            {/* Rapid proto image pair */}
-            <div style={{ display: "flex", gap: "24px", width: "100%", alignItems: "flex-start" }}>
-              {/* Left — video clip, natural height */}
-              <div style={{ flex: "1 0 0", minWidth: 0, overflow: "hidden", borderRadius: "4px", background: "#212121" }}>
-                <video
-                  src="/iris-proto.mov"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  style={{ width: "100%", display: "block", maxHeight: "534px", objectFit: "cover" }}
-                />
-              </div>
-              {/* Right — phone mockup */}
-              <div style={{ flex: "1 0 0", minWidth: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 0" }}>
-                <IrisPhoneMockup />
-              </div>
+            {/* Rapid Prototyping Video */}
+            <div style={{ width: "100%", height: "534px", borderRadius: "8px", overflow: "hidden", background: "#212121" }}>
+              <video
+                src="/Videos/rapid proto.mov"
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+              />
             </div>
 
             {/* Ask Rosa */}
