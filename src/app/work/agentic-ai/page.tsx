@@ -418,11 +418,21 @@ export default function AgenticAiPage() {
 
             {/* Rapid proto image pair */}
             <div style={{ display: "flex", gap: "24px", width: "100%" }}>
-              {[0, 1].map((i) => (
-                <div key={i} style={{ flex: "1 0 0", minWidth: 0, overflow: "hidden", borderRadius: "4px" }}>
-                  <img src={imgRapidProto} alt="" style={{ width: "100%", display: "block", objectFit: "cover" }} />
-                </div>
-              ))}
+              {/* Left — video clip */}
+              <div style={{ flex: "1 0 0", minWidth: 0, height: "420px", overflow: "hidden", borderRadius: "4px", background: "#212121" }}>
+                <video
+                  src="/iris-proto.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+                />
+              </div>
+              {/* Right — placeholder */}
+              <div style={{ flex: "1 0 0", minWidth: 0, overflow: "hidden", borderRadius: "4px" }}>
+                <img src={imgRapidProto} alt="" style={{ width: "100%", display: "block", objectFit: "cover" }} />
+              </div>
             </div>
 
             {/* Ask Rosa */}
@@ -432,8 +442,20 @@ export default function AgenticAiPage() {
               </BodyText>
             </Section>
 
-            {/* Ask Rosa placeholder images */}
-            <ImagePair rightHeight={409} />
+            {/* Ask Rosa — video in first container */}
+            <div style={{ display: "flex", gap: "24px", width: "100%" }}>
+              <div style={{ flex: "1 0 0", minWidth: 0, height: "420px", overflow: "hidden", borderRadius: "4px", background: "#212121" }}>
+                <video
+                  src="/iris-proto.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+                />
+              </div>
+              <div style={{ flex: "1 0 0", minWidth: 0, height: "420px", background: "#212121", borderRadius: "4px" }} />
+            </div>
 
             {/* Sub-Agentic */}
             <Section label={`4. Designing the "Sub-Agentic" Assistance`}>
