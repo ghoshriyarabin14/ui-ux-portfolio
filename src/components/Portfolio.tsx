@@ -77,7 +77,7 @@ export const Portfolio = () => (
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
           <CardHeader label="Case Study" title="Agentic AI × Salesforce" category="Enterprise UX" />
 
-          <div data-cursor-label="VIEW CASE STUDY" style={{ flex: "1 0 0", background: "#ffffff", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none" }}>
+          <a href="/work/agentic-ai" data-cursor-label="VIEW CASE STUDY" style={{ flex: "1 0 0", background: "#ffffff", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none", display: "block", textDecoration: "none" }}>
             {/* Background photo */}
             <div style={{ position: "absolute", height: "656px", left: "-260px", top: 0, width: "1312px" }}>
               <img
@@ -125,7 +125,7 @@ export const Portfolio = () => (
                 Agentic Ai X Salesforce
               </p>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* ── Card 2 · Google Material Design System ── */}
