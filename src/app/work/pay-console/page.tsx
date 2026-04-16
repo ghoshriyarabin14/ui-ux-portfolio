@@ -184,7 +184,7 @@ export default function PayConsolePage() {
     <>
       <Navbar />
 
-      <div style={{ background: "#000", minHeight: "100vh", paddingTop: "65px", color: WHITE }}>
+      <div style={{ background: "#000", minHeight: "100vh", paddingTop: "83px", color: WHITE }}>
         <div style={{ padding: "0 24px 120px" }}>
 
           {/* ── HERO ── */}
@@ -192,7 +192,7 @@ export default function PayConsolePage() {
             {/* Title row */}
             <div style={{
               display: "flex", alignItems: "center", justifyContent: "space-between",
-              padding: "10px", width: "100%", boxSizing: "border-box",
+              padding: "10px 0", width: "100%",
             }}>
               <span style={{
                 fontFamily: SERIF, fontWeight: 400, fontSize: "24px", color: WHITE,
