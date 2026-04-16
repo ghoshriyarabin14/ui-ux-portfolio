@@ -25,7 +25,7 @@ export const Hero = () => (
       alignItems: "flex-start",
       overflow: "hidden",
       paddingBottom: "72px",
-      paddingTop: "110px",
+      paddingTop: "185px",
       paddingLeft: "24px",
       paddingRight: "24px",
       width: "100%",
