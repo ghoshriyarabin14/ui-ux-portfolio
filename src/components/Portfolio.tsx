@@ -109,9 +109,10 @@ export const Portfolio = () => (
         <div style={{ display: "flex", flexDirection: "column", gap: "32px", height: "785px" }}>
           <CardHeader label="Case Study" title="Pay Console X Eco System" category="Case study" />
 
-          <div
+          <a
+            href="/work/pay-console"
             data-cursor-label="VIEW CASE STUDY"
-            style={{ flex: "1 0 0", background: "#000000", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none" }}
+            style={{ flex: "1 0 0", background: "#000000", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none", display: "block", textDecoration: "none" }}
           >
             <div style={{ position: "absolute", height: "518px", left: "31px", top: "80px", width: "635px", overflow: "hidden" }}>
               <img
@@ -120,7 +121,7 @@ export const Portfolio = () => (
                 style={{ position: "absolute", height: "105.93%", left: "-25.62%", top: "-11.71%", width: "166.95%", maxWidth: "none", pointerEvents: "none" }}
               />
             </div>
-          </div>
+          </a>
         </div>
 
       </div>
