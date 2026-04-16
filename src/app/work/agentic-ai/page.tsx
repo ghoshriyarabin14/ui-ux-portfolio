@@ -417,19 +417,19 @@ export default function AgenticAiPage() {
             </Section>
 
             {/* Rapid proto image pair */}
-            <div style={{ display: "flex", gap: "24px", width: "100%" }}>
-              {/* Left — video clip */}
-              <div style={{ flex: "1 0 0", minWidth: 0, height: "420px", overflow: "hidden", borderRadius: "4px", background: "#212121" }}>
+            <div style={{ display: "flex", gap: "24px", width: "100%", alignItems: "flex-start" }}>
+              {/* Left — video clip, natural height */}
+              <div style={{ flex: "1 0 0", minWidth: 0, overflow: "hidden", borderRadius: "4px", background: "#212121" }}>
                 <video
                   src="/iris-proto.mov"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+                  style={{ width: "100%", display: "block" }}
                 />
               </div>
-              {/* Right — placeholder */}
+              {/* Right — placeholder matches video height */}
               <div style={{ flex: "1 0 0", minWidth: 0, overflow: "hidden", borderRadius: "4px" }}>
                 <img src={imgRapidProto} alt="" style={{ width: "100%", display: "block", objectFit: "cover" }} />
               </div>
@@ -442,19 +442,19 @@ export default function AgenticAiPage() {
               </BodyText>
             </Section>
 
-            {/* Ask Rosa — video in first container */}
-            <div style={{ display: "flex", gap: "24px", width: "100%" }}>
-              <div style={{ flex: "1 0 0", minWidth: 0, height: "420px", overflow: "hidden", borderRadius: "4px", background: "#212121" }}>
+            {/* Ask Rosa — video in first container, natural height */}
+            <div style={{ display: "flex", gap: "24px", width: "100%", alignItems: "flex-start" }}>
+              <div style={{ flex: "1 0 0", minWidth: 0, overflow: "hidden", borderRadius: "4px", background: "#212121" }}>
                 <video
                   src="/iris-proto.mov"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+                  style={{ width: "100%", display: "block" }}
                 />
               </div>
-              <div style={{ flex: "1 0 0", minWidth: 0, height: "420px", background: "#212121", borderRadius: "4px" }} />
+              <div style={{ flex: "1 0 0", minWidth: 0, background: "#212121", borderRadius: "4px", aspectRatio: "16/9" }} />
             </div>
 
             {/* Sub-Agentic */}
