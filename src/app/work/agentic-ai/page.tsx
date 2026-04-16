@@ -157,6 +157,125 @@ function ImagePair({
   );
 }
 
+// ── IRIS Phone Mockup (Figma node 359:108679) ─────────────────────────────────
+function IrisPhoneMockup() {
+  return (
+    <div style={{
+      width: "100%", maxWidth: "340px", margin: "0 auto",
+      background: "#ffffff", borderRadius: "44px",
+      boxShadow: "0 0 0 1px rgba(0,0,0,0.08), 0 24px 64px rgba(0,0,0,0.18)",
+      overflow: "hidden", fontFamily: "var(--font-inter), sans-serif",
+    }}>
+      {/* Status bar */}
+      <div style={{ padding: "14px 24px 8px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontSize: "13px", fontWeight: 600, color: "#000" }}>9:41</span>
+        <div style={{ display: "flex", gap: "5px", alignItems: "center" }}>
+          {/* Signal */}
+          <svg width="17" height="12" viewBox="0 0 17 12" fill="none"><rect x="0" y="4" width="3" height="8" rx="1" fill="#000"/><rect x="4.5" y="2.5" width="3" height="9.5" rx="1" fill="#000"/><rect x="9" y="1" width="3" height="11" rx="1" fill="#000"/><rect x="13.5" y="0" width="3" height="12" rx="1" fill="#000"/></svg>
+          {/* Wifi */}
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm0-4a6 6 0 0 1 4.24 1.76l-1.42 1.42A4 4 0 0 0 8 7.5a4 4 0 0 0-2.82 1.18L3.76 7.26A6 6 0 0 1 8 5.5zm0-4a10 10 0 0 1 7.07 2.93L13.66 5.84A8 8 0 0 0 8 3.5a8 8 0 0 0-5.66 2.34L.93 4.43A10 10 0 0 1 8 1.5z" fill="#000"/></svg>
+          {/* Battery */}
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0" y="1" width="22" height="10" rx="2.5" stroke="#000" strokeWidth="1"/><rect x="1.5" y="2.5" width="18" height="7" rx="1.5" fill="#000"/><path d="M23 4v4a2 2 0 0 0 0-4z" fill="#000"/></svg>
+        </div>
+      </div>
+
+      {/* App header */}
+      <div style={{ padding: "4px 20px 12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><rect y="0" width="20" height="2" rx="1" fill="#333"/><rect y="7" width="20" height="2" rx="1" fill="#333"/><rect y="14" width="20" height="2" rx="1" fill="#333"/></svg>
+          {/* I.R.I.S logo */}
+          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+            <div style={{ width: "22px", height: "22px", borderRadius: "50%", background: "conic-gradient(from 0deg, #f97316, #a855f7, #3b82f6, #f97316)", flexShrink: 0 }} />
+            <span style={{ fontWeight: 700, fontSize: "14px", color: "#1e1b4b", letterSpacing: "0.05em" }}>I.R.I.S</span>
+          </div>
+        </div>
+        {/* Toggle */}
+        <div style={{
+          width: "52px", height: "28px", borderRadius: "14px",
+          background: "#6d28d9", display: "flex", alignItems: "center", justifyContent: "flex-end",
+          padding: "3px 4px",
+        }}>
+          <div style={{
+            width: "22px", height: "22px", borderRadius: "50%", background: "#ffffff",
+            display: "flex", alignItems: "center", justifyContent: "center",
+          }}>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#6d28d9" strokeWidth="1.5" strokeLinecap="round"/></svg>
+          </div>
+        </div>
+      </div>
+
+      {/* Main card */}
+      <div style={{ margin: "0 12px 12px", background: "linear-gradient(160deg, #f5f4ff 0%, #fff 60%)", borderRadius: "24px", overflow: "hidden", padding: "28px 20px 16px", minHeight: "460px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+        <div style={{ textAlign: "center" }}>
+          <p style={{ fontSize: "18px", fontWeight: 700, color: "#1e1b4b", lineHeight: 1.3, margin: 0 }}>
+            Good Afternoon, Jordan
+          </p>
+          <p style={{ fontSize: "18px", fontWeight: 700, lineHeight: 1.3, margin: "2px 0 0" }}>
+            <span style={{ color: "#1e1b4b" }}>What&apos;s on </span>
+            <span style={{ color: "#f97316" }}>your mind?</span>
+          </p>
+        </div>
+
+        {/* Gradient orb */}
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flex: 1, padding: "20px 0" }}>
+          <div style={{ width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(167,139,250,0.35) 0%, rgba(196,181,253,0.15) 60%, transparent 100%)" }} />
+        </div>
+
+        {/* Suggestion chips */}
+        <div style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
+          {[
+            { icon: "📋", text: "Generate a sales performance report" },
+            { icon: "📊", text: "Show quick analysis for top leads" },
+          ].map(({ icon, text }) => (
+            <div key={text} style={{
+              flex: 1, background: "rgba(200,195,255,0.25)", borderRadius: "12px",
+              padding: "8px 10px", display: "flex", flexDirection: "column", gap: "4px",
+            }}>
+              <span style={{ fontSize: "11px" }}>{icon}</span>
+              <span style={{ fontSize: "10px", color: "#4c4a7a", lineHeight: 1.3 }}>{text}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Input */}
+        <div style={{
+          background: "#ffffff", borderRadius: "14px", padding: "12px 14px",
+          border: "1px solid rgba(0,0,0,0.06)",
+        }}>
+          <p style={{ fontSize: "13px", color: "#9ca3af", margin: "0 0 12px" }}>Ask Rosa anything..</p>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            {/* Attachment */}
+            <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 6.5L6.5 11a3.18 3.18 0 01-4.5-4.5l5-5A2.12 2.12 0 0110 4.5L5.5 9a1.06 1.06 0 01-1.5-1.5L8.5 3" stroke="#6b7280" strokeWidth="1.2" strokeLinecap="round"/></svg>
+            </div>
+            <div style={{ display: "flex", gap: "8px" }}>
+              {/* Mic */}
+              <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><rect x="3" y="0" width="6" height="9" rx="3" stroke="#6b7280" strokeWidth="1.2"/><path d="M1 7a5 5 0 0010 0" stroke="#6b7280" strokeWidth="1.2" strokeLinecap="round"/><line x1="6" y1="12" x2="6" y2="14" stroke="#6b7280" strokeWidth="1.2" strokeLinecap="round"/></svg>
+              </div>
+              {/* Waveform */}
+              <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h2M4 2v6M7 0v10M10 2v6M13 5h1" stroke="#6b7280" strokeWidth="1.2" strokeLinecap="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Browser bottom bar */}
+      <div style={{ padding: "8px 16px 16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        {[
+          <svg key="back" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9l5 5" stroke="#333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+          <svg key="win" width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#333" strokeWidth="1.5"/></svg>,
+          <span key="url" style={{ fontSize: "11px", color: "#333", fontWeight: 500 }}>iris.com</span>,
+          <svg key="ref" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M14 9a5 5 0 11-1.5-3.5M14 5v4h-4" stroke="#333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+          <svg key="more" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="4" cy="9" r="1.5" fill="#333"/><circle cx="9" cy="9" r="1.5" fill="#333"/><circle cx="14" cy="9" r="1.5" fill="#333"/></svg>,
+        ].map((el, i) => <div key={i}>{el}</div>)}
+      </div>
+    </div>
+  );
+}
+
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function AgenticAiPage() {
   return (
@@ -429,9 +548,9 @@ export default function AgenticAiPage() {
                   style={{ width: "100%", display: "block", maxHeight: "534px", objectFit: "cover" }}
                 />
               </div>
-              {/* Right — placeholder matches video height */}
-              <div style={{ flex: "1 0 0", minWidth: 0, overflow: "hidden", borderRadius: "4px" }}>
-                <img src={imgRapidProto} alt="" style={{ width: "100%", display: "block", objectFit: "cover" }} />
+              {/* Right — phone mockup */}
+              <div style={{ flex: "1 0 0", minWidth: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 0" }}>
+                <IrisPhoneMockup />
               </div>
             </div>
 
@@ -454,7 +573,10 @@ export default function AgenticAiPage() {
                   style={{ width: "100%", display: "block", maxHeight: "534px", objectFit: "cover" }}
                 />
               </div>
-              <div style={{ flex: "1 0 0", minWidth: 0, background: "#212121", borderRadius: "4px", maxHeight: "534px", aspectRatio: "16/9" }} />
+              {/* Right — phone mockup */}
+              <div style={{ flex: "1 0 0", minWidth: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 0" }}>
+                <IrisPhoneMockup />
+              </div>
             </div>
 
             {/* Sub-Agentic */}
