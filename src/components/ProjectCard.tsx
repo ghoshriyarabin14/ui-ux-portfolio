@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -11,64 +12,86 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  const typeEmoji = project.type === "case-study" ? "📝" : "📸";
-  const typeLabel = project.type === "case-study" ? "CASE STUDY" : "SNAPSHOT";
+  const typeLabel = project.type === "case-study" ? "Case Study" : "Snapshot";
 
   return (
     <motion.div
       ref={ref}
       className="project-card group cursor-pointer w-full"
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      initial={{ opacity: 0, x: 20 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.4, 0, 0.2, 1] }}
     >
-      <article>
-        {/* Info Section - TOP */}
-        <div className="mb-4">
-          {/* Type Badge */}
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-sm">{typeEmoji}</span>
-            <span 
-              className="text-xs font-medium tracking-wider uppercase"
-              style={{ color: "#ffffff" }}
-            >
-              {typeLabel}
-            </span>
-          </div>
+      <article className="flex flex-col gap-3">
+        {/* Label */}
+        <span
+          style={{
+            fontFamily: "var(--font-manrope), sans-serif",
+            fontWeight: 400,
+            fontSize: "14px",
+            color: "#000000",
+            letterSpacing: "0",
+          }}
+        >
+          {typeLabel}
+        </span>
 
-          {/* Title */}
-          <h3 
-            className="text-heading text-xl md:text-2xl lg:text-[28px] mb-1"
-            style={{ color: "#ffffff" }}
+        {/* Title row with arrow */}
+        <div className="flex items-center gap-2">
+          <h3
+            style={{
+              fontFamily: "var(--font-manrope), sans-serif",
+              fontWeight: 600,
+              fontSize: "clamp(22px, 2.5vw, 40px)",
+              color: "#000000",
+              letterSpacing: "-0.03em",
+              lineHeight: 1.1,
+              margin: 0,
+            }}
           >
             {project.title}
           </h3>
-
-          {/* Category - Gray */}
-          <p 
-            className="text-sm md:text-base"
-            style={{ color: "#707070" }}
-          >
-            {project.category}
-          </p>
+          <span className="project-title-arrow flex-shrink-0" style={{ color: "#000000" }}>
+            <ArrowUpRight size={24} strokeWidth={1.5} />
+          </span>
         </div>
 
-        {/* Image Section - BELOW */}
-        <motion.div
-          className="relative overflow-hidden rounded-lg aspect-[16/9]"
-          style={{ backgroundColor: "#1a1a1a" }}
-          initial={{ opacity: 0, y: 60 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
-          transition={{ duration: 0.8, delay: index * 0.1 + 0.2, ease: [0.4, 0, 0.2, 1] }}
+        {/* Category */}
+        <p
+          style={{
+            fontFamily: "var(--font-manrope), sans-serif",
+            fontWeight: 400,
+            fontSize: "clamp(14px, 1.5vw, 20px)",
+            color: "#757575",
+            letterSpacing: "-0.01em",
+            margin: 0,
+          }}
         >
-          <img
-            src={project.image}
-            alt={project.description}
-            className="project-image w-full h-full object-cover"
-            loading="lazy"
-          />
+          {project.category}
+        </p>
+
+        {/* Image */}
+        <motion.div
+          className="relative overflow-hidden w-full"
+          style={{
+            backgroundColor: project.cardBg || "#f0f0f0",
+            aspectRatio: "16/10",
+            borderRadius: 0,
+          }}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.1 + 0.15 }}
+        >
+          {project.image && (
+            <img
+              src={project.image}
+              alt={project.description}
+              className="project-image w-full h-full object-cover"
+              loading="lazy"
+            />
+          )}
         </motion.div>
       </article>
     </motion.div>

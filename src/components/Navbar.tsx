@@ -7,12 +7,13 @@ import { AboutModal } from "./AboutModal";
 import { FollowEyes } from "./FollowEyes";
 
 const AUTO_AWESOME_ICON =
-  "https://www.figma.com/api/mcp/asset/ffae57bf-ecd5-4f46-a420-ede64328dde1";
+  "https://www.figma.com/api/mcp/asset/fa5cb573-3f9e-4422-9917-262d7ff91fa8";
 
 const leftPills = [
-  { name: "About Me",    href: "",          modal: true,  action: null },
-  { name: "Playground",  href: "#featured",  modal: false, action: null },
-  { name: "Resume",      href: "",           modal: false, action: "resume" },
+  { name: "Senior UI/UX & AI Designer", href: "", modal: false, action: null  },
+  { name: "About",     href: "",          modal: true,  action: null  },
+  { name: "Fun Stuff", href: "#featured", modal: false, action: null  },
+  { name: "Resume",    href: "",          modal: false, action: "resume" },
 ];
 
 function AboutPill({ onClick }: { onClick: () => void }) {
@@ -28,14 +29,14 @@ function AboutPill({ onClick }: { onClick: () => void }) {
       style={{
         fontFamily: "var(--font-inter), sans-serif",
         fontWeight: 400,
-        fontSize: "16px",
-        color: "#000000",
-        letterSpacing: "-0.16px",
-        background: "white",
-        border: "1px solid rgba(0,0,0,0.12)",
+        fontSize: "14px",
+        color: "#ffffff",
+        letterSpacing: "-0.14px",
+        background: "transparent",
+        border: "1px solid rgba(214,214,214,0.12)",
         borderRadius: "60px",
         padding: "0 14px",
-        height: "40px",
+        height: "31px",
         cursor: "pointer",
         lineHeight: 1,
         whiteSpace: "nowrap",
@@ -86,21 +87,44 @@ export const Navbar = () => {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 bg-white${scrolled ? " navbar scrolled" : ""}`}
+        className={`fixed top-0 left-0 right-0 z-50${scrolled ? " navbar scrolled" : ""}`}
+        style={{ background: "#141414" }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, delay: 0.05 }}
       >
         <nav
           className="flex items-center justify-between"
-          style={{ padding: "12px 24px", borderBottom: "1px solid rgba(0,0,0,0.08)" }}
+          style={{ paddingTop: "32px", paddingBottom: "16px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid rgba(214,214,214,0.08)" }}
         >
           {/* ── LEFT: pill nav ── */}
           <div className="hidden md:flex items-center gap-2 flex-shrink-0 flex-1">
             {leftPills.map((pill) =>
               pill.modal ? (
-                /* About Me — arrow slides in on hover */
+                /* About — arrow slides in on hover */
                 <AboutPill key={pill.name} onClick={() => handlePill(pill)} />
+              ) : !pill.href && !pill.action ? (
+                /* Static label pill — no interaction */
+                <span
+                  key={pill.name}
+                  style={{
+                    fontFamily: "var(--font-inter), sans-serif",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "#ffffff",
+                    letterSpacing: "-0.14px",
+                    background: "transparent",
+                    border: "1px solid rgba(214,214,214,0.12)",
+                    borderRadius: "60px",
+                    padding: "7px 14px",
+                    lineHeight: "normal",
+                    whiteSpace: "nowrap",
+                    display: "inline-flex",
+                    alignItems: "center",
+                  }}
+                >
+                  {pill.name}
+                </span>
               ) : (
                 <motion.button
                   key={pill.name}
@@ -110,16 +134,15 @@ export const Navbar = () => {
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontWeight: 400,
-                    fontSize: "16px",
-                    color: "#000000",
-                    letterSpacing: "-0.16px",
-                    background: "white",
-                    border: "1px solid rgba(0,0,0,0.12)",
+                    fontSize: "14px",
+                    color: "#ffffff",
+                    letterSpacing: "-0.14px",
+                    background: "transparent",
+                    border: "1px solid rgba(214,214,214,0.12)",
                     borderRadius: "60px",
-                    padding: "0 14px",
-                    height: "40px",
-                    cursor: pill.href ? "pointer" : "default",
-                    lineHeight: 1,
+                    padding: "7px 14px",
+                    cursor: "pointer",
+                    lineHeight: "normal",
                     whiteSpace: "nowrap",
                     transformOrigin: "center center",
                   }}
@@ -130,20 +153,22 @@ export const Navbar = () => {
             )}
           </div>
 
-          {/* ── CENTER: name ── */}
-          <div className="absolute left-1/2 -translate-x-1/2 text-center select-none">
+          {/* ── CENTER: name — absolute so it's always exactly centered ── */}
+          <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none">
             <a
               href="#"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               style={{
-                fontFamily: "var(--font-crimson), Georgia, serif",
-                fontWeight: 400,
-                fontSize: "42px",
-                color: "#000000",
+                fontFamily: "var(--font-frank-ruhl), Georgia, serif",
+                fontWeight: 500,
+                fontSize: "20px",
+                color: "#ffffff",
                 textDecoration: "none",
-                lineHeight: 1,
+                lineHeight: "normal",
                 display: "block",
                 whiteSpace: "nowrap",
+                letterSpacing: "-0.2px",
+                pointerEvents: "auto",
               }}
             >
               Riya Ghosh
@@ -159,14 +184,13 @@ export const Navbar = () => {
               style={{
                 fontFamily: "var(--font-inter), sans-serif",
                 fontWeight: 500,
-                fontSize: "16px",
-                color: "#000000",
-                letterSpacing: "-0.16px",
-                background: "#c9caff",
+                fontSize: "14px",
+                color: "#ffffff",
+                letterSpacing: "-0.14px",
+                background: "transparent",
                 border: "none",
                 borderRadius: "60px",
-                padding: "0 18px",
-                height: "40px",
+                padding: "9px 18px",
                 cursor: "pointer",
                 whiteSpace: "nowrap",
                 transformOrigin: "center center",
@@ -198,7 +222,7 @@ export const Navbar = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center" style={{ background: "#141414" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

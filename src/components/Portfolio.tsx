@@ -1,13 +1,13 @@
 "use client";
 
-// ─── Figma asset URLs · node 219:11020 ───────────────────────────────────────
-const imgImage1       = "https://www.figma.com/api/mcp/asset/69050293-b842-4569-9692-20145516bc30";
-const imgGraphicEl    = "https://www.figma.com/api/mcp/asset/0e067d8f-f2ae-45fb-8c69-3181dd1f3274";
-const imgFrame28      = "https://www.figma.com/api/mcp/asset/648ff194-6b77-4af7-84fa-87285be9d04c";
-const imgArrowOutward = "https://www.figma.com/api/mcp/asset/96a65acf-ed8a-486a-869b-3b2b174d0cd1";
-const imgIcon         = "https://www.figma.com/api/mcp/asset/e4e7f6ef-2955-4757-a9bd-1cf527a946aa";
+// ─── Figma asset URLs · node 286:8259 ────────────────────────────────────────
+const imgImage1       = "https://www.figma.com/api/mcp/asset/b2dcbd48-0734-4bee-96c2-b4ddb3d2910b"; // Agentic hero bg
+const imgGraphicEl    = "https://www.figma.com/api/mcp/asset/137b2ebc-96b7-48cd-9a67-d6590ae0043f"; // Graphic element
+const imgImageBlock   = "https://www.figma.com/api/mcp/asset/2931e346-240a-4ff8-b270-a04d1e8971a8"; // OTT Sports Cards (NFL player)
+const imgFrame28      = "https://www.figma.com/api/mcp/asset/146965fb-ef0c-4b9f-b3cf-4eacb169ff57"; // Tetris Console
+const imgArrowOutward = "https://www.figma.com/api/mcp/asset/055669d9-bfc6-48a8-afa9-1c8661e2791c"; // Arrow icon
 
-// ─── Shared text styles (exact Figma values) ─────────────────────────────────
+// ─── Shared text styles ───────────────────────────────────────────────────────
 const S = {
   label: {
     fontFamily: "var(--font-inter), sans-serif",
@@ -22,7 +22,7 @@ const S = {
     fontFamily: "var(--font-inter), sans-serif",
     fontWeight: 600,
     fontSize: "28px",
-    color: "#000000",
+    color: "#ffffff",
     letterSpacing: "-0.7px",
     lineHeight: "normal",
     margin: 0,
@@ -31,8 +31,8 @@ const S = {
   category: {
     fontFamily: "var(--font-inter), sans-serif",
     fontWeight: 400,
-    fontSize: "14px",
-    color: "#757575",
+    fontSize: "16px",
+    color: "#ffffff",
     lineHeight: "normal",
     margin: 0,
     whiteSpace: "nowrap",
@@ -42,7 +42,7 @@ const S = {
 // ─── Card header ─────────────────────────────────────────────────────────────
 function CardHeader({ label, title, category }: { label: string; title: string; category: string }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "8px", flexShrink: 0 }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", flexShrink: 0 }}>
       <p style={S.label}>{label}</p>
       <div style={{ display: "flex", alignItems: "center", gap: "8px", overflow: "hidden" }}>
         <p style={S.title}>{title}</p>
@@ -58,30 +58,27 @@ export const Portfolio = () => (
   <section
     id="portfolio"
     style={{
-      background: "#ffffff",
-      paddingTop: "0",
+      background: "#141414",
+      paddingTop: "120px",
       paddingBottom: "80px",
       paddingLeft: "24px",
       paddingRight: "24px",
       overflowX: "hidden",
     }}
   >
-    {/* Row — two 696 px columns, 24 px gap */}
     <div style={{ display: "flex", gap: "24px", alignItems: "flex-start", width: "100%" }}>
 
-      {/* ════════════════════════════════════════════════
-          LEFT COLUMN  ·  flex-col · gap-24px
-      ════════════════════════════════════════════════ */}
+      {/* ════════════════════════════════════════
+          LEFT COLUMN
+      ════════════════════════════════════════ */}
       <div style={{ display: "flex", flexDirection: "column", gap: "24px", flexShrink: 0, width: "calc(50% - 12px)" }}>
 
         {/* ── Card 1 · Agentic AI × Salesforce · h-785px ── */}
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
           <CardHeader label="Case Study" title="Agentic AI × Salesforce" category="Enterprise UX" />
 
-          {/* Image block: bg-black, flex-1, overflow-clip */}
-          <div data-cursor-label="VIEW CASE STUDY" style={{ flex: "1 0 0", background: "#000000", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none" }}>
-
-            {/* Background photo · h-656px · left-[-260px] · w-1312px */}
+          <div data-cursor-label="VIEW CASE STUDY" style={{ flex: "1 0 0", background: "#ffffff", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none" }}>
+            {/* Background photo */}
             <div style={{ position: "absolute", height: "656px", left: "-260px", top: 0, width: "1312px" }}>
               <img
                 src={imgImage1}
@@ -90,23 +87,15 @@ export const Portfolio = () => (
               />
             </div>
 
-            {/* Live Mode white card · h-904px · left-[-208px] · top-[-143px] · w-1285px */}
+            {/* Live Mode white card */}
             <div style={{ position: "absolute", background: "white", height: "904px", left: "-208px", top: "-143px", width: "1285px", overflowX: "clip", overflowY: "auto" }}>
-
-              {/* Graphic element — centered, rotated 180° */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: 0,
-                  right: 0,
-                  top: "calc(50% + 68px)",
-                  transform: "translateY(-50%)",
-                  aspectRatio: "1285 / 1062",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              {/* Graphic element — rotated 180° */}
+              <div style={{
+                position: "absolute", left: 0, right: 0,
+                top: "calc(50% + 68px)", transform: "translateY(-50%)",
+                aspectRatio: "1285 / 1062",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
                 <div style={{ flexShrink: 0, height: "1062px", width: "1285px", transform: "rotate(180deg)", position: "relative" }}>
                   <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
                     <img
@@ -118,30 +107,21 @@ export const Portfolio = () => (
                 </div>
               </div>
 
-              {/* Menu icon · inset 5.3% 86.69% 92.55% 11.44% */}
-              <div style={{ position: "absolute", top: "5.3%", left: "11.44%", right: "86.69%", bottom: "92.55%", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: "25%", bottom: "25%", left: "12.5%", right: "12.5%" }}>
-                  <img src={imgIcon} alt="" style={{ position: "absolute", width: "100%", height: "100%", maxWidth: "none" }} />
-                </div>
-              </div>
-
-              {/* Title · Manrope SemiBold 48px · #2e3450 */}
-              <p
-                style={{
-                  position: "absolute",
-                  left: "calc(43.75% - 1.19px)",
-                  top: "calc(50% - 43px)",
-                  transform: "translateX(-50%)",
-                  fontFamily: "var(--font-manrope), sans-serif",
-                  fontWeight: 600,
-                  fontSize: "48px",
-                  color: "#2e3450",
-                  textAlign: "center",
-                  whiteSpace: "nowrap",
-                  lineHeight: "normal",
-                  margin: 0,
-                }}
-              >
+              {/* Title */}
+              <p style={{
+                position: "absolute",
+                left: "calc(43.75% - 1.19px)",
+                top: "calc(50% - 43px)",
+                transform: "translateX(-50%)",
+                fontFamily: "var(--font-manrope), sans-serif",
+                fontWeight: 600,
+                fontSize: "48px",
+                color: "#2e3450",
+                textAlign: "center",
+                whiteSpace: "nowrap",
+                lineHeight: "normal",
+                margin: 0,
+              }}>
                 Agentic Ai X Salesforce
               </p>
             </div>
@@ -151,39 +131,50 @@ export const Portfolio = () => (
         {/* ── Card 2 · Google Material Design System ── */}
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <CardHeader label="Case Study" title="Google Material Design System" category="Design System" />
-          {/* Image block · bg-[#e8e8f7] · h-961px */}
-          <div data-cursor-label="VIEW CASE STUDY" style={{ background: "#e8e8f7", height: "961px", flexShrink: 0, width: "100%", cursor: "none" }} />
+          <div
+            data-cursor-label="VIEW CASE STUDY"
+            style={{ background: "#e8e8f7", height: "961px", flexShrink: 0, width: "100%", cursor: "none" }}
+          />
         </div>
       </div>
 
-      {/* ════════════════════════════════════════════════
-          RIGHT COLUMN  ·  flex-col · gap-16px · h-1859px
-      ════════════════════════════════════════════════ */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-          height: "1859px",
-          flexShrink: 0,
-          width: "calc(50% - 12px)",
-        }}
-      >
-        {/* ── Card 3 header · OTT Sports Cards · Youtube TV ── */}
+      {/* ════════════════════════════════════════
+          RIGHT COLUMN · h-1859px
+      ════════════════════════════════════════ */}
+      <div style={{
+        display: "flex", flexDirection: "column", gap: "16px",
+        height: "1859px", flexShrink: 0, width: "calc(50% - 12px)",
+      }}>
+
+        {/* ── Card 3 header · OTT Sports Cards ── */}
         <CardHeader label="LIVE" title="OTT Sports Cards · Youtube TV" category="Design System" />
 
-        {/* Image block · bg-[#c9caff] · h-967px — links to microsite */}
+        {/* OTT image · h-967px */}
         <a
           href="/work/ott-sports-cards"
           data-cursor-label="VIEW CASE STUDY"
-          style={{ background: "#c9caff", height: "967px", flexShrink: 0, width: "100%", cursor: "none", display: "block", textDecoration: "none" }}
-        />
+          style={{ height: "967px", flexShrink: 0, width: "100%", cursor: "none", display: "block", textDecoration: "none", position: "relative", overflow: "hidden" }}
+        >
+          <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
+            <img
+              src={imgImageBlock}
+              alt="OTT Sports Cards"
+              style={{
+                position: "absolute",
+                height: "101.21%",
+                left: "-97.99%",
+                top: "-1.21%",
+                width: "249.99%",
+                maxWidth: "none",
+              }}
+            />
+          </div>
+        </a>
 
         {/* ── Card 4 · Tetris Console · h-785px ── */}
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
           <CardHeader label="Case Study" title="Tetris Console" category="Product Design" />
 
-          {/* Image block · flex-1 · exact image offsets from Figma */}
           <a href="/work/tetris-console" data-cursor-label="VIEW CASE STUDY" style={{ flex: "1 0 0", position: "relative", minHeight: 0, overflow: "hidden", cursor: "none", display: "block", textDecoration: "none" }}>
             <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
               <img

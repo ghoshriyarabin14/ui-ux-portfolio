@@ -1,31 +1,31 @@
 "use client";
 
-// Figma dot asset URLs — node 219:11074
-const imgEllipse  = "https://www.figma.com/api/mcp/asset/2c9d29ee-20b7-436c-a213-713f15c686c9"; // Fintech
-const imgEllipse1 = "https://www.figma.com/api/mcp/asset/73afb71f-6472-4734-87a5-76dce16a5e8f"; // AI Design
-const imgEllipse2 = "https://www.figma.com/api/mcp/asset/bbc1a8e0-27e7-4a69-a662-3707427684fe"; // DesignSystem
-const imgEllipse3 = "https://www.figma.com/api/mcp/asset/21798b6d-4c72-4408-b371-9b1b5ddaa0f4"; // Healthcare
-const imgEllipse4 = "https://www.figma.com/api/mcp/asset/6b2580b9-74f2-4d9f-88b4-e156e2b6f8d6"; // Enterprise
+// Figma dot asset URLs — node 286:8259
+const imgEllipse  = "https://www.figma.com/api/mcp/asset/3943afd9-59a5-47fc-988a-df53202ffd85"; // Fintech
+const imgEllipse1 = "https://www.figma.com/api/mcp/asset/18920cb0-6abe-4306-9aa4-d2759a78f7d7"; // AI Design
+const imgEllipse2 = "https://www.figma.com/api/mcp/asset/fb6cff39-36b1-4d51-8291-3b418a824f86"; // Ed/Fun Tech
+const imgEllipse3 = "https://www.figma.com/api/mcp/asset/0b42cefb-ade9-461b-abfd-3f34670ec52e"; // Health
+const imgEllipse4 = "https://www.figma.com/api/mcp/asset/9c99904e-4c1f-47ac-80a8-79eac74ab912"; // Enterprise
 
 const sectorTags = [
-  { label: "Fintech",       dot: imgEllipse  },
-  { label: "AI Design",     dot: imgEllipse1 },
-  { label: "DesignSystem",  dot: imgEllipse2 },
-  { label: "Healthcare",    dot: imgEllipse3 },
-  { label: "Enterprise",    dot: imgEllipse4 },
+  { label: "Fintech",      dot: imgEllipse  },
+  { label: "AI Design",    dot: imgEllipse1 },
+  { label: "Ed/Fun Tech",  dot: imgEllipse2 },
+  { label: "Health",       dot: imgEllipse3 },
+  { label: "Enterprise",   dot: imgEllipse4 },
 ];
 
 export const Hero = () => (
   <section
     style={{
-      background: "#ffffff",
+      background: "#141414",
       display: "flex",
       flexDirection: "column",
       gap: "16px",
       alignItems: "flex-start",
       overflow: "hidden",
-      paddingBottom: "84px",
-      paddingTop: "240px",
+      paddingBottom: "72px",
+      paddingTop: "110px",
       paddingLeft: "24px",
       paddingRight: "24px",
       width: "100%",
@@ -35,13 +35,13 @@ export const Hero = () => (
     <div style={{ display: "flex", alignItems: "flex-start", width: "100%", flexShrink: 0 }}>
       <div style={{ display: "flex", flexDirection: "column", gap: "4px", alignItems: "flex-start", justifyContent: "center", flexShrink: 0 }}>
 
-        {/* "Hi, i'm Riya" — Inter Medium 64px, text-center */}
+        {/* "Hi, i'm Riya" — Inter Medium 64px */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", flexShrink: 0 }}>
           <p style={{
             fontFamily: "var(--font-inter), sans-serif",
             fontWeight: 500,
             fontSize: "64px",
-            color: "#000000",
+            color: "#ece8df",
             textAlign: "center",
             whiteSpace: "nowrap",
             lineHeight: "normal",
@@ -56,7 +56,7 @@ export const Hero = () => (
           fontFamily: "var(--font-frank-ruhl), Georgia, serif",
           fontWeight: 400,
           fontSize: "52px",
-          color: "#000000",
+          color: "#ece8df",
           whiteSpace: "nowrap",
           lineHeight: "normal",
           margin: 0,
@@ -72,17 +72,17 @@ export const Hero = () => (
       flexWrap: "wrap",
       alignContent: "center",
       alignItems: "center",
-      gap: "0 16px",
+      gap: "0 20px",
       overflow: "hidden",
       flexShrink: 0,
       width: "100%",
     }}>
-      {/* Subtitle text — Manrope Regular 14px */}
+      {/* Subtitle text */}
       <p style={{
         fontFamily: "var(--font-manrope), sans-serif",
         fontWeight: 400,
         fontSize: "14px",
-        color: "#000000",
+        color: "#ffffff",
         letterSpacing: "-0.14px",
         lineHeight: "normal",
         whiteSpace: "nowrap",
@@ -98,7 +98,7 @@ export const Hero = () => (
           <div
             key={tag.label}
             style={{
-              background: "#f6f6f6",
+              background: "#000000",
               display: "flex",
               gap: "8px",
               alignItems: "center",
@@ -111,7 +111,6 @@ export const Hero = () => (
               flexShrink: 0,
             }}
           >
-            {/* Dot — exact Figma image asset, 8×8px */}
             <div style={{ position: "relative", flexShrink: 0, width: "8px", height: "8px" }}>
               <img
                 alt=""
@@ -119,12 +118,11 @@ export const Hero = () => (
                 style={{ position: "absolute", display: "block", maxWidth: "none", width: "100%", height: "100%" }}
               />
             </div>
-            {/* Label — Inter Regular 14px */}
             <p style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontWeight: 400,
               fontSize: "14px",
-              color: "#000000",
+              color: "#ffffff",
               letterSpacing: "-0.14px",
               lineHeight: "normal",
               whiteSpace: "nowrap",
