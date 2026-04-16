@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu, ArrowUpRight } from "lucide-react";
 import { AboutModal } from "./AboutModal";
@@ -171,9 +172,8 @@ export const Navbar = () => {
 
           {/* ── CENTER: name — absolute so it's always exactly centered ── */}
           <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none">
-            <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            <Link
+              href="/"
               style={{
                 fontFamily: "var(--font-frank-ruhl), Georgia, serif",
                 fontWeight: 500,
@@ -188,7 +188,7 @@ export const Navbar = () => {
               }}
             >
               Riya Ghosh
-            </a>
+            </Link>
           </div>
 
           {/* ── RIGHT: Rii LLM CTA + eyes ── */}
