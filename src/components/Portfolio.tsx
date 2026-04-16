@@ -154,7 +154,7 @@ export const Portfolio = () => (
 
           <div
             data-cursor-label="VIEW CASE STUDY"
-            style={{ height: "700px", flexShrink: 0, width: "100%", position: "relative", overflow: "hidden", cursor: "none" }}
+            style={{ flex: "1 0 0", minHeight: 0, width: "100%", position: "relative", overflow: "hidden", cursor: "none" }}
           >
             <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
               <img
