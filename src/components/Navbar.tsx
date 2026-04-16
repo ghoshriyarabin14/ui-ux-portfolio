@@ -87,8 +87,8 @@ export const Navbar = () => {
       setMobileOpen(false);
     } else if (pill.action === "resume") {
       const a = document.createElement("a");
-      a.href = "/Riya%20Ghosh_resume26_pdf.docx";
-      a.download = "Riya Ghosh_resume26_pdf.docx";
+      a.href = "/Riya%20Ghosh_resume26_pdf.pdf";
+      a.download = "Riya Ghosh_resume26_pdf.pdf";
       a.click();
       setMobileOpen(false);
     } else if (pill.href) {
