@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu, ArrowUpRight } from "lucide-react";
 import { AboutModal } from "./AboutModal";
+import { ResumeModal } from "./ResumeModal";
 import { FollowEyes } from "./FollowEyes";
 
 const AUTO_AWESOME_ICON =
@@ -15,7 +16,7 @@ const leftPills = [
   { name: "Resume", href: "",            modal: false, action: "resume",       noBorder: false },
 ];
 
-function AboutPill({ onClick }: { onClick: () => void }) {
+function InteractivePill({ label, onClick }: { label: string; onClick: () => void }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -57,15 +58,20 @@ function AboutPill({ onClick }: { onClick: () => void }) {
       >
         <ArrowUpRight size={14} strokeWidth={2} />
       </motion.span>
-      About
+      {label}
     </motion.button>
   );
 }
 
+function AboutPill({ onClick }: { onClick: () => void }) {
+  return <InteractivePill label="About" onClick={onClick} />;
+}
+
 export const Navbar = () => {
-  const [scrolled, setScrolled]     = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [aboutOpen, setAboutOpen]   = useState(false);
+  const [scrolled, setScrolled]         = useState(false);
+  const [mobileOpen, setMobileOpen]     = useState(false);
+  const [aboutOpen, setAboutOpen]       = useState(false);
+  const [resumeOpen, setResumeOpen]     = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -80,6 +86,9 @@ export const Navbar = () => {
   const handlePill = (pill: typeof leftPills[0]) => {
     if (pill.modal) {
       setAboutOpen(true);
+      setMobileOpen(false);
+    } else if (pill.action === "resume") {
+      setResumeOpen(true);
       setMobileOpen(false);
     } else if (pill.href) {
       document.querySelector(pill.href)?.scrollIntoView({ behavior: "smooth" });
@@ -106,6 +115,9 @@ export const Navbar = () => {
               pill.modal ? (
                 /* About — arrow slides in on hover */
                 <AboutPill key={pill.name} onClick={() => handlePill(pill)} />
+              ) : pill.action === "resume" ? (
+                /* Resume — same arrow interaction as About */
+                <InteractivePill key={pill.name} label={pill.name} onClick={() => handlePill(pill)} />
               ) : !pill.href && !pill.action ? (
                 /* Static label pill — no interaction */
                 <span
@@ -284,6 +296,7 @@ export const Navbar = () => {
       </AnimatePresence>
 
       <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
 
       {/* ── Back to Top ── */}
       <AnimatePresence>
