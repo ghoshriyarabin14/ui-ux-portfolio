@@ -376,18 +376,18 @@ export default function AgenticAiPage() {
 
               {/* IRIS screenshots */}
               <div style={{ display: "flex", gap: "24px", width: "100%" }}>
-                <div style={{ flex: "1 0 0", minWidth: 0, background: "#212121", overflow: "hidden" }}>
+                <div style={{ flex: "1 0 0", minWidth: 0, height: "420px", background: "#212121", overflow: "hidden" }}>
                   <img
                     src={imgSolutionLeft}
                     alt="IRIS Outreach dashboard"
-                    style={{ width: "100%", display: "block", objectFit: "cover" }}
+                    style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
                   />
                 </div>
-                <div style={{ flex: "1 0 0", minWidth: 0, background: "#212121", overflow: "hidden" }}>
+                <div style={{ flex: "1 0 0", minWidth: 0, height: "420px", background: "#212121", overflow: "hidden" }}>
                   <img
                     src={imgSolutionRight}
                     alt="IRIS video call UI"
-                    style={{ width: "100%", display: "block", objectFit: "cover" }}
+                    style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
                   />
                 </div>
               </div>
