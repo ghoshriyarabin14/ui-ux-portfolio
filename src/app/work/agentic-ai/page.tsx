@@ -307,14 +307,14 @@ export default function AgenticAiPage() {
               </TwoCol>
 
               {/* Solution demo video */}
-              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", background: CARD_BG }}>
+              <div style={{ width: "100%", height: "534px", borderRadius: "8px", overflow: "hidden", background: "#212121" }}>
                 <video
-                  src="/ott sport/Videos/Screen Recording 2026-04-16 at 12.08.03 PM.mov"
+                  src="/ott%20sport/Videos/Screen%20Recording%202026-04-16%20at%2012.08.03%20PM.mov"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  style={{ width: "100%", display: "block", maxHeight: "560px", objectFit: "cover" }}
+                  style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
                 />
               </div>
             </div>
