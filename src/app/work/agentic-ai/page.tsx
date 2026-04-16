@@ -426,7 +426,7 @@ export default function AgenticAiPage() {
                   loop
                   muted
                   playsInline
-                  style={{ width: "100%", display: "block" }}
+                  style={{ width: "100%", display: "block", maxHeight: "534px", objectFit: "cover" }}
                 />
               </div>
               {/* Right — placeholder matches video height */}
@@ -451,10 +451,10 @@ export default function AgenticAiPage() {
                   loop
                   muted
                   playsInline
-                  style={{ width: "100%", display: "block" }}
+                  style={{ width: "100%", display: "block", maxHeight: "534px", objectFit: "cover" }}
                 />
               </div>
-              <div style={{ flex: "1 0 0", minWidth: 0, background: "#212121", borderRadius: "4px", aspectRatio: "16/9" }} />
+              <div style={{ flex: "1 0 0", minWidth: 0, background: "#212121", borderRadius: "4px", maxHeight: "534px", aspectRatio: "16/9" }} />
             </div>
 
             {/* Sub-Agentic */}
