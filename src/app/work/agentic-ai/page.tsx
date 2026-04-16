@@ -561,21 +561,43 @@ export default function AgenticAiPage() {
               </BodyText>
             </Section>
 
-            {/* Ask Rosa — video in first container, natural height */}
-            <div style={{ display: "flex", gap: "24px", width: "100%", alignItems: "flex-start" }}>
-              <div style={{ flex: "1 0 0", minWidth: 0, overflow: "hidden", borderRadius: "4px", background: "#212121" }}>
-                <video
-                  src="/iris-proto.mov"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  style={{ width: "100%", display: "block", maxHeight: "534px", objectFit: "cover" }}
-                />
-              </div>
-              {/* Right — phone mockup */}
+            {/* Ask Rosa — 3 column layout */}
+            <div style={{ display: "flex", gap: "24px", width: "100%", alignItems: "center", justifyContent: "center" }}>
+              
+              {/* Left Screen (Start Context) */}
               <div style={{ flex: "1 0 0", minWidth: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 0" }}>
-                <IrisPhoneMockup />
+                <div style={{ width: "270px", height: "534px", borderRadius: "24px", overflow: "hidden", background: "#fff", boxShadow: "0 0 0 1px rgba(255,255,255,0.1), 0 24px 64px rgba(0,0,0,0.15)", flexShrink: 0 }}>
+                  <img 
+                    src="/rosa_images/chat_start_image.png" 
+                    alt="Start context"
+                    style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+                  />
+                </div>
+              </div>
+
+              {/* Middle Video */}
+              <div style={{ flex: "1 0 0", minWidth: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 0" }}>
+                <div style={{ width: "270px", height: "534px", borderRadius: "24px", overflow: "hidden", background: "#000", boxShadow: "0 0 0 1px rgba(255,255,255,0.1), 0 24px 64px rgba(0,0,0,0.4)", flexShrink: 0 }}>
+                  <video
+                    src="/ott sport/Videos/mobile.mov"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+                  />
+                </div>
+              </div>
+
+              {/* Right Screen (Answer Context) */}
+              <div style={{ flex: "1 0 0", minWidth: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px 0" }}>
+                <div style={{ width: "270px", height: "534px", borderRadius: "24px", overflow: "hidden", background: "#fff", boxShadow: "0 0 0 1px rgba(255,255,255,0.1), 0 24px 64px rgba(0,0,0,0.15)", flexShrink: 0 }}>
+                  <img 
+                    src="/rosa_images/image.png" 
+                    alt="End context"
+                    style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+                  />
+                </div>
               </div>
             </div>
 
