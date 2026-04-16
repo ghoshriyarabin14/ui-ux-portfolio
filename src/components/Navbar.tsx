@@ -7,13 +7,12 @@ import { AboutModal } from "./AboutModal";
 import { FollowEyes } from "./FollowEyes";
 
 const AUTO_AWESOME_ICON =
-  "https://www.figma.com/api/mcp/asset/fa5cb573-3f9e-4422-9917-262d7ff91fa8";
+  "https://www.figma.com/api/mcp/asset/f44ea3f1-eada-4ec5-83e9-4049e7f084a2";
 
 const leftPills = [
-  { name: "Senior UI/UX & AI Designer", href: "", modal: false, action: null  },
-  { name: "About",     href: "",          modal: true,  action: null  },
-  { name: "Fun Stuff", href: "#featured", modal: false, action: null  },
-  { name: "Resume",    href: "",          modal: false, action: "resume" },
+  { name: "Senior UI/UX & AI Designer", href: "", modal: false, action: null, noBorder: true },
+  { name: "About",  href: "",            modal: true,  action: null,           noBorder: false },
+  { name: "Resume", href: "",            modal: false, action: "resume",       noBorder: false },
 ];
 
 function AboutPill({ onClick }: { onClick: () => void }) {
@@ -95,7 +94,7 @@ export const Navbar = () => {
       >
         <nav
           className="flex items-center justify-between"
-          style={{ paddingTop: "32px", paddingBottom: "16px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid rgba(214,214,214,0.08)" }}
+          style={{ paddingTop: "32px", paddingBottom: "16px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid #3a3a3a" }}
         >
           {/* ── LEFT: pill nav ── */}
           <div className="hidden md:flex items-center gap-2 flex-shrink-0 flex-1">
@@ -114,7 +113,7 @@ export const Navbar = () => {
                     color: "#ffffff",
                     letterSpacing: "-0.14px",
                     background: "transparent",
-                    border: "1px solid rgba(214,214,214,0.12)",
+                    border: pill.noBorder ? "none" : "1px solid rgba(214,214,214,0.12)",
                     borderRadius: "60px",
                     padding: "7px 14px",
                     lineHeight: "normal",

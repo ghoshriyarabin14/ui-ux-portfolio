@@ -585,8 +585,17 @@ export default function OTTSportsCards() {
           </div>
         </Section>
 
-        {/* Frame 72 — intentionally empty dark area */}
-        <div style={{ height: "403px", background: "#0a0a0a", overflow: "hidden" }} />
+        {/* Frame 72 — exploration clip */}
+        <div style={{ height: "403px", background: "#0a0a0a", overflow: "hidden" }}>
+          <video
+            src="/ott-exploration.mov"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: "100%", height: "403px", objectFit: "cover", display: "block" }}
+          />
+        </div>
 
         {/* Component screenshots */}
         <div style={{ display: "flex", gap: "24px" }}>
@@ -601,13 +610,22 @@ export default function OTTSportsCards() {
         </div>
 
         <Section label="Outcome">
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <p style={BODY}>
-              We spent the first two weeks auditing the existing cards across all sports: mapping every element, identifying which variations were meaningful versus accidental (two designers solving the same problem independently).
-            </p>
-            <p style={BODY}>
-              That audit produced the molecule candidate list. Any element that could be abstracted without losing its meaning became a molecule. Each molecule was then built as a robust, variant-driven component in Figma.
-            </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <p style={BODY}>
+                From Architecture to Production: A Live Design System Powering YouTube Sports.
+              </p>
+              <p style={BODY}>
+                The result is not a theoretical library, but a living, breathing design system currently in production on YouTube TV Sports. I delivered an ecosystem of 500+ production-ready components, architected to handle the unique data structures of Golf, Hockey, Baseball, Basketball, and the NFL, including the specialized data modules for the paid Fantasy platform.
+              </p>
+              <p style={BODY}>
+                This system was built from the ground up to be fully responsive and theme-aware, providing a consistent and polished user experience across all supported viewports and modes.
+              </p>
+            </div>
+            <div style={{ background: "#131314", borderRadius: "12px", padding: "4px", overflow: "hidden" }}>
+              <img src="https://www.figma.com/api/mcp/asset/50975c88-81c2-4689-885e-f9e642ac096b" alt="Specifications"
+                style={{ width: "100%", display: "block", borderRadius: "8px" }} />
+            </div>
           </div>
         </Section>
 
@@ -622,37 +640,28 @@ export default function OTTSportsCards() {
           </p>
         </div>
 
-        {/* Outcome detail — right-aligned */}
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <div style={{ width: "57.4%", display: "flex", flexDirection: "column", gap: "32px" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <p style={{ ...BODY, lineHeight: 1.5 }}>
-                From Architecture to Production: A Live Design System Powering YouTube Sports.
-              </p>
-              <p style={BODY}>
-                The result is not a theoretical library, but a living, breathing design system currently in production on YouTube TV Sports. I delivered an ecosystem of 500+ production-ready components, architected to handle the unique data structures of Golf, Hockey, Baseball, Basketball, and the NFL, including the specialized data modules for the paid Fantasy platform.
-              </p>
-              <p style={BODY}>
-                This system was built from the ground up to be fully responsive and theme-aware, providing a consistent and polished user experience across all supported viewports and modes.
-              </p>
-            </div>
-            <div style={{ background: "#131314", borderRadius: "12px", padding: "4px", overflow: "hidden" }}>
-              <img src={imgSpecsTable} alt="Specifications"
-                style={{ width: "100%", display: "block", borderRadius: "8px" }} />
-            </div>
-          </div>
+        {/* Components gif */}
+        <div style={{ margin: "0 -24px", height: "534px", overflow: "hidden" }}>
+          <video
+            src="/ott-components.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: "100%", height: "534px", objectFit: "cover", display: "block" }}
+          />
         </div>
 
         {/* Full-bleed product image 1 — 534px */}
         <div style={{ margin: "0 -24px", height: "534px", overflow: "hidden", position: "relative" }}>
-          <img src={imgCardsGrid} alt="OTT Sports Cards — light mode"
+          <img src="https://www.figma.com/api/mcp/asset/e2264cdf-4d2f-4efe-b735-cb04b56aec09" alt="OTT Sports Cards — light mode"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover",
               objectPosition: "center top" }} />
         </div>
 
         {/* Full-bleed product image 2 — aspect 4096/1564 */}
         <div style={{ margin: "0 -24px", position: "relative", aspectRatio: "4096 / 1564" }}>
-          <img src={imgCardsDark} alt="OTT Sports Cards — dark mode"
+          <img src="https://www.figma.com/api/mcp/asset/552d440c-aa6f-4801-a7af-334abb9437a1" alt="OTT Sports Cards — dark mode"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
 
