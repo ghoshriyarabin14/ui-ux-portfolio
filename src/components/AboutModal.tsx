@@ -31,13 +31,17 @@ interface AboutModalProps {
 export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const lenis = (window as any).lenis;
     if (isOpen) {
       document.addEventListener("keydown", onKey);
       document.body.style.overflow = "hidden";
+      lenis?.stop();
     }
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      lenis?.start();
     };
   }, [isOpen, onClose]);
 
@@ -48,7 +52,7 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
           {/* ── OVERLAY ── */}
           <motion.div
             className="fixed inset-0 z-[60]"
-            style={{ background: "rgba(0,0,0,0.2)", backdropFilter: "blur(2px)" }}
+            style={{ background: "rgba(0,0,0,0.3)", backdropFilter: "blur(2px)" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -139,8 +143,8 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                       width: "36px",
                       height: "36px",
                       borderRadius: "100%",
-                      background: "#000000",
-                      border: "none",
+                      background: "transparent",
+                      border: "1px solid rgba(214,214,214,0.12)",
                       cursor: "pointer",
                       flexShrink: 0,
                       transition: "opacity 0.15s",

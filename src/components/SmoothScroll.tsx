@@ -20,6 +20,7 @@ export const SmoothScroll = ({ children }: SmoothScrollProps) => {
     });
 
     lenisRef.current = lenis;
+    (window as unknown as Record<string, unknown>).lenis = lenis;
 
     const raf = (time: number) => {
       lenis.raf(time);
@@ -30,6 +31,7 @@ export const SmoothScroll = ({ children }: SmoothScrollProps) => {
 
     return () => {
       lenis.destroy();
+      (window as unknown as Record<string, unknown>).lenis = null;
     };
   }, []);
 

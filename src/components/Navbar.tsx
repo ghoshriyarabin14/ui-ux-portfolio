@@ -98,7 +98,7 @@ export const Navbar = () => {
       >
         <nav
           className="flex items-center justify-between"
-          style={{ paddingTop: "32px", paddingBottom: "16px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid #3a3a3a" }}
+          style={{ paddingTop: "32px", paddingBottom: "16px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}
         >
           {/* ── LEFT: pill nav ── */}
           <div className="hidden md:flex items-center gap-2 flex-shrink-0 flex-1">
