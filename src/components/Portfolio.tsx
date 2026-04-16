@@ -48,7 +48,7 @@ export const Portfolio = () => (
   <section
     id="portfolio"
     style={{
-      background: "#141414",
+      background: "#000000",
       paddingTop: "120px",
       paddingBottom: "80px",
       paddingLeft: "24px",

@@ -20,7 +20,7 @@ export const Footer = () => {
       ref={ref}
       id="footer"
       style={{
-        background: "#141414",
+        background: "#000000",
         display: "flex",
         flexDirection: "column",
         gap: "48px",

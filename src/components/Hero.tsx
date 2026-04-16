@@ -18,7 +18,7 @@ const sectorTags = [
 export const Hero = () => (
   <section
     style={{
-      background: "#141414",
+      background: "#000000",
       display: "flex",
       flexDirection: "column",
       gap: "16px",

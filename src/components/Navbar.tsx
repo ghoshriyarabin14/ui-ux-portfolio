@@ -101,7 +101,7 @@ export const Navbar = () => {
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50${scrolled ? " navbar scrolled" : ""}`}
-        style={{ background: "#141414" }}
+        style={{ background: "#000000" }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, delay: 0.05 }}
@@ -238,7 +238,7 @@ export const Navbar = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center" style={{ background: "#141414" }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center" style={{ background: "#000000" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

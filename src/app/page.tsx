@@ -7,7 +7,7 @@ const imgImage11 = "https://www.figma.com/api/mcp/asset/f4f7e957-1ef2-440a-87e4-
 
 export default function Home() {
   return (
-    <main style={{ background: "#141414", minHeight: "100vh" }}>
+    <main style={{ background: "#000000", minHeight: "100vh" }}>
       <Hero />
       <Portfolio />
       <div style={{ position: "relative", aspectRatio: "3444 / 1306", width: "100%" }}>
