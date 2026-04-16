@@ -161,7 +161,7 @@ function ImagePair({
 export default function AgenticAiPage() {
   return (
     <div style={{ background: "#141414", minHeight: "100vh", color: WHITE, paddingTop: "83px" }}>
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ padding: "0 24px" }}>
 
         {/* ════════════════════════════════════════════════
             Frame 13 — all content, gap 72px between blocks
@@ -171,7 +171,7 @@ export default function AgenticAiPage() {
           {/* ── Back button ── */}
           <div style={{
             display: "flex", alignItems: "center", gap: "8px",
-            justifyContent: "flex-end", paddingTop: "56px",
+            justifyContent: "flex-start", paddingTop: "56px",
           }}>
             <img src={imgArrowBack} alt="" style={{ width: "16px", height: "16px", display: "block", flexShrink: 0 }} />
             <Link
@@ -292,9 +292,6 @@ export default function AgenticAiPage() {
           ══════════════════════════════ */}
           <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
 
-            {/* Leading divider */}
-            <HR />
-
             {/* Solution — gap 48px */}
             <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
               <HR />
@@ -309,34 +306,16 @@ export default function AgenticAiPage() {
                 </div>
               </TwoCol>
 
-              {/* Solution screenshots (356:50462) */}
-              <div style={{ display: "flex", gap: "24px", width: "100%" }}>
-                {/* Left — aspect 2806/1642 */}
-                <div style={{
-                  flex: "1 0 0", minWidth: 0, background: CARD_BG,
-                  padding: "10px 10px 20px", overflow: "hidden",
-                }}>
-                  <div style={{ position: "relative", width: "100%", aspectRatio: "2806/1642", overflow: "hidden" }}>
-                    <img
-                      src={imgSolutionLeft}
-                      alt=""
-                      style={{ position: "absolute", width: "100%", height: "203.52%", top: "-0.05%", left: 0, maxWidth: "none", pointerEvents: "none" }}
-                    />
-                  </div>
-                </div>
-                {/* Right — 409px */}
-                <div style={{
-                  flex: "1 0 0", minWidth: 0, background: CARD_BG,
-                  padding: "10px 10px 20px", overflow: "hidden", height: "409px",
-                }}>
-                  <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
-                    <img
-                      src={imgSolutionRight}
-                      alt=""
-                      style={{ position: "absolute", width: "100%", height: "116.8%", top: "0.1%", left: 0, maxWidth: "none", pointerEvents: "none" }}
-                    />
-                  </div>
-                </div>
+              {/* Solution demo video */}
+              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", background: CARD_BG }}>
+                <video
+                  src="/ott sport/Videos/Screen Recording 2026-04-16 at 12.08.03 PM.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100%", display: "block", maxHeight: "560px", objectFit: "cover" }}
+                />
               </div>
             </div>
 
