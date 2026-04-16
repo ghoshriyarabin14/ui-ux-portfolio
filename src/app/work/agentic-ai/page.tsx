@@ -285,7 +285,7 @@ export default function AgenticAiPage() {
           padding: "64px 24px 100px",
           display: "flex",
           flexDirection: "column",
-          gap: "72px",
+          gap: "110px",
         }}
       >
 
