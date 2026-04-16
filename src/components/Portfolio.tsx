@@ -106,9 +106,9 @@ export const Portfolio = () => (
           </a>
         </div>
 
-        {/* ── Card 2 · Pay Console X Eco System ── */}
+        {/* ── Card 2 · Play Console X Eco System ── */}
         <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
-          <CardHeader label="Case Study" title="Pay Console X Eco System" category="SaaS" />
+          <CardHeader label="Case Study" title="Play Console X Eco System" category="SaaS" />
 
           <a
             href="/work/pay-console"

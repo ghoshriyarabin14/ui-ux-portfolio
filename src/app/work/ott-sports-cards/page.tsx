@@ -461,12 +461,12 @@ export default function OTTSportsCards() {
       </div>
 
       {/* ── Title bar — System Design · Consumer · OTT Sports Cards ── */}
-      <div style={{ padding: "111px 24px 10px" }}>
+      <div style={{ padding: "72px 24px 0" }}>
         <div style={{
           display: "flex", alignItems: "center",
           fontFamily: "var(--font-inter), sans-serif",
           fontWeight: 400, color: "#fff", whiteSpace: "nowrap",
-          gap: "167px",
+          justifyContent: "space-between",
         }}>
           <span style={{ fontSize: "24px", flexShrink: 0 }}>System Design</span>
           <span style={{ fontSize: "24px", flexShrink: 0 }}>Consumer</span>
@@ -474,15 +474,17 @@ export default function OTTSportsCards() {
             fontFamily: "var(--font-inter), sans-serif",
             fontWeight: 400,
             fontSize: "clamp(36px, 5.4vw, 76px)",
-            color: "#fff", lineHeight: 1, margin: 0, flex: 1,
+            color: "#fff", lineHeight: 1, margin: 0,
           }}>
             OTT Sports Cards
           </p>
         </div>
       </div>
 
-      {/* ── Hero banner — actual sports cards + Josh Allen ── */}
-      <HeroBanner />
+      {/* ── Hero banner — 72px gap from title, 24px side padding (matches other case studies) ── */}
+      <div style={{ padding: "72px 24px 0" }}>
+        <HeroBanner />
+      </div>
 
       {/* ── Meta row — Timeline / Team / Role / Skills / Tools ── */}
       <div style={{

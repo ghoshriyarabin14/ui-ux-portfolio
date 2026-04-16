@@ -279,7 +279,7 @@ function IrisPhoneMockup() {
 // ── Main page ──────────────────────────────────────────────────────────────────
 export default function AgenticAiPage() {
   return (
-    <div style={{ background: "#141414", minHeight: "100vh", color: WHITE, paddingTop: "83px" }}>
+    <div style={{ background: "#000000", minHeight: "100vh", color: WHITE, paddingTop: "83px" }}>
       <div style={{ padding: "0 24px" }}>
 
         {/* ════════════════════════════════════════════════
