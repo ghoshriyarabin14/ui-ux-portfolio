@@ -68,8 +68,8 @@ export const Portfolio = () => (
       }}>
 
         {/* ── Card 1 · Agentic AI × Salesforce ── */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "32px", height: "785px" }}>
-          <CardHeader label="Case Study" title="Agentic AI × Salesforce" category="Enterprise UX" labelSize="14px" />
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
+          <CardHeader label="Case Study" title="Agentic AI × Salesforce" category="B2B SaaS" labelSize="14px" />
 
           <a
             href="/work/agentic-ai"
@@ -107,8 +107,8 @@ export const Portfolio = () => (
         </div>
 
         {/* ── Card 2 · Pay Console X Eco System ── */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "32px", height: "785px" }}>
-          <CardHeader label="Case Study" title="Pay Console X Eco System" category="Case study" />
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
+          <CardHeader label="Case Study" title="Pay Console X Eco System" category="SaaS" />
 
           <a
             href="/work/pay-console"
@@ -124,7 +124,7 @@ export const Portfolio = () => (
               />
             </div>
             {/* Screenshot layer */}
-            <div style={{ position: "absolute", height: "580px", left: "15px", top: "80px", width: "710px", overflow: "hidden" }}>
+            <div style={{ position: "absolute", height: "580px", left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "710px", overflow: "hidden" }}>
               <img
                 src={imgPayConsole}
                 alt="Pay Console"
@@ -145,12 +145,12 @@ export const Portfolio = () => (
       }}>
 
         {/* ── Card 3 · OTT Sports Cards · Youtube TV ── */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "32px", height: "785px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
           <CardHeader label="LIVE" title="OTT Sports Cards · Youtube TV" category="Design System" />
 
           <a
             href="/work/ott-sports-cards"
-            data-cursor-label="VIEW CASE STUDY"
+            data-cursor-label="Design System"
             style={{ flex: "1 0 0", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none", display: "block", textDecoration: "none", background: "linear-gradient(90deg, #1957be 0%, #0f3886 50.791%, #114099 97.414%)" }}
           >
             <div style={{ position: "absolute", height: "491px", left: 0, top: "93px", width: "873px" }}>
@@ -160,11 +160,11 @@ export const Portfolio = () => (
         </div>
 
         {/* ── Card 4 · YTV Landing Page ── */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "32px", height: "785px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px", height: "785px" }}>
           <CardHeader label="Revamp" title="YTV Landing Page" category="Product Design" />
 
           <div
-            data-cursor-label="VIEW CASE STUDY"
+            data-cursor-label="Coming Soon"
             style={{ flex: "1 0 0", minHeight: 0, width: "100%", position: "relative", overflow: "hidden", cursor: "none" }}
           >
             <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>

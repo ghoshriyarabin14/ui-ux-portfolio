@@ -74,13 +74,14 @@ export const CursorPill = () => {
           display: "flex",
           alignItems: "center",
           gap: "8px",
-          background: "#E84530",
+          background: label === "Coming Soon" ? "rgba(255,255,255,0.15)" : "#E84530",
           borderRadius: "60px",
           padding: "10px 18px",
           opacity: visible ? 1 : 0,
           transform: visible ? "scale(1)" : "scale(0.85)",
           transition: "opacity 0.2s ease, transform 0.2s ease",
           whiteSpace: "nowrap",
+          backdropFilter: label === "Coming Soon" ? "blur(8px)" : "none",
         }}
       >
         {/* Dot icon */}
