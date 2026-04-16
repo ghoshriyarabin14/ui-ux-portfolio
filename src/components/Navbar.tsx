@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu, ArrowUpRight } from "lucide-react";
 import { AboutModal } from "./AboutModal";
-import { ResumeModal } from "./ResumeModal";
 import { FollowEyes } from "./FollowEyes";
 
 const AUTO_AWESOME_ICON =
@@ -71,7 +70,6 @@ export const Navbar = () => {
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [aboutOpen, setAboutOpen]       = useState(false);
-  const [resumeOpen, setResumeOpen]     = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -88,7 +86,7 @@ export const Navbar = () => {
       setAboutOpen(true);
       setMobileOpen(false);
     } else if (pill.action === "resume") {
-      setResumeOpen(true);
+      window.open("/Riya Ghosh_resume26_pdf.docx", "_blank");
       setMobileOpen(false);
     } else if (pill.href) {
       document.querySelector(pill.href)?.scrollIntoView({ behavior: "smooth" });
@@ -296,7 +294,6 @@ export const Navbar = () => {
       </AnimatePresence>
 
       <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
-      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
 
       {/* ── Back to Top ── */}
       <AnimatePresence>
