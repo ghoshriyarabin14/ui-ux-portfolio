@@ -309,7 +309,7 @@ export default function AgenticAiPage() {
               {/* Solution demo video */}
               <div style={{ width: "100%", height: "534px", borderRadius: "8px", overflow: "hidden", background: "#212121" }}>
                 <video
-                  src="/ott%20sport/Videos/Screen%20Recording%202026-04-16%20at%2012.08.03%20PM.mov"
+                  src="/iris-demo.mov"
                   autoPlay
                   loop
                   muted
