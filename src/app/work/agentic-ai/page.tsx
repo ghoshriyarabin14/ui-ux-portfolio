@@ -235,26 +235,20 @@ export default function AgenticAiPage() {
         </p>
       </div>
 
-      {/* ── Hero (344:18819) ── */}
+      {/* ── Hero ── */}
       <div
         style={{
-          position: "relative",
           width: "100%",
-          height: "783px",
+          height: "438px",
           overflow: "hidden",
           borderRadius: "4px",
           flexShrink: 0,
         }}
       >
         <img
-          src={imgHeroBg}
-          alt=""
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-        />
-        <img
-          src={imgHeroUI}
+          src="/iris-banner.png"
           alt="IRIS Visual Design"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
         />
       </div>
 
