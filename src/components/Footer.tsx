@@ -5,10 +5,10 @@ import { useRef } from "react";
 import { AudioEmoji } from "./AudioEmoji";
 
 const socialLinks = [
-  { name: "Email",     href: "mailto:hello@riyaghosh.com" },
+  { name: "Email",     href: "mailto:ghoshriyara14030@gmail.com" },
   { name: "LinkedIn",  href: "https://www.linkedin.com/in/riyaghosh14/" },
-  { name: "Twitter",   href: "https://twitter.com/riyaghosh" },
-  { name: "Instagram", href: "https://instagram.com/riyaghosh" },
+  { name: "X",         href: "https://x.com/riyaghoshh?s=21" },
+  { name: "Instagram", href: "https://www.instagram.com/riyaghoshh?igsh=NWkzdHA2YTA2b3Fw" },
 ];
 
 export const Footer = () => {

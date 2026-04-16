@@ -18,8 +18,8 @@ const imgEllipseLife = "https://www.figma.com/api/mcp/asset/86fb15c6-99ac-4d72-a
 const imgEllipseTest = "https://www.figma.com/api/mcp/asset/026ad015-e021-4177-88b5-57ce09a02f2a";
 
 const socialLinks = [
-  { label: "X",         href: "https://twitter.com/riyaghosh" },
-  { label: "Instagram", href: "https://instagram.com/riyaghosh" },
+  { label: "X",         href: "https://x.com/riyaghoshh?s=21" },
+  { label: "Instagram", href: "https://www.instagram.com/riyaghoshh?igsh=NWkzdHA2YTA2b3Fw" },
   { label: "Linkedin",  href: "https://www.linkedin.com/in/riyaghosh14/" },
 ];
 
@@ -143,14 +143,14 @@ export const AboutModal = ({ isOpen, onClose }: AboutModalProps) => {
                       width: "36px",
                       height: "36px",
                       borderRadius: "100%",
-                      background: "transparent",
+                      background: "rgba(255,255,255,0.1)",
                       border: "1px solid rgba(214,214,214,0.12)",
                       cursor: "pointer",
                       flexShrink: 0,
-                      transition: "opacity 0.15s",
+                      transition: "background 0.15s",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.75")}
-                    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
                   >
                     <X size={16} color="#ffffff" strokeWidth={2.5} />
                   </button>

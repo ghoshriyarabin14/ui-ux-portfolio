@@ -315,28 +315,28 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 12 }}
             transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            whileHover={{ rotate: -3, scale: 1.04 }}
+            whileHover={{ scale: 1.08, background: "rgba(255,255,255,0.2)" }}
             style={{
               position: "fixed",
               bottom: "32px",
               right: "24px",
               zIndex: 50,
-              fontFamily: "var(--font-inter), sans-serif",
-              fontWeight: 400,
-              fontSize: "14px",
-              color: "#ffffff",
-              letterSpacing: "-0.14px",
-              background: "transparent",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "36px",
+              height: "36px",
+              borderRadius: "100%",
+              background: "rgba(255,255,255,0.1)",
               border: "1px solid rgba(214,214,214,0.12)",
-              borderRadius: "60px",
-              padding: "7px 14px",
               cursor: "pointer",
-              whiteSpace: "nowrap",
-              lineHeight: "normal",
               backdropFilter: "blur(8px)",
+              color: "#ffffff",
+              fontSize: "16px",
+              lineHeight: 1,
             }}
           >
-            ↑ Back to Top
+            ↑
           </motion.button>
         )}
       </AnimatePresence>
