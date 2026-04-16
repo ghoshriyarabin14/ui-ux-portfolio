@@ -86,7 +86,10 @@ export const Navbar = () => {
       setAboutOpen(true);
       setMobileOpen(false);
     } else if (pill.action === "resume") {
-      window.open("/Riya Ghosh_resume26_pdf.docx", "_blank");
+      const a = document.createElement("a");
+      a.href = "/Riya%20Ghosh_resume26_pdf.docx";
+      a.download = "Riya Ghosh_resume26_pdf.docx";
+      a.click();
       setMobileOpen(false);
     } else if (pill.href) {
       document.querySelector(pill.href)?.scrollIntoView({ behavior: "smooth" });
