@@ -366,12 +366,32 @@ export default function AgenticAiPage() {
           ══════════════════════════════ */}
           <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
 
-            {/* The Design Process header */}
-            <Section label="The Design Process">
-              <BodyText>
-                {`An AI-Augmented Workflow: From Concept to Prototype in Days, Not Weeks. To design a product centered on speed and intelligence, our process had to embody those same principles. Traditional design sprints felt too slow. Instead, I adopted a modern, AI-augmented workflow that leveraged generative AI as a foundational partner to accelerate the journey from a blank canvas to a testable prototype.`}
-              </BodyText>
-            </Section>
+            {/* The Design Process header + screenshots */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
+              <Section label="The Design Process">
+                <BodyText>
+                  {`An AI-Augmented Workflow: From Concept to Prototype in Days, Not Weeks. To design a product centered on speed and intelligence, our process had to embody those same principles. Traditional design sprints felt too slow. Instead, I adopted a modern, AI-augmented workflow that leveraged generative AI as a foundational partner to accelerate the journey from a blank canvas to a testable prototype.`}
+                </BodyText>
+              </Section>
+
+              {/* IRIS screenshots */}
+              <div style={{ display: "flex", gap: "24px", width: "100%" }}>
+                <div style={{ flex: "1 0 0", minWidth: 0, background: "#212121", overflow: "hidden" }}>
+                  <img
+                    src={imgSolutionLeft}
+                    alt="IRIS Outreach dashboard"
+                    style={{ width: "100%", display: "block", objectFit: "cover" }}
+                  />
+                </div>
+                <div style={{ flex: "1 0 0", minWidth: 0, background: "#212121", overflow: "hidden" }}>
+                  <img
+                    src={imgSolutionRight}
+                    alt="IRIS video call UI"
+                    style={{ width: "100%", display: "block", objectFit: "cover" }}
+                  />
+                </div>
+              </div>
+            </div>
 
             {/* AI Starting Block */}
             <Section label="1. AI as the Starting Block">
