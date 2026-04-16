@@ -3,7 +3,8 @@
 // ─── Figma asset URLs · node 286:8898 ────────────────────────────────────────
 const imgImage1       = "https://www.figma.com/api/mcp/asset/37b41632-13c0-4e3c-b3cd-a8a0ac5493a7"; // Agentic bg
 const imgGraphicEl    = "https://www.figma.com/api/mcp/asset/496202be-b237-426b-ac0c-7221ce025b97"; // Graphic element
-const imgPayConsole   = "https://www.figma.com/api/mcp/asset/b679cf51-d296-4eac-843e-ae6b83c883e8"; // Pay Console screenshot
+const imgPayConsoleBg = "https://www.figma.com/api/mcp/asset/1347d232-d714-490d-b6fa-0c457d2312a3"; // Pay Console bg image
+const imgPayConsole   = "https://www.figma.com/api/mcp/asset/c010c2f4-7128-49fb-9b3c-8e9c2b854aa7"; // Pay Console screenshot
 const imgOTT          = "https://www.figma.com/api/mcp/asset/d753075b-368a-442c-878e-ed257169ff66"; // OTT Josh Allen
 const imgYTV          = "https://www.figma.com/api/mcp/asset/4beaac4a-e55e-4688-8ae0-607163e446d0"; // YTV Landing Page
 const imgArrowOutward = "https://www.figma.com/api/mcp/asset/194fd10a-e7dd-477d-9b66-e0680185ef00"; // Arrow icon
@@ -49,7 +50,7 @@ export const Portfolio = () => (
     id="portfolio"
     style={{
       background: "#000000",
-      paddingTop: "120px",
+      paddingTop: "38px",
       paddingBottom: "80px",
       paddingLeft: "24px",
       paddingRight: "24px",
@@ -112,9 +113,18 @@ export const Portfolio = () => (
           <a
             href="/work/pay-console"
             data-cursor-label="VIEW CASE STUDY"
-            style={{ flex: "1 0 0", background: "#000000", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none", display: "block", textDecoration: "none" }}
+            style={{ flex: "1 0 0", background: "#abcafb", overflow: "hidden", position: "relative", minHeight: 0, cursor: "none", display: "block", textDecoration: "none" }}
           >
-            <div style={{ position: "absolute", height: "518px", left: "31px", top: "80px", width: "635px", overflow: "hidden" }}>
+            {/* Background layer — fills full container */}
+            <div style={{ position: "absolute", left: 0, top: 0, width: "100%", height: "100%", overflow: "hidden", pointerEvents: "none" }}>
+              <img
+                src={imgPayConsoleBg}
+                alt=""
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
+              />
+            </div>
+            {/* Screenshot layer */}
+            <div style={{ position: "absolute", height: "580px", left: "15px", top: "80px", width: "710px", overflow: "hidden" }}>
               <img
                 src={imgPayConsole}
                 alt="Pay Console"
