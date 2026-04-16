@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu, ArrowUpRight } from "lucide-react";
 import { AboutModal } from "./AboutModal";
@@ -68,6 +69,7 @@ function AboutPill({ onClick }: { onClick: () => void }) {
 }
 
 export const Navbar = () => {
+  const pathname = usePathname();
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [aboutOpen, setAboutOpen]       = useState(false);
@@ -102,7 +104,7 @@ export const Navbar = () => {
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-[10001] transition-all duration-300 ${scrolled ? "navbar scrolled" : ""}`}
-        style={{ background: scrolled ? "rgba(0,0,0,0.6)" : "#000000" }}
+        style={{ background: scrolled ? "rgba(0,0,0,0.7)" : "#000000" }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, delay: 0.05 }}
@@ -174,6 +176,12 @@ export const Navbar = () => {
           <div className="absolute left-1/2 -translate-x-1/2 pointer-events-none select-none">
             <Link
               href="/"
+              onClick={(e) => {
+                if (pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
               style={{
                 fontFamily: "var(--font-frank-ruhl), Georgia, serif",
                 fontWeight: 500,
