@@ -101,7 +101,7 @@ export const Navbar = () => {
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-[10001] transition-all duration-300 ${scrolled ? "navbar scrolled" : ""}`}
-        style={{ background: scrolled ? "transparent" : "#000000" }}
+        style={{ background: scrolled ? "rgba(0,0,0,0.6)" : "#000000" }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, delay: 0.05 }}
