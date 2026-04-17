@@ -25,7 +25,7 @@ export const Footer = () => {
         flexDirection: "column",
         gap: "48px",
         alignItems: "flex-start",
-        paddingBottom: "48px",
+        paddingBottom: "110px",
         paddingLeft: "24px",
         paddingRight: "24px",
         paddingTop: "0",
