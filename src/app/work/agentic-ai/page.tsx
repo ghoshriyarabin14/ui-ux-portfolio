@@ -654,7 +654,9 @@ export default function AgenticAiPage() {
                   <div style={{ width: "728px", height: "409px", flexShrink: 0, overflow: "hidden" }}>
                     <img src={imgMomentum} alt="Nudges" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   </div>
-                  <div style={{ flex: "1 0 0", height: "409px", background: CARD_BG }} />
+                  <div style={{ flex: "1 0 0", height: "409px", overflow: "hidden" }}>
+                    <img src="/rosa-momentum.png" alt="IRIS Assistive — Momentum" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+                  </div>
                 </div>
               </div>
 
@@ -666,7 +668,9 @@ export default function AgenticAiPage() {
                     {`Designing a modular, customizable dashboard that would serve as the rep's "mission control." We wanted to keep layout simple needs: Prioritized Tasks, At-Risk Deals, Key Metrics, and an AI Activity Feed. The key innovation was making these blocks both AI-curated and user-configurable, allowing reps to arrange their workspace to match their personal workflow.`}
                   </BodyText>
                 </TwoCol>
-                <ImagePair rightHeight={409} />
+                <div style={{ width: "100%", height: "409px", overflow: "hidden", borderRadius: "8px" }}>
+                  <img src="/rosa-assistive.png" alt="IRIS Ask Rosa — Assistive Canvas" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+                </div>
               </div>
 
             </div>
