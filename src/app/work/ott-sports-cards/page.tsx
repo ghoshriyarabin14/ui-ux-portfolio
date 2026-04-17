@@ -22,9 +22,6 @@ const imgComponents1   = "https://www.figma.com/api/mcp/asset/d0025bfc-2db5-4169
 const imgComponents2   = "https://www.figma.com/api/mcp/asset/ee8556dc-5948-4cb9-b74f-98950ed2c660";
 const imgSpecsTable    = "https://www.figma.com/api/mcp/asset/9c6c9236-e143-45d6-ba8a-0900d9bffde6";
 const imgCardsGrid     = "https://www.figma.com/api/mcp/asset/700ec937-8851-4dde-af9f-099ab5193a5e";
-const imgCardsDark     = "https://www.figma.com/api/mcp/asset/069b83b9-ebd0-4d99-9fb5-2f8dbfbdfd36";
-const imgAdditional1   = "https://www.figma.com/api/mcp/asset/ac43f491-e93a-4a6d-994a-c0fe0cf05a91";
-const imgAdditional2   = "https://www.figma.com/api/mcp/asset/e3f4427c-5589-4de6-ab87-41ca061a47d3";
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
 const CARD_BG    = "#0f0f0f";
@@ -601,8 +598,8 @@ export default function OTTSportsCards() {
 
         {/* Component screenshots */}
         <div style={{ display: "flex", gap: "24px" }}>
-          <div style={{ flex: 1, background: "#212121", padding: "10px", overflow: "hidden", minWidth: 0 }}>
-            <img src={imgComponents1} alt="Component library" style={{ width: "100%", display: "block" }} />
+          <div style={{ flex: 1, background: "#212121", padding: "10px", overflow: "hidden", minWidth: 0, height: "409px" }}>
+            <img src={imgComponents1} alt="Component library" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
           </div>
           <div style={{ flex: 1, background: "#212121", padding: "10px", overflow: "hidden",
             height: "409px", minWidth: 0 }}>
@@ -643,76 +640,24 @@ export default function OTTSportsCards() {
         </div>
 
         {/* Components gif */}
-        <div style={{ margin: "0 -24px", height: "534px", overflow: "hidden" }}>
+        <div style={{ margin: "0 -24px", aspectRatio: "1392 / 702" }}>
           <video
             src="/ott-components.mp4"
             autoPlay
             loop
             muted
             playsInline
-            style={{ width: "100%", height: "534px", objectFit: "cover", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
           />
         </div>
 
-        {/* Full-bleed product image 1 — 534px */}
-        <div style={{ margin: "0 -24px", height: "534px", overflow: "hidden", position: "relative" }}>
-          <img src="https://www.figma.com/api/mcp/asset/e2264cdf-4d2f-4efe-b735-cb04b56aec09" alt="OTT Sports Cards — light mode"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover",
-              objectPosition: "center top" }} />
-        </div>
 
-        {/* Full-bleed product image 2 — aspect 4096/1564 */}
-        <div style={{ margin: "0 -24px", position: "relative", aspectRatio: "4096 / 1564" }}>
-          <img src="https://www.figma.com/api/mcp/asset/552d440c-aa6f-4801-a7af-334abb9437a1" alt="OTT Sports Cards — dark mode"
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-        </div>
 
-        <Section label="Reflection">
+<Section label="Reflection">
           <p style={BODY}>
             Design systems work is mostly invisible. The 500+ components, the handoff matrix, the usage guidelines — none of that is what a viewer on YouTube ever sees. What they see is the landing page, the score cards, the live game ticker. The system exists entirely to make those things consistent and maintainable.
           </p>
         </Section>
-
-        {/* Additional Project */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
-          <HR />
-          <div style={{ display: "flex", alignItems: "flex-start", gap: "24px" }}>
-            <p style={{ ...BODY, fontSize: "24px", color: "#fff", flexShrink: 0, width: "42%", margin: 0 }}>
-              Additional Project
-            </p>
-            <div style={{ flex: 1, display: "flex", gap: "24px" }}>
-              <a href="/" style={{ flex: 1, height: "349px", display: "block", position: "relative",
-                overflow: "hidden", borderRadius: "4px", textDecoration: "none", background: "#000" }}>
-                <img src={imgAdditional1} alt="" style={{ position: "absolute", left: "-194px",
-                  top: 0, width: "979px", height: "490px", objectFit: "cover" }} />
-                <div style={{ position: "absolute", inset: 0,
-                  background: "linear-gradient(135deg, rgba(252,220,200,0.85) 0%, rgba(201,202,255,0.85) 100%)" }} />
-                <p style={{ position: "absolute", top: "50%", left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  fontFamily: "var(--font-manrope), sans-serif", fontWeight: 600,
-                  fontSize: "clamp(18px, 2.4vw, 35px)", color: "#2e3450",
-                  textAlign: "center", whiteSpace: "nowrap", margin: 0 }}>
-                  Agentic Ai X Salesforce
-                </p>
-              </a>
-              <a href="/work/tetris-console" style={{ flex: 1, height: "349px", display: "block",
-                position: "relative", overflow: "hidden", borderRadius: "4px",
-                textDecoration: "none", background: "#000" }}>
-                <img src={imgAdditional2} alt="" style={{ position: "absolute",
-                  left: "-83%", top: "-14%", width: "183%", height: "128%", objectFit: "cover" }} />
-                <div style={{ position: "absolute", inset: 0,
-                  background: "linear-gradient(135deg, rgba(252,220,200,0.85) 0%, rgba(201,202,255,0.85) 100%)" }} />
-                <p style={{ position: "absolute", top: "50%", left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  fontFamily: "var(--font-manrope), sans-serif", fontWeight: 600,
-                  fontSize: "clamp(18px, 2.4vw, 35px)", color: "#2e3450",
-                  textAlign: "center", whiteSpace: "nowrap", margin: 0 }}>
-                  Agentic Ai X Salesforce
-                </p>
-              </a>
-            </div>
-          </div>
-        </div>
 
       </div>
     </div>

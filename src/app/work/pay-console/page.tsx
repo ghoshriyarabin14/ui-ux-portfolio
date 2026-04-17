@@ -11,9 +11,6 @@ const imgEmptyState             = "https://www.figma.com/api/mcp/asset/ba3ee0c2-
 const imgCreationFlow           = "https://www.figma.com/api/mcp/asset/688cd8e5-4d88-46a2-8bac-1f75c40240ea";
 const imgCoupons                = "https://www.figma.com/api/mcp/asset/98de28d3-91f7-42dd-93d8-f2d4659aa6ce";
 const imgRejectedPromotion      = "https://www.figma.com/api/mcp/asset/02b69b5a-0c30-4ed5-b331-ad3f57e10e7f";
-const imgAddlBg1                = "https://www.figma.com/api/mcp/asset/317c14d6-b1e5-4672-95ad-8a7b9db1b66c";
-const imgAddlGraphic            = "https://www.figma.com/api/mcp/asset/15e65318-9807-4712-a8a0-292a1a613f81";
-const imgAddlBg2                = "https://www.figma.com/api/mcp/asset/20222ce0-8d31-41ad-8e59-3e1c00ce0264";
 
 // ── Tokens ────────────────────────────────────────────────────────────────────
 const INTER   = "var(--font-inter), sans-serif";
@@ -327,58 +324,6 @@ export default function PayConsolePage() {
             </BodyText>
           </TwoCol>
 
-          {/* ── ADDITIONAL PROJECTS ── */}
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100%" }}>
-            <p style={{
-              fontFamily: INTER, fontWeight: 400, fontSize: "24px", color: WHITE,
-              lineHeight: "normal", margin: 0, flex: "1 0 0", minWidth: 0,
-            }}>
-              Additional Project
-            </p>
-            <div style={{ display: "flex", gap: "24px", flexShrink: 0 }}>
-              <Link href="/work/agentic-ai" style={{ textDecoration: "none" }}>
-                <div style={{ width: "440px", height: "349px", background: "#000", overflow: "hidden", position: "relative", flexShrink: 0 }}>
-                  <img
-                    src={imgAddlBg1}
-                    alt="Agentic AI X Salesforce"
-                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
-                  />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))" }} />
-                  <p style={{
-                    position: "absolute", bottom: "20px", left: "20px",
-                    fontFamily: INTER, fontWeight: 600, fontSize: "18px", color: WHITE,
-                    margin: 0, whiteSpace: "nowrap",
-                  }}>
-                    Agentic AI X Salesforce
-                  </p>
-                </div>
-              </Link>
-              <div style={{ width: "440px", height: "349px", overflow: "hidden", position: "relative", flexShrink: 0 }}>
-                <img
-                  src={imgAddlBg2}
-                  alt="Additional project"
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }}
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))" }} />
-                <img
-                  src={imgAddlGraphic}
-                  alt=""
-                  style={{
-                    position: "absolute", inset: 0, width: "160%", height: "130%",
-                    objectFit: "cover", pointerEvents: "none",
-                    left: "-28%", top: "-6%", transform: "rotate(180deg)",
-                  }}
-                />
-                <p style={{
-                  position: "absolute", bottom: "20px", left: "20px",
-                  fontFamily: INTER, fontWeight: 600, fontSize: "18px", color: WHITE,
-                  margin: 0, whiteSpace: "nowrap",
-                }}>
-                  Agentic AI X Salesforce
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>
