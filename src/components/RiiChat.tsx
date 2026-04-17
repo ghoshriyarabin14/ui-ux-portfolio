@@ -167,6 +167,8 @@ export function RiiChat() {
         role="dialog"
         aria-modal="true"
         aria-label="Rii chatbot"
+        onWheel={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
         style={{
           position: "fixed", top: 0, right: 0, bottom: 0, zIndex: 9999,
           width: "min(440px, 100vw)",
@@ -235,10 +237,17 @@ export function RiiChat() {
         </div>
 
         {/* Body */}
-        <div style={{
-          flex: 1, overflowY: "auto", scrollbarWidth: "none",
-          display: "flex", flexDirection: "column",
-        }}>
+        <div
+          className="rii-body"
+          onWheel={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+          style={{
+            flex: 1, minHeight: 0, overflowY: "auto", scrollbarWidth: "thin",
+            scrollbarColor: "rgba(255,255,255,0.15) transparent",
+            display: "flex", flexDirection: "column",
+            overscrollBehavior: "contain",
+          }}
+        >
           {!hasMessages ? (
             /* Empty state — heading + suggestions */
             <div style={{
@@ -300,7 +309,7 @@ export function RiiChat() {
           ) : (
             /* Conversation */
             <div style={{
-              flex: 1, padding: "28px 24px",
+              padding: "28px 24px",
               display: "flex", flexDirection: "column", gap: "20px",
             }}>
               {messages.map((m, i) =>
@@ -439,6 +448,10 @@ export function RiiChat() {
           0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
           40%            { transform: scale(1);   opacity: 1;   }
         }
+        [role="dialog"] .rii-body::-webkit-scrollbar { width: 4px; }
+        [role="dialog"] .rii-body::-webkit-scrollbar-track { background: transparent; }
+        [role="dialog"] .rii-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+        [role="dialog"] .rii-body::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
       `}</style>
     </>
   );
