@@ -13,7 +13,6 @@ const imgSolutionRight  = "https://www.figma.com/api/mcp/asset/51ea225c-8b3d-42e
 const imgAIScreens      = "https://www.figma.com/api/mcp/asset/b501c1b5-5bf9-4ede-b44e-36c9b23d744c";
 const imgRapidProto     = "https://www.figma.com/api/mcp/asset/846082c4-6f81-4ce9-a6ad-98713626c574";
 // Solution walkthrough
-const imgSolutionDash   = "https://www.figma.com/api/mcp/asset/5346e27d-c864-41cd-80b1-0e50870c6d85";
 const imgMorningBrief   = "https://www.figma.com/api/mcp/asset/135f0f13-6a2a-4fe1-a842-16f7a26305a6";
 const imgMomentum       = "https://www.figma.com/api/mcp/asset/2087f1df-48d9-4db7-9c61-cd01c3cc267d";
 // Outcome
@@ -612,14 +611,9 @@ export default function AgenticAiPage() {
                 </BodyText>
               </Section>
 
-              {/* Solution dashboard full-width */}
-              <div style={{ width: "100%", borderRadius: "8px", overflow: "hidden", aspectRatio: "1389/781" }}>
-                <img src={imgSolutionDash} alt="Rosa dashboard" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-              </div>
 
-              {/* 1. Strategic Start */}
+{/* 1. Strategic Start */}
               <div style={{ display: "flex", flexDirection: "column", gap: "48px" }}>
-                <HR />
                 <TwoCol label="1. The Strategic Start">
                   <BodyText>
                     {`A strategic partner that guides the entire sales motion. The Rosa platform is designed to be a rep's single source of truth and their primary strategic partner, turning hours of manual work into minutes of high-impact selling. Jordan begins his day with Rosa's brief, instantly knowing which 7 of his 500 leads are showing the strongest intent signals, and which 3 stalled deals need immediate attention.`}
@@ -629,7 +623,9 @@ export default function AgenticAiPage() {
                   <div style={{ width: "728px", height: "409px", flexShrink: 0, overflow: "hidden" }}>
                     <img src={imgMorningBrief} alt="The Morning Brief" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   </div>
-                  <div style={{ flex: "1 0 0", height: "409px", background: CARD_BG }} />
+                  <div style={{ flex: "1 0 0", height: "409px", overflow: "hidden", background: "#131929", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <img src="/ott%20sport/about%20me/dashbboard.png" alt="IRIS dashboard" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
+                  </div>
                 </div>
               </div>
 
@@ -641,7 +637,9 @@ export default function AgenticAiPage() {
                     {`Jordan clicks on a high-score lead. Rosa provides the full research briefing and suggests a personalized email draft based on the lead's recent activity. Jordan tweaks it and sends. The entire flow, from qualification to outreach, takes under 10 minutes.`}
                   </BodyText>
                 </TwoCol>
-                <ImagePair rightHeight={409} />
+                <div style={{ width: "100%", height: "528px", overflow: "hidden", borderRadius: "8px" }}>
+                  <img src="/rosa-outreach.png" alt="Intelligent Outreach — IRIS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
               </div>
 
               {/* 3. Momentum Nudge */}
