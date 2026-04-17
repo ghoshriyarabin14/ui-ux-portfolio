@@ -171,7 +171,7 @@ export const Portfolio = () => (
               <img
                 src={imgYTV}
                 alt="YTV Landing Page"
-                style={{ position: "absolute", height: "113.84%", left: "-72.09%", top: "-13.91%", width: "172.09%", maxWidth: "none" }}
+                style={{ position: "absolute", height: "113.84%", left: "-72.09%", top: "50%", transform: "translateY(-50%)", width: "172.09%", maxWidth: "none" }}
               />
             </div>
           </div>
