@@ -15,13 +15,13 @@ interface Message {
 
 const QA = [
   {
-    keywords: ["who", "riya", "about", "yourself", "introduce", "tell me"],
+    keywords: ["who is", "who's", "riya", "about riya", "yourself", "introduce"],
     answer:
       "I'm Riya Ghosh — a Senior UX/UI Designer based in Mumbai with 4+ years building human-centered digital products at scale. I specialise in AI-powered interfaces, design systems, and translating complex problems into intuitive experiences.",
     followUps: ["What's her work experience?", "What tools does she use?", "What awards has she won?"],
   },
   {
-    keywords: ["experience", "work", "job", "career", "companies", "worked", "background"],
+    keywords: ["experience", "work experience", "job", "career", "companies", "worked", "background", "what did she do after"],
     answer:
       "I currently work at Deloitte USI as a UI/UX Designer → Consultant (Aug 2022–Present). Key engagements:\n\n• Google — GM3 Material Design System & Play Console UX (Jan–Nov 2025)\n• YouTube TV — Sports Design System & Landing Page (Feb–Dec 2024)\n• Iris Agentic AI — 0-to-1 design for an agentic AI product\n\nBefore Deloitte, I was a UI/UX Design Intern at TCS (Mar 2021–Jul 2022).",
     followUps: ["Tell me about her Google work", "What's the YouTube TV project?", "What was the Iris AI project?"],
@@ -51,7 +51,7 @@ const QA = [
     followUps: ["What did she do after TCS?", "What UX methods does she use?", "Where did she study?"],
   },
   {
-    keywords: ["skill", "tools", "figma", "software", "use", "what can", "process", "design process"],
+    keywords: ["skill", "tools", "figma", "software", "what can", "design process", "process"],
     answer:
       "My toolkit:\n\n🎨 Design — Figma, FigJam, Framer, Spline, Illustrator, Photoshop, Sketch, Adobe XD\n📐 UX — Design Systems, Component Architecture, WCAG 2.1, IA, Prototyping, A/B Testing\n🔬 Research — User Interviews, Usability Testing, Affinity Clustering\n🤝 Collaboration — Agile/Scrum, Stakeholder Presentations, Design Reviews\n🤖 AI — Claude Code, Copilot, Midjourney, Paper",
     followUps: ["What's her AI experience?", "Tell me about her design systems work", "What's the YouTube TV project?"],
