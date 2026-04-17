@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu, ArrowUpRight } from "lucide-react";
 import { AboutModal } from "./AboutModal";
 import { FollowEyes } from "./FollowEyes";
+import { useRiiChat } from "@/context/RiiChatContext";
 
 const AUTO_AWESOME_ICON =
   "https://www.figma.com/api/mcp/asset/f44ea3f1-eada-4ec5-83e9-4049e7f084a2";
@@ -74,6 +75,7 @@ export const Navbar = () => {
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [aboutOpen, setAboutOpen]       = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const { open: chatOpen, setOpen: setChatOpen } = useRiiChat();
 
   useEffect(() => {
     const onScroll = () => {
@@ -103,8 +105,12 @@ export const Navbar = () => {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-[10001] transition-all duration-300 ${scrolled ? "navbar scrolled" : ""}`}
-        style={{ background: scrolled ? "rgba(0,0,0,0.7)" : "#000000" }}
+        className={`fixed top-0 left-0 z-[10001] transition-all duration-300 ${scrolled ? "navbar scrolled" : ""}`}
+        style={{
+          background: scrolled ? "rgba(0,0,0,0.7)" : "#000000",
+          right: chatOpen ? "440px" : "0",
+          transition: "right 0.35s cubic-bezier(0.22,1,0.36,1), background 0.3s",
+        }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.55, delay: 0.05 }}
@@ -203,13 +209,14 @@ export const Navbar = () => {
           <div className="flex items-center flex-1 justify-end" style={{ gap: 8 }}>
             <motion.button
               className="hidden sm:flex items-center gap-2"
+              onClick={() => setChatOpen(!chatOpen)}
               whileHover={{ rotate: 3, scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
               style={{
                 fontFamily: "var(--font-inter), sans-serif",
                 fontWeight: 500,
                 fontSize: "14px",
-                color: "#ffffff",
+                color: chatOpen ? "#a78bfa" : "#ffffff",
                 letterSpacing: "-0.14px",
                 background: "transparent",
                 border: "none",
@@ -218,6 +225,7 @@ export const Navbar = () => {
                 cursor: "pointer",
                 whiteSpace: "nowrap",
                 transformOrigin: "center center",
+                transition: "color 0.2s",
               }}
             >
               <img
@@ -278,6 +286,7 @@ export const Navbar = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.25 }}
+                onClick={() => { setChatOpen(true); setMobileOpen(false); }}
                 className="flex items-center gap-2"
                 style={{
                   fontFamily: "var(--font-inter), sans-serif",

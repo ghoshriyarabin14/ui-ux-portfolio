@@ -5,6 +5,9 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
 import ClickSpark from "@/components/ClickSpark";
 import { CursorPill } from "@/components/CursorPill";
+import { RiiChat } from "@/components/RiiChat";
+import { RiiChatProvider } from "@/context/RiiChatContext";
+import { RiiContentShell } from "@/components/RiiContentShell";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -90,15 +93,20 @@ export default function RootLayout({
           color: "#000000",
         }}
       >
-        <CursorPill />
-        <ClickSpark sparkColor="#000000">
-          <div style={{ width: "100%", minHeight: "100vh" }}>
-            <SmoothScroll>
-              <Navbar />
-              {children}
-            </SmoothScroll>
-          </div>
-        </ClickSpark>
+        <RiiChatProvider>
+          <CursorPill />
+          <RiiChat />
+          <RiiContentShell>
+            <ClickSpark sparkColor="#000000">
+              <div style={{ width: "100%", minHeight: "100vh" }}>
+                <SmoothScroll>
+                  <Navbar />
+                  {children}
+                </SmoothScroll>
+              </div>
+            </ClickSpark>
+          </RiiContentShell>
+        </RiiChatProvider>
       </body>
     </html>
   );
