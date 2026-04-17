@@ -17,8 +17,6 @@ const imgSolutionDash   = "https://www.figma.com/api/mcp/asset/5346e27d-c864-41c
 const imgMorningBrief   = "https://www.figma.com/api/mcp/asset/135f0f13-6a2a-4fe1-a842-16f7a26305a6";
 const imgMomentum       = "https://www.figma.com/api/mcp/asset/2087f1df-48d9-4db7-9c61-cd01c3cc267d";
 // Outcome
-const imgOutcome        = "https://www.figma.com/api/mcp/asset/44cf49e8-9019-4e4a-b350-3b57fb96932e";
-const imgOutcomeFrame   = "https://www.figma.com/api/mcp/asset/2f68096e-655c-4329-aa03-7c9600c7c751";
 // Additional-project cards
 const imgAddlBg1        = "https://www.figma.com/api/mcp/asset/aff82ef4-c4e3-4f8e-b9d1-29aa2196b0b1";
 const imgAddlGraphic    = "https://www.figma.com/api/mcp/asset/06e61e62-ab9b-46df-b12f-301c2d8c6046";
@@ -601,8 +599,10 @@ export default function AgenticAiPage() {
               </BodyText>
             </Section>
 
-            {/* Sub-Agentic placeholder images */}
-            <ImagePair rightHeight={409} />
+            {/* Sub-Agentic image */}
+            <div style={{ width: "100%", overflow: "hidden", borderRadius: "8px" }}>
+              <img src="/rosa-sub-agentic.png" alt="Rosa sub-agentic assistance diagram" style={{ width: "100%", display: "block" }} />
+            </div>
 
             {/* The Solution walkthrough */}
             <div style={{ display: "flex", flexDirection: "column", gap: "64px" }}>
@@ -684,15 +684,7 @@ export default function AgenticAiPage() {
               </BodyText>
             </Section>
 
-            {/* Before / With Rosa diagram */}
-            <div style={{ width: "100%", aspectRatio: "3568/1900", overflow: "hidden" }}>
-              <img src={imgOutcome} alt="Before and With Rosa" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-            </div>
 
-            {/* Outcome illustration frame */}
-            <div style={{ width: "100%", height: "783px", overflow: "hidden", flexShrink: 0 }}>
-              <img src={imgOutcomeFrame} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-            </div>
           </div>
 
           {/* ══════════════════════════════
