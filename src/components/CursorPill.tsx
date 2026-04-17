@@ -64,9 +64,9 @@ export const CursorPill = () => {
         zIndex: 99999,
         pointerEvents: "none",
         willChange: "transform",
-        // offset so pill sits just above-right of the cursor tip
-        marginTop: "-52px",
-        marginLeft: "12px",
+        // offset so pill sits just below-left of the cursor tip
+        marginTop: "16px",
+        marginLeft: "-120px",
       }}
     >
       <div
@@ -74,14 +74,14 @@ export const CursorPill = () => {
           display: "flex",
           alignItems: "center",
           gap: "8px",
-          background: label === "Coming Soon" ? "rgba(255,255,255,0.15)" : "#E84530",
+          background: "rgba(80,80,80,0.85)",
+          backdropFilter: "blur(8px)",
           borderRadius: "60px",
           padding: "10px 18px",
           opacity: visible ? 1 : 0,
           transform: visible ? "scale(1)" : "scale(0.85)",
           transition: "opacity 0.2s ease, transform 0.2s ease",
           whiteSpace: "nowrap",
-          backdropFilter: label === "Coming Soon" ? "blur(8px)" : "none",
         }}
       >
         {/* Dot icon */}

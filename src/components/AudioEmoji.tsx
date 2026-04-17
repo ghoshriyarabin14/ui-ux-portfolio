@@ -39,6 +39,7 @@ export const AudioEmoji = ({
   return (
     <span
       onClick={handleClick}
+      data-cursor-label="Click Me 🤘🏽"
       onMouseDown={() => setIsPressed(true)}
       onMouseUp={() => setIsPressed(false)}
       onMouseLeave={() => setIsPressed(false)}

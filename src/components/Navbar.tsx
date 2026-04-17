@@ -209,6 +209,7 @@ export const Navbar = () => {
           <div className="flex items-center flex-1 justify-end" style={{ gap: 8 }}>
             <motion.button
               className="hidden sm:flex items-center gap-2"
+              data-cursor-label="CHAT WITH ME"
               onClick={() => setChatOpen(!chatOpen)}
               whileHover={{ rotate: 3, scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
