@@ -289,7 +289,9 @@ export default function AgenticAiPage() {
             display: "flex", alignItems: "center", gap: "8px",
             justifyContent: "flex-start", paddingTop: "56px",
           }}>
-            <img src={imgArrowBack} alt="" style={{ width: "16px", height: "16px", display: "block", flexShrink: 0 }} />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", flexShrink: 0 }}>
+              <path d="M13 8H3M3 8L7 4M3 8L7 12" stroke="#c8c8c8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
             <Link
               href="/"
               style={{
