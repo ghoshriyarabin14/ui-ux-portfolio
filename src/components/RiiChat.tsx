@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { Mic, MicOff, Sparkles } from "lucide-react";
 import { useRiiChat } from "@/context/RiiChatContext";
 
 const INTER = "var(--font-inter), sans-serif";
@@ -132,8 +133,49 @@ export function RiiChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
+  const [listening, setListening] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recognitionRef = useRef<any>(null);
+
+  const startVoice = useCallback(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const w = window as any;
+    const SR = w.SpeechRecognition || w.webkitSpeechRecognition;
+    if (!SR) {
+      alert("Voice input is not supported in this browser. Try Chrome or Edge.");
+      return;
+    }
+    if (listening) {
+      recognitionRef.current?.stop();
+      return;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const rec = new SR() as any;
+    rec.lang = "en-US";
+    rec.interimResults = true;
+    rec.continuous = true;
+    rec.maxAlternatives = 1;
+    recognitionRef.current = rec;
+    rec.onstart = () => setListening(true);
+    rec.onresult = (e: any) => {
+      let interim = "";
+      let final = "";
+      for (let i = 0; i < e.results.length; i++) {
+        const t = e.results[i][0].transcript;
+        if (e.results[i].isFinal) final += t + " ";
+        else interim += t;
+      }
+      setInput((final + interim).trimStart());
+    };
+    rec.onend = () => setListening(false);
+    rec.onerror = (e: any) => {
+      console.error("Speech error:", e.error);
+      setListening(false);
+    };
+    rec.start();
+  }, [listening]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -188,11 +230,7 @@ export function RiiChat() {
         }}>
           {/* Logo */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px", flex: 1 }}>
-            <img
-              src="https://www.figma.com/api/mcp/asset/188c7f8e-4292-4f60-b1ab-8de4027ce9b8"
-              alt=""
-              style={{ width: "16px", height: "17px", display: "block", flexShrink: 0 }}
-            />
+            <Sparkles size={16} style={{ display: "block", flexShrink: 0, color: "#a78bfa" }} />
             <span style={{
               fontFamily: INTER, fontSize: "14px", fontWeight: 500,
               color: "#fff", letterSpacing: "-0.14px", whiteSpace: "nowrap",
@@ -321,7 +359,7 @@ export function RiiChat() {
                       flexShrink: 0, display: "flex", alignItems: "center",
                       justifyContent: "center", marginTop: "2px",
                     }}>
-                      <img src="https://www.figma.com/api/mcp/asset/188c7f8e-4292-4f60-b1ab-8de4027ce9b8" alt="" style={{ width: "12px", height: "13px", display: "block", filter: "brightness(0) invert(1)" }} />
+                      <Sparkles size={12} style={{ display: "block", color: "#fff" }} />
                     </div>
                     <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
                       <p style={{
@@ -384,7 +422,7 @@ export function RiiChat() {
                     flexShrink: 0, display: "flex", alignItems: "center",
                     justifyContent: "center",
                   }}>
-                    <img src="https://www.figma.com/api/mcp/asset/188c7f8e-4292-4f60-b1ab-8de4027ce9b8" alt="" style={{ width: "12px", height: "13px", display: "block", filter: "brightness(0) invert(1)" }} />
+                    <Sparkles size={12} style={{ display: "block", color: "#fff" }} />
                   </div>
                   <div style={{ display: "flex", gap: "5px", alignItems: "center", paddingTop: "6px" }}>
                     {[0, 1, 2].map((i) => (
@@ -411,39 +449,81 @@ export function RiiChat() {
           <div style={{
             display: "flex", alignItems: "center", gap: "10px",
             background: "#161616",
-            border: "1px solid rgba(255,255,255,0.1)",
+            border: listening ? "1px solid rgba(167,139,250,0.35)" : "1px solid rgba(255,255,255,0.1)",
             borderRadius: "10px", padding: "10px 14px",
+            transition: "border-color 0.3s",
           }}>
+            {/* Mic — left side */}
+            <button
+              onClick={startVoice}
+              aria-label={listening ? "Stop listening" : "Voice input"}
+              title={listening ? "Stop" : "Speak"}
+              style={{
+                flexShrink: 0,
+                width: "30px", height: "30px", borderRadius: "50%",
+                border: "none", cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                background: listening
+                  ? "linear-gradient(135deg,#6b6ef9,#a78bfa)"
+                  : "rgba(255,255,255,0.06)",
+                color: listening ? "#fff" : "#888",
+                transition: "background 0.25s, color 0.25s",
+                animation: listening ? "micRipple 1.4s ease-in-out infinite" : "none",
+                position: "relative",
+              }}
+              onMouseEnter={(e) => {
+                if (!listening) (e.currentTarget as HTMLButtonElement).style.background = "rgba(107,110,249,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                if (!listening) (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.06)";
+              }}
+            >
+              <Mic size={14} />
+            </button>
+
             <input
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter") send(input); }}
-              placeholder="Ask about Riya…"
+              placeholder={listening ? "Listening…" : "Ask about Riya…"}
               style={{
                 flex: 1, background: "none", border: "none",
                 fontFamily: INTER, fontSize: "14px", color: "#fff",
                 outline: "none",
               }}
             />
+
             <button
               onClick={() => send(input)}
               disabled={!input.trim()}
               aria-label="Send"
               style={{
-                background: "none", border: "none", cursor: input.trim() ? "pointer" : "default",
-                color: input.trim() ? "#a78bfa" : "#444",
-                fontSize: "18px", lineHeight: 1, padding: "2px",
-                transition: "color 0.15s", display: "flex", alignItems: "center",
+                flexShrink: 0,
+                background: "none", border: "none",
+                cursor: input.trim() ? "pointer" : "default",
+                padding: 0,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                opacity: input.trim() ? 1 : 0.35,
+                transition: "opacity 0.2s",
               }}
             >
-              ↑
+              <img
+                src="/ott sport/about me/Send button.png"
+                alt="Send"
+                style={{ width: "34px", height: "34px", display: "block" }}
+              />
             </button>
           </div>
         </div>
       </div>
 
       <style>{`
+        @keyframes micRipple {
+          0%   { box-shadow: 0 0 0 0px rgba(167,139,250,0.55); transform: scale(1); }
+          50%  { box-shadow: 0 0 0 7px rgba(167,139,250,0);    transform: scale(1.08); }
+          100% { box-shadow: 0 0 0 0px rgba(167,139,250,0);    transform: scale(1); }
+        }
         @keyframes riiDot {
           0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
           40%            { transform: scale(1);   opacity: 1;   }

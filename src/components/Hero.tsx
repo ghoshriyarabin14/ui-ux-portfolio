@@ -1,19 +1,12 @@
 "use client";
 
-// Figma dot asset URLs — node 367:32776
-const imgEllipse  = "https://www.figma.com/api/mcp/asset/ec659f80-6b1d-4ea5-ad18-1a5c626248f3"; // Fintech
-const imgEllipse1 = "https://www.figma.com/api/mcp/asset/8c70f163-aaea-4006-8521-ddc1c1936a14"; // AI Design
-const imgEllipse2 = "https://www.figma.com/api/mcp/asset/5053108c-1c2d-494b-b26a-5d1238850f33"; // SaaS
-const imgEllipse3 = "https://www.figma.com/api/mcp/asset/4c20c9c2-893c-4c4e-b0f6-9d808ade6cee"; // Health
-const imgEllipse4 = "https://www.figma.com/api/mcp/asset/35912846-cbee-4621-9d0a-ce660752d077"; // Enterprise / Design System
-
 const sectorTags = [
-  { label: "Fintech",        dot: imgEllipse  },
-  { label: "AI Design",      dot: imgEllipse1 },
-  { label: "SaaS",           dot: imgEllipse2 },
-  { label: "Health",         dot: imgEllipse3 },
-  { label: "Enterprise",     dot: imgEllipse4 },
-  { label: "Design System",  dot: imgEllipse4 },
+  { label: "Fintech",        color: "#4ade80" },
+  { label: "AI Design",      color: "#a78bfa" },
+  { label: "SaaS",           color: "#60a5fa" },
+  { label: "Health",         color: "#f87171" },
+  { label: "Enterprise",     color: "#fbbf24" },
+  { label: "Design System",  color: "#fb923c" },
 ];
 
 export const Hero = () => (
@@ -112,13 +105,7 @@ export const Hero = () => (
               flexShrink: 0,
             }}
           >
-            <div style={{ position: "relative", flexShrink: 0, width: "8px", height: "8px" }}>
-              <img
-                alt=""
-                src={tag.dot}
-                style={{ position: "absolute", display: "block", maxWidth: "none", width: "100%", height: "100%" }}
-              />
-            </div>
+            <div style={{ flexShrink: 0, width: "8px", height: "8px", borderRadius: "50%", background: tag.color }} />
             <p style={{
               fontFamily: "var(--font-inter), sans-serif",
               fontWeight: 400,

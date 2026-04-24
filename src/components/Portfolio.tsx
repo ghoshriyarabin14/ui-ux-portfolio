@@ -1,13 +1,20 @@
 "use client";
 
-// ─── Figma asset URLs · node 286:8898 ────────────────────────────────────────
+// ─── Local asset paths ────────────────────────────────────────────────────────
 const imgImage1       = "https://www.figma.com/api/mcp/asset/37b41632-13c0-4e3c-b3cd-a8a0ac5493a7"; // Agentic bg
 const imgGraphicEl    = "https://www.figma.com/api/mcp/asset/496202be-b237-426b-ac0c-7221ce025b97"; // Graphic element
 const imgPayConsoleBg = "https://www.figma.com/api/mcp/asset/1347d232-d714-490d-b6fa-0c457d2312a3"; // Pay Console bg image
 const imgPayConsole   = "https://www.figma.com/api/mcp/asset/c010c2f4-7128-49fb-9b3c-8e9c2b854aa7"; // Pay Console screenshot
 const imgOTT          = "https://www.figma.com/api/mcp/asset/d753075b-368a-442c-878e-ed257169ff66"; // OTT Josh Allen
 const imgYTV          = "https://www.figma.com/api/mcp/asset/4beaac4a-e55e-4688-8ae0-607163e446d0"; // YTV Landing Page
-const imgArrowOutward = "https://www.figma.com/api/mcp/asset/194fd10a-e7dd-477d-9b66-e0680185ef00"; // Arrow icon
+
+function ArrowOutward() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, display: "block" }}>
+      <path d="M12 28L28 12M28 12H16M28 12V24" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
 
 // ─── Shared styles ────────────────────────────────────────────────────────────
 const INTER = "var(--font-inter), sans-serif";
@@ -33,7 +40,7 @@ function CardHeader({
         }}>
           {title}
         </p>
-        <img src={imgArrowOutward} alt="" style={{ width: "40px", height: "40px", flexShrink: 0, display: "block" }} />
+        <ArrowOutward />
       </div>
       <p style={{
         fontFamily: INTER, fontWeight: 400, fontSize: "16px",

@@ -79,8 +79,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="lenis">
-      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-      <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
       <body
         className={`${manrope.variable} ${cormorantGaramond.variable} ${frankRuhlLibre.variable} ${inter.variable} ${crimsonPro.variable} ${jetbrainsMono.variable} ${lora.variable} antialiased`}
         style={{

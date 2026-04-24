@@ -4,13 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Menu, ArrowUpRight } from "lucide-react";
+import { X, Menu, ArrowUpRight, Sparkles } from "lucide-react";
 import { AboutModal } from "./AboutModal";
 import { FollowEyes } from "./FollowEyes";
 import { useRiiChat } from "@/context/RiiChatContext";
 
-const AUTO_AWESOME_ICON =
-  "https://www.figma.com/api/mcp/asset/f44ea3f1-eada-4ec5-83e9-4049e7f084a2";
 
 const leftPills = [
   { name: "Senior UI/UX & AI Designer", href: "", modal: false, action: null, noBorder: true },
@@ -229,11 +227,7 @@ export const Navbar = () => {
                 transition: "color 0.2s",
               }}
             >
-              <img
-                src={AUTO_AWESOME_ICON}
-                alt=""
-                style={{ width: 16, height: 17, display: "block", flexShrink: 0 }}
-              />
+              <Sparkles size={16} style={{ display: "block", flexShrink: 0 }} />
               Rii LLM
             </motion.button>
             <div className="hidden sm:flex">
@@ -302,11 +296,7 @@ export const Navbar = () => {
                   marginTop: "8px",
                 }}
               >
-                <img
-                  src={AUTO_AWESOME_ICON}
-                  alt=""
-                  style={{ width: 16, height: 17, display: "block", flexShrink: 0 }}
-                />
+                <Sparkles size={16} style={{ display: "block", flexShrink: 0 }} />
                 Rii LLM
               </motion.button>
             </nav>
