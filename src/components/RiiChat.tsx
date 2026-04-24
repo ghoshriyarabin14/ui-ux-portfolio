@@ -186,19 +186,38 @@ export function RiiChat() {
   }, [open]);
 
 
-  const send = (text: string) => {
+  const historyRef = useRef<{ role: "user" | "assistant"; content: string }[]>([]);
+
+  const send = async (text: string) => {
     if (!text.trim()) return;
-    setMessages((m) => [...m, { role: "user", text: text.trim() }]);
+    const userText = text.trim();
+    setMessages((m) => [...m, { role: "user", text: userText }]);
     setInput("");
     setTyping(true);
-    setTimeout(() => {
+
+    historyRef.current = [...historyRef.current, { role: "user", content: userText }];
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: historyRef.current }),
+      });
+      const data = await res.json();
+      const reply: string = data.reply ?? "Sorry, something went wrong.";
+      historyRef.current = [...historyRef.current, { role: "assistant", content: reply }];
       setTyping(false);
-      const { answer, followUps } = getAnswer(text);
-      setMessages((m) => [...m, { role: "bot", text: answer, followUps }]);
-    }, 750);
+      setMessages((m) => [...m, { role: "bot", text: reply }]);
+    } catch {
+      setTyping(false);
+      setMessages((m) => [...m, { role: "bot", text: "Network error — please try again." }]);
+    }
   };
 
-  const reset = () => setMessages([]);
+  const reset = () => {
+    setMessages([]);
+    historyRef.current = [];
+  };
 
   const hasMessages = messages.length > 0 || typing;
 
